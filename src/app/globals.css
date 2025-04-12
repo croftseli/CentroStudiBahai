@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-light: #f0e8e4; /* Soft cream */
+  --background-dark: #383126;  /* Dark brown/olive */
+  --foreground-light: #171717; /* Dark text for light theme */
+  --foreground-dark: #ededed;  /* Light text for dark theme */
+  --accent-blue: #7a8ea4;      /* Desaturated blue */
+  --accent-tan: #9c8071;       /* Earthy tan */
+  --accent-red: #9f5341;       /* Warm clay red */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--background-light);
+  --color-foreground: var(--foreground-light);
+  --color-accent: var(--accent-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--background-dark);
+    --foreground: var(--foreground-dark);
   }
 }
 
@@ -23,4 +29,52 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Example of using the colors for different elements */
+h1, h2, h3 {
+  color: var(--accent-red); /* Use accent red for headings */
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-red); /* Accent color on hover */
+}
+
+button {
+  background-color: var(--accent-tan);
+  color: var(--foreground);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent-red);
+}
+
+/* Tailwind classes for elements like background colors */
+.bg-soft-cream {
+  background-color: var(--background-light);
+}
+
+.bg-dark-brown {
+  background-color: var(--background-dark);
+}
+
+.text-accent-blue {
+  color: var(--accent-blue);
+}
+
+.text-accent-tan {
+  color: var(--accent-tan);
+}
+
+.text-accent-red {
+  color: var(--accent-red);
 }
