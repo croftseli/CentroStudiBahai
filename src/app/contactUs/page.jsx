@@ -120,6 +120,13 @@ export default function ContactUs() {
               options, including vegetarian and vegan choices.
             </p>
           </div>
+          <div className="transition-colors">
+            <p className="font-medium text-lg">
+              Are you at any point going to shut up about how great the ruhi
+              book institute is?
+            </p>
+            <p className="text-gray-500">No.</p>
+          </div>
         </div>
       </section>
 

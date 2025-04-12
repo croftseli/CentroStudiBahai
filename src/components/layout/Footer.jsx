@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 export default function Footer() {
   return (
@@ -43,34 +43,26 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/projects"
+                  href="/calendar"
                   className="hover:text-accent-red transition-colors"
                 >
-                  Projects
+                  Calendar
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/ourStory"
                   className="hover:text-accent-red transition-colors"
                 >
-                  Blog
+                  Our Story
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/team"
+                  href="/contactUs"
                   className="hover:text-accent-red transition-colors"
                 >
-                  Team
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-accent-red transition-colors"
-                >
-                  Contact
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -86,7 +78,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com/example"
+                href="https://instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -95,13 +87,13 @@ export default function Footer() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://linkedin.com/company/example"
+                href="https://facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 className="hover:text-accent-red transition-colors"
               >
-                <LinkedInIcon />
+                <FacebookIcon />
               </a>
             </div>
           </div>
@@ -114,15 +106,15 @@ export default function Footer() {
             <p className="text-sm text-foreground">
               <span className="font-medium text-foreground">Email: </span>
               <a
-                href="mailto:hello@example.com"
+                href="mailto:support@unitywall.co"
                 className="text-accent-red hover:underline"
               >
-                hello@example.com
+                support@unitywall.co
               </a>
             </p>
             <p className="text-sm text-foreground mt-2">
-              <span className="font-medium text-foreground">Phone: </span>+1
-              (234) 567-8900
+              <span className="font-medium text-foreground">Phone: </span>
+              +1 (123) 456-7890
             </p>
           </div>
         </div>
