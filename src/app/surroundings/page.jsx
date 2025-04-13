@@ -1,24 +1,144 @@
 "use client";
 
-export default function surroundings() {
+import Image from "next/image";
+
+export default function Explore() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-soft-cream text-dark-brown px-4 text-center">
-      <h1 className="text-4xl md:text-5xl font-bold mb-4">
-        We're Working On It!
-      </h1>
-      <p className="text-lg md:text-xl mb-6">
-        This page is currently under construction. Please check back soon.
-      </p>
-      <div className="text-sm text-gray-600">
-        In the meantime, feel free to{" "}
+    <main className="container mx-auto px-6 py-12 space-y-12">
+      <section className="py-12">
+        <h1 className="text-4xl font-bold text-dark-brown mb-4 text-center">
+          Explore the Surroundings
+        </h1>
+        <p className="text-lg text-gray-700 mb-6">
+          Where do we go? What do we do? What do we eat? Let us guide you
+          through the charming surroundings of our region.
+        </p>
         <a
-          href="/"
-          className="text-accent-blue hover:text-accent-red transition-colors underline"
+          href="https://comune.acuto.fr.it/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-accent-red/80 transition"
         >
-          return to the homepage
+          View Local Events
         </a>
-        .
-      </div>
-    </div>
+      </section>
+
+      <section className="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 className="text-2xl font-semibold text-dark-brown mb-4">
+            Nearby Attractions
+          </h2>
+          <ul className="text-gray-700 space-y-2 list-disc list-inside">
+            <li>
+              Fiuggi Thermal Centre – 10 minutes (20 minutes from Lake Canterno)
+            </li>
+            <li>Rome – 76 km (55 minutes)</li>
+            <li>Naples – 180 km (1½ hours)</li>
+            <li>Valmontone Outlet – 30 km</li>
+            <li>Campocatino Ski Resort – 40 km</li>
+            <li>Campo Staffi Ski Resort – 47 km</li>
+          </ul>
+        </div>
+        <Image
+          src="/images/fiuggi.jpg"
+          alt="Fiuggi Thermal Centre"
+          width={600}
+          height={400}
+          className="rounded-xl shadow"
+        />
+      </section>
+
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-dark-brown">
+          Nature & Gastronomy
+        </h2>
+        <p className="text-gray-700">
+          Paths, lakes, chestnut woods and olive groves surround the facility.
+          The region is known for its extra virgin olive oil and sheep and goat
+          cheeses—some of the most sought-after products in the area.
+        </p>
+        <Image
+          src="/images/olive-groves.jpg"
+          alt="Olive groves"
+          width={800}
+          height={500}
+          className="rounded-xl shadow mx-auto"
+        />
+      </section>
+
+      <section className="space-y-6">
+        <h2 className="text-3xl font-bold text-dark-brown">
+          Discover Ciociaria
+        </h2>
+        <p className="text-gray-700">
+          The Ciociaria region offers a rich mix of cultural, historical, and
+          natural beauty—from ancient towns to spiritual retreats.
+        </p>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-dark-brown">
+              Highlights
+            </h3>
+            <ul className="text-gray-700 list-disc list-inside space-y-2">
+              <li>
+                Anagni – The City of Popes, known for its medieval history and
+                religious significance
+              </li>
+              <li>
+                Alatri – Famous for its ancient polygonal walls and
+                well-preserved Acropolis
+              </li>
+              <li>
+                Ferentino – A legendary city founded by Saturn, home to mighty
+                stone walls
+              </li>
+              <li>
+                Fiuggi – One of Europe’s top thermal destinations with healing
+                waters
+              </li>
+              <li>
+                Fumone – Medieval fortress town, once prison to Pope Celestine V
+              </li>
+              <li>Vico nel Lazio – A perfectly preserved medieval village</li>
+              <li>
+                Guarcino – Known for its ham and beautiful mountain surroundings
+              </li>
+              <li>
+                Certosa di Trisulti – A mountain monastery with a historic
+                pharmacy and library
+              </li>
+              <li>
+                Filettino – Lazio’s highest town, a ski and hiking destination
+              </li>
+            </ul>
+          </div>
+          <Image
+            src="/images/ciociaria.jpg"
+            alt="Ciociaria landscape"
+            width={600}
+            height={400}
+            className="rounded-xl shadow"
+          />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-dark-brown">
+          Ski & Adventure
+        </h2>
+        <p className="text-gray-700">
+          Snow-capped peaks of the Simbruini and Ernici mountains surround the
+          region, perfect for skiing until late April. Campo Staffi and
+          Campocatino are two of central Italy’s most loved resorts.
+        </p>
+        <Image
+          src="/images/ski-resort.jpg"
+          alt="Skiing in Campo Staffi"
+          width={800}
+          height={500}
+          className="rounded-xl shadow mx-auto"
+        />
+      </section>
+    </main>
   );
 }
