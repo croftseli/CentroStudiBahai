@@ -32,36 +32,36 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full z-50 backdrop-blur-md transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300 ${
         hasScrolled
-          ? "bg-dark-brown/80 shadow-lg py-2"
-          : "bg-dark-brown/60 py-4"
+          ? "bg-dark-brown shadow-lg py-3"
+          : "bg-dark-brown py-4"
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo Centered on Desktop */}
-        <div className="flex flex-1 md:justify-start">
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        {/* Logo - Bigger as requested */}
+        <div className="flex items-center h-full">
           <Link href="/">
             <Image
               src="/hotelLaPanoramicaLogo.jpg"
               alt="Hotel La Panoramica Logo"
-              width={50}
-              height={50}
-              className="cursor-pointer"
+              width={80}
+              height={80}
+              className="cursor-pointer rounded"
             />
           </Link>
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex flex-1 justify-center space-x-8">
+        {/* Desktop Nav - Even larger elements */}
+        <nav className="hidden md:flex justify-center space-x-16">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`font-semibold text-sm transition-colors ${
+              className={`font-bold text-lg py-3 px-6 transition-colors hover:scale-105 transform duration-200 ${
                 pathname === link.href
-                  ? "text-accent-red"
-                  : "text-foreground hover:text-accent-red"
+                  ? "text-accent-red border-b-3 border-accent-red"
+                  : "text-white hover:text-accent-red"
               }`}
             >
               {link.label}
@@ -70,69 +70,69 @@ export default function Navbar() {
         </nav>
 
         {/* Social Icons */}
-        <div className="hidden md:flex flex-1 justify-end items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-8">
           <a
             href="https://www.instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground hover:text-accent-red"
+            className="text-white hover:text-accent-red text-3xl"
           >
-            <InstagramIcon />
+            <InstagramIcon fontSize="inherit" />
           </a>
           <a
             href="https://www.facebook.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground hover:text-accent-red"
+            className="text-white hover:text-accent-red text-3xl"
           >
-            <FacebookIcon />
+            <FacebookIcon fontSize="inherit" />
           </a>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-foreground hover:text-accent-red"
+          className="md:hidden text-white hover:text-accent-red text-3xl"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          {isMenuOpen ? <CloseIcon fontSize="inherit" /> : <MenuIcon fontSize="inherit" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-dark-brown/95 shadow-lg animate-slide-down">
+        <div className="md:hidden absolute top-full left-0 w-full bg-dark-brown shadow-lg animate-slide-down">
           <div className="flex flex-col px-6 py-4 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block font-medium text-base transition-colors ${
+                className={`block font-bold text-xl py-4 transition-colors ${
                   pathname === link.href
                     ? "text-accent-red"
-                    : "text-foreground hover:text-accent-red"
+                    : "text-white hover:text-accent-red"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="flex space-x-4 pt-2">
+            <div className="flex space-x-6 pt-4">
               <a
                 href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-accent-red"
+                className="text-white hover:text-accent-red text-3xl"
               >
-                <InstagramIcon />
+                <InstagramIcon fontSize="inherit" />
               </a>
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-accent-red"
+                className="text-white hover:text-accent-red text-3xl"
               >
-                <FacebookIcon />
+                <FacebookIcon fontSize="inherit" />
               </a>
             </div>
           </div>
