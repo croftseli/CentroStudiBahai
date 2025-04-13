@@ -59,6 +59,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/surroundings"
+                  className="hover:text-accent-red transition-colors"
+                >
+                  Surroundings
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/activities"
+                  className="hover:text-accent-red transition-colors"
+                >
+                  Activities
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contactUs"
                   className="hover:text-accent-red transition-colors"
                 >

@@ -27,19 +27,19 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/calendar", label: "Calendar" },
     { href: "/ourStory", label: "Our Story" },
+    { href: "/surroundings", label: "Surroundings" },
+    { href: "/activities", label: "Activities" },
     { href: "/contactUs", label: "Contact Us" },
   ];
 
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        hasScrolled
-          ? "bg-dark-brown shadow-lg py-3"
-          : "bg-dark-brown py-4"
+        hasScrolled ? "bg-dark-brown shadow-lg py-3" : "bg-dark-brown py-4"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo - Bigger as requested */}
+        {/* Logo */}
         <div className="flex items-center h-full">
           <Link href="/">
             <Image
@@ -52,7 +52,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Nav - Even larger elements */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex justify-center space-x-16">
           {navLinks.map((link) => (
             <Link
@@ -95,7 +95,11 @@ export default function Navbar() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? <CloseIcon fontSize="inherit" /> : <MenuIcon fontSize="inherit" />}
+          {isMenuOpen ? (
+            <CloseIcon fontSize="inherit" />
+          ) : (
+            <MenuIcon fontSize="inherit" />
+          )}
         </button>
       </div>
 

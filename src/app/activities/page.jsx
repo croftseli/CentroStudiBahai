@@ -1,6 +1,6 @@
 "use client";
 
-export default function ourStory() {
+export default function activities() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-soft-cream text-dark-brown px-4 text-center">
       <h1 className="text-4xl md:text-5xl font-bold mb-4">

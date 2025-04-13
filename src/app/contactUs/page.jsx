@@ -9,20 +9,9 @@ export default function ContactUs() {
     message: "",
   });
 
-  const [reviewData, setReviewData] = useState({
-    name: "",
-    email: "",
-    review: "",
-  });
-
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
-
-  const handleReviewChange = (e) => {
-    const { name, value } = e.target;
-    setReviewData({ ...reviewData, [name]: value });
   };
 
   const handleSubmitForm = (e) => {
@@ -30,13 +19,6 @@ export default function ContactUs() {
     // Handle form submission (e.g., send to API or email)
     console.log("Form submitted: ", formData);
     setFormData({ name: "", email: "", message: "" }); // Reset form
-  };
-
-  const handleSubmitReview = (e) => {
-    e.preventDefault();
-    // Handle review submission (e.g., save to database)
-    console.log("Review submitted: ", reviewData);
-    setReviewData({ name: "", email: "", review: "" }); // Reset review form
   };
 
   return (
@@ -47,27 +29,33 @@ export default function ContactUs() {
           Contact Us
         </h2>
         <form onSubmit={handleSubmitForm} className="space-y-6">
-          <div>
-            <label className="block text-lg text-dark-brown mb-2">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleFormChange}
-              className="w-full p-3 border border-gray-300 rounded-md"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-lg text-dark-brown mb-2">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleFormChange}
-              className="w-full p-3 border border-gray-300 rounded-md"
-              required
-            />
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="w-full md:w-1/2">
+              <label className="block text-lg text-dark-brown mb-2">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleFormChange}
+                className="w-full p-3 border border-gray-300 rounded-md"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div className="w-full md:w-1/2">
+              <label className="block text-lg text-dark-brown mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleFormChange}
+                className="w-full p-3 border border-gray-300 rounded-md"
+                placeholder="Your email address"
+                required
+              />
+            </div>
           </div>
           <div>
             <label className="block text-lg text-dark-brown mb-2">
@@ -79,6 +67,7 @@ export default function ContactUs() {
               onChange={handleFormChange}
               rows="5"
               className="w-full p-3 border border-gray-300 rounded-md"
+              placeholder="Please let us know what we can help you with or you can leave your feedback here as well (If you want to leave an anonymous review, please fill in your name and email as anonymous@email.com)"
               required
             />
           </div>
@@ -120,62 +109,48 @@ export default function ContactUs() {
               options, including vegetarian and vegan choices.
             </p>
           </div>
-          <div className="transition-colors">
-            <p className="font-medium text-lg">
-              Are you at any point going to shut up about how great the ruhi
-              book institute is?
-            </p>
-            <p className="text-gray-500">No.</p>
+        </div>
+      </section>
+
+      {/* Phone Numbers and Emails Section */}
+      <section className="mb-12">
+        <h2 className="text-3xl font-semibold text-dark-brown mb-6">
+          Contact Details
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2 text-lg text-gray-700">
+          <div>
+            <h3 className="font-medium text-dark-brown mb-2">Phone Numbers</h3>
+            <ul className="space-y-1">
+              <li>Reception: +39 0775 56061</li>
+              <li>Customer Support: +39 351 912 0094</li>
+              <li>WhatsApp: +39 351 483 4549</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-medium text-dark-brown mb-2">
+              Email Addresses
+            </h3>
+            <ul className="space-y-1">
+              <li>General Inquiries: lapanoramicahotel@bahai.it</li>
+              <li>Bookings: lapanoramicahotel@gmail.com</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Review Form */}
-      <section>
+      {/* Map Section */}
+      <section className="mb-12">
         <h2 className="text-3xl font-semibold text-dark-brown mb-6">
-          Leave a Review
+          Find Us Here
         </h2>
-        <form onSubmit={handleSubmitReview} className="space-y-6">
-          <div>
-            <label className="block text-lg text-dark-brown mb-2">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={reviewData.name}
-              onChange={handleReviewChange}
-              className="w-full p-3 border border-gray-300 rounded-md"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-lg text-dark-brown mb-2">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={reviewData.email}
-              onChange={handleReviewChange}
-              className="w-full p-3 border border-gray-300 rounded-md"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-lg text-dark-brown mb-2">Review</label>
-            <textarea
-              name="review"
-              value={reviewData.review}
-              onChange={handleReviewChange}
-              rows="5"
-              className="w-full p-3 border border-gray-300 rounded-md"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-accent-red hover:bg-accent-red/80 text-white px-6 py-3 rounded-full font-medium transition-colors"
-          >
-            Submit Review
-          </button>
-        </form>
+        <div className="w-full h-64 bg-gray-200 rounded-md mb-4">
+          {/* Replace with actual map component or iframe */}
+          <p className="text-center pt-24 text-gray-500">Map Placeholder</p>
+        </div>
+        <p className="text-lg text-gray-700">
+          Via Giovanni Falcone, 7, ex Capodimonte, 49, Acuto, Lazio, Italy,
+          03010
+        </p>
       </section>
     </div>
   );
