@@ -6,25 +6,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Background image animation variants
+// Animation variants for smoother background transitions
 const bgVariants = {
   initial: { scale: 1.01 },
   animate: { scale: 1, transition: { duration: 0.8, ease: "easeInOut" } },
 };
 
-// Text animation variants
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
-// Underline animation variants
 const underlineVariants = {
   hidden: { scaleX: 0 },
   visible: { scaleX: 1, transition: { duration: 0.5, ease: "easeOut", delay: 0.5 } },
 };
 
-export default function HomePageEnglish() {
+export default function HeroIT() {
   const heroImages = [
     "/view1.jpg",
     "/view2.jpg",
@@ -34,7 +32,7 @@ export default function HomePageEnglish() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Rotate images automatically every 5 seconds
+  // Automatically rotate images every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % heroImages.length);
@@ -52,7 +50,7 @@ export default function HomePageEnglish() {
 
   return (
     <div className="relative w-full">
-      {/* Hero Section */}
+      {/* Hero Section with Background Images */}
       <div className="relative h-screen overflow-hidden">
         {heroImages.map((src, index) => (
           <AnimatePresence key={src}>
@@ -74,7 +72,7 @@ export default function HomePageEnglish() {
                 >
                   <Image
                     src={src}
-                    alt={`Hero background ${index}`}
+                    alt={`Sfondo eroico ${index}`}
                     fill
                     priority={index === currentIndex}
                     className="object-cover object-center"
@@ -90,14 +88,14 @@ export default function HomePageEnglish() {
         <button
           onClick={handlePrev}
           className="absolute z-50 left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white p-2 rounded-full transition-colors"
-          aria-label="Previous Slide"
+          aria-label="Immagine precedente"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
           className="absolute z-50 right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white p-2 rounded-full transition-colors"
-          aria-label="Next Slide"
+          aria-label="Immagine successiva"
         >
           <ArrowRight className="w-5 h-5" />
         </button>
@@ -109,7 +107,7 @@ export default function HomePageEnglish() {
               className="text-white text-4xl md:text-6xl font-bold drop-shadow-md"
               style={{ color: "white", textShadow: "0 3px 8px rgba(0,0,0,0.8)" }}
             >
-              Welcome to Our Sacred Retreat
+              Benvenuti nel Nostro Sacro Rifugio
             </h1>
             <motion.div
               variants={underlineVariants}
@@ -125,11 +123,11 @@ export default function HomePageEnglish() {
                 textShadow: "0 4px 12px rgba(0,0,0,0.9)",
               }}
             >
-              Experience the tranquility of nature, tradition, and modern comfort in one place.
+              Sperimenta la tranquillità della natura, della tradizione e del comfort moderno in un unico luogo.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
               <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
-                Book Your Stay
+                Prenota il Tuo Soggiorno
               </Button>
             </motion.div>
           </motion.div>
@@ -148,7 +146,7 @@ export default function HomePageEnglish() {
 
       {/* Additional Content */}
       <div className="bg-white px-6 py-12 space-y-20">
-        {/* Our Mission */}
+        {/* La Nostra Missione */}
         <motion.section
           className="text-center"
           initial={{ opacity: 0 }}
@@ -156,123 +154,67 @@ export default function HomePageEnglish() {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+          <h2 className="text-3xl font-bold mb-4">La Nostra Missione</h2>
           <p className="text-gray-700 max-w-3xl mx-auto">
-            At Spirit Grove we believe in the transformative power of nature, mindfulness, and community.
-            Our mission is to provide a serene and supportive environment where guests can reconnect with themselves
-            and the world around them.
+            Da Spirit Grove crediamo nel potere trasformativo della natura, della consapevolezza e della comunità. La nostra missione è fornire un ambiente sereno e di supporto in cui gli ospiti possano riconnettersi con se stessi e con il mondo che li circonda.
           </p>
         </motion.section>
 
-        {/* Activities Section with Images */}
+        {/* Attività */}
         <motion.section
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-8">Activities</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">Attività</h2>
           <div className="grid gap-6 md:grid-cols-3">
-            {/* Card 1 */}
             <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
-                <Image
-                  src="/activity1.jpg" // Replace with your image path
-                  alt="Community Gatherings"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Community Gatherings</h3>
+              <h3 className="text-xl font-semibold mb-2">Riunioni di Comunità</h3>
               <p className="text-gray-600">
-                Participate in local events and gatherings featuring music, poetry, and cultural celebrations that embody unity and collective reflection.
+                Partecipa a eventi e incontri locali con musica, poesia e celebrazioni culturali che incarnano l'unità e la riflessione collettiva.
               </p>
             </div>
-            {/* Card 2 */}
             <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
-                <Image
-                  src="/activity2.jpg" // Replace with your image path
-                  alt="Guided Tours & Hikes"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Guided Tours & Hikes</h3>
+              <h3 className="text-xl font-semibold mb-2">Visite Guidate ed Escursioni</h3>
               <p className="text-gray-600">
-                Explore Acuto’s historic alleys and breathtaking mountain trails. Discover ancient churches, medieval towers, and serene natural vistas on our guided tours.
+                Esplora i vicoli storici di Acuto e i sentieri montani mozzafiato. Scopri antiche chiese, torri medievali e viste naturali serene durante le nostre visite guidate.
               </p>
             </div>
-            {/* Card 3 */}
             <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
-                <Image
-                  src="/activity3.jpg" // Replace with your image path
-                  alt="Seasonal Festivals"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Seasonal Festivals</h3>
+              <h3 className="text-xl font-semibold mb-2">Festival Stagionali</h3>
               <p className="text-gray-600">
-                Enjoy regional festivities such as jazz concerts, art fairs, and traditional culinary events that celebrate the rich heritage of Ciociaria.
+                Goditi le festività regionali, come concerti jazz, fiere d'arte e eventi culinari tradizionali che celebrano il ricco patrimonio della Ciociaria.
               </p>
             </div>
           </div>
         </motion.section>
 
-        {/* Surroundings Section with Images */}
+        {/* Dintorni */}
         <motion.section
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-8">Surroundings</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">Dintorni</h2>
           <div className="grid gap-6 md:grid-cols-3">
-            {/* Card 1 */}
             <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
-                <Image
-                  src="/surroundings1.jpg" // Replace with your image path
-                  alt="Historic Acuto"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Historic Acuto</h3>
+              <h3 className="text-xl font-semibold mb-2">Acuto Storico</h3>
               <p className="text-gray-600">
-                Immerse yourself in Acuto’s storied past by wandering narrow, cobbled alleys, ancient arches, and historic churches dating from pre-Roman times.
+                Immergiti nella storia di Acuto passeggiando per i suoi vicoli acciottolati, ammirando archi antichi e chiese che risalgono ai tempi preromani.
               </p>
             </div>
-            {/* Card 2 */}
             <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
-                <Image
-                  src="/surroundings2.jpg" // Replace with your image path
-                  alt="Natural Landscapes"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Natural Landscapes</h3>
+              <h3 className="text-xl font-semibold mb-2">Paesaggi Naturali</h3>
               <p className="text-gray-600">
-                Enjoy chestnut woods, olive groves, and rolling vineyards under the majestic Apennine Mountains, accompanied by a serene lake.
+                Goditi i boschi di castagni, gli uliveti e le vigne che si estendono sotto le maestose montagne degli Appennini, completati da un lago tranquillo.
               </p>
             </div>
-            {/* Card 3 */}
             <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
-                <Image
-                  src="/surroundings3.jpg" // Replace with your image path
-                  alt="Local Culture"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Local Culture</h3>
+              <h3 className="text-xl font-semibold mb-2">Cultura Locale</h3>
               <p className="text-gray-600">
-                Savor local flavors like Cesanese wine and artisanal cheeses while exploring traditional crafts and customs of the Ciociaria region.
+                Assapora i sapori tipici della regione, tra cui il vino Cesanese e formaggi artigianali, mentre scopri l'artigianato e le tradizioni della Ciociaria.
               </p>
             </div>
           </div>

@@ -5,14 +5,20 @@ import Image from "next/image";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 
+/**
+ * A more robust footer that includes:
+ * - A language selector
+ * - Additional info/links
+ * - Social icons
+ */
 export default function Footer() {
   return (
-    <footer className="bg-dark-brown text-foreground">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Logo and Tagline */}
-          <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="mb-4">
+    <footer className="bg-[#faf8f4] text-gray-700 pt-16">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Logo & Tagline */}
+          <div className="flex flex-col space-y-4">
+            <Link href="/" className="w-32">
               <Image
                 src="/hotelLaPanoramicaLogo.jpg"
                 alt="Hotel La Panoramica Logo"
@@ -21,76 +27,39 @@ export default function Footer() {
                 className="rounded"
               />
             </Link>
-            <p className="text-sm text-foreground text-center md:text-left">
-              Explore meaningful stories and inspiring projects with a modern
-              twist.
+            <p className="text-sm">
+              Discover peace, purpose, and connection at our nature-immersed sanctuary.
             </p>
           </div>
 
-          {/* Explore */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-semibold text-accent-red mb-3">
-              Explore
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-accent-red transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/calendar"
-                  className="hover:text-accent-red transition-colors"
-                >
-                  Calendar
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/ourStory"
-                  className="hover:text-accent-red transition-colors"
-                >
-                  Our Story
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/surroundings"
-                  className="hover:text-accent-red transition-colors"
-                >
-                  Surroundings
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/activities"
-                  className="hover:text-accent-red transition-colors"
-                >
-                  Activities
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contactUs"
-                  className="hover:text-accent-red transition-colors"
-                >
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
+          {/* Quick Links */}
+          <div className="flex flex-col space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">Explore</h3>
+            <Link href="/" className="hover:text-accent transition-colors">
+              Home
+            </Link>
+            <Link href="/calendar" className="hover:text-accent transition-colors">
+              Calendar
+            </Link>
+            <Link href="/ourStory" className="hover:text-accent transition-colors">
+              Our Story
+            </Link>
+            <Link href="/surroundings" className="hover:text-accent transition-colors">
+              Surroundings
+            </Link>
+            <Link href="/activities" className="hover:text-accent transition-colors">
+              Activities
+            </Link>
+            <Link href="/contactUs" className="hover:text-accent transition-colors">
+              Contact Us
+            </Link>
           </div>
 
-          {/* Connect */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-semibold text-accent-red mb-3">
-              Connect
-            </h3>
-            <p className="text-sm text-foreground mb-2">
-              Stay in touch via our socials:
+          {/* Connect / Social */}
+          <div className="flex flex-col space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">Connect</h3>
+            <p className="text-sm">
+              Follow us for updates, stories, and more:
             </p>
             <div className="flex space-x-4">
               <a
@@ -98,7 +67,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="hover:text-accent-red transition-colors"
+                className="hover:text-accent transition-colors"
               >
                 <InstagramIcon />
               </a>
@@ -106,46 +75,56 @@ export default function Footer() {
                 href="https://facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="hover:text-accent-red transition-colors"
+                aria-label="Facebook"
+                className="hover:text-accent transition-colors"
               >
                 <FacebookIcon />
               </a>
             </div>
           </div>
 
-          {/* Contact Info */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-semibold text-accent-red mb-3">
-              Reach Out
-            </h3>
-            <p className="text-sm text-foreground">
-              <span className="font-medium text-foreground">Email: </span>
+          {/* Language & Contact Info */}
+          <div className="flex flex-col space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">Language</h3>
+            <div className="flex items-center space-x-4">
+              <Link href="#" className="hover:text-accent font-medium">
+                EN
+              </Link>
+              <span>|</span>
+              <Link href="#" className="hover:text-accent font-medium">
+                IT
+              </Link>
+            </div>
+
+            <h3 className="text-lg font-semibold text-gray-800 pt-4">Contact</h3>
+            <p className="text-sm">
+              <span className="font-medium">Email: </span>
               <a
                 href="mailto:support@unitywall.co"
-                className="text-accent-red hover:underline"
+                className="hover:underline hover:text-accent transition-colors"
               >
                 support@unitywall.co
               </a>
             </p>
-            <p className="text-sm text-foreground mt-2">
-              <span className="font-medium text-foreground">Phone: </span>
+            <p className="text-sm">
+              <span className="font-medium">Phone: </span>
               +1 (123) 456-7890
             </p>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-dark-brown py-4">
-        <div className="container mx-auto px-4 text-center text-sm text-foreground">
-          <p className="mt-1">
-            Website Developed and Managed by{" "}
+      {/* Bottom bar */}
+      <div className="bg-[#f0ebe4] py-3 mt-8">
+        <div className="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
+          <p>© {new Date().getFullYear()} Hotel La Panoramica. All rights reserved.</p>
+          <p>
+            Developed by&nbsp;
             <a
               href="https://unitywall.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent-red hover:underline"
+              className="text-accent hover:underline"
             >
               UnityWall
             </a>

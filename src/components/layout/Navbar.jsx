@@ -18,7 +18,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -32,111 +31,149 @@ export default function Navbar() {
     { href: "/contactUs", label: "Contact Us" },
   ];
 
+  // Language links for the app directory; these are the routes that correspond to your languages.
+  const languages = [
+    { code: "en", label: "EN", href: "/" },
+    { code: "it", label: "IT", href: "/it" },
+  ];
+
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        hasScrolled ? "bg-dark-brown shadow-lg py-3" : "bg-dark-brown py-4"
+        hasScrolled ? "bg-white/90 backdrop-blur shadow-sm py-3" : "bg-white/70 py-4"
       }`}
+      style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center h-full">
-          <Link href="/">
+        <Link href="/">
+          <div className="flex items-center space-x-3">
             <Image
               src="/hotelLaPanoramicaLogo.jpg"
               alt="Hotel La Panoramica Logo"
-              width={80}
-              height={80}
-              className="cursor-pointer rounded"
+              width={60}
+              height={60}
+              className="rounded"
             />
-          </Link>
-        </div>
+            <span className="hidden md:block text-xl font-bold tracking-wide">
+              Hotel La Panoramica
+            </span>
+          </div>
+        </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex justify-center space-x-16">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`font-bold text-lg py-3 px-6 transition-colors hover:scale-105 transform duration-200 ${
-                pathname === link.href
-                  ? "text-accent-red border-b-3 border-accent-red"
-                  : "text-white hover:text-accent-red"
+              className={`font-medium text-gray-700 transition-colors hover:text-accent ${
+                pathname === link.href ? "text-accent underline" : ""
               }`}
             >
               {link.label}
             </Link>
           ))}
-        </nav>
 
-        {/* Social Icons */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-accent-red text-3xl"
-          >
-            <InstagramIcon fontSize="inherit" />
-          </a>
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-accent-red text-3xl"
-          >
-            <FacebookIcon fontSize="inherit" />
-          </a>
-        </div>
+          {/* Language Switcher */}
+          <div className="flex items-center space-x-3 ml-4 border-l border-gray-300 pl-4">
+            {languages.map((lang, idx) => (
+              <div key={lang.code} className="flex items-center">
+                <Link href={lang.href}>
+                  <span
+                    className={`font-medium transition-colors hover:text-accent ${
+                      pathname.startsWith(lang.href) ? "text-accent" : "text-gray-700"
+                    }`}
+                  >
+                    {lang.label}
+                  </span>
+                </Link>
+                {idx < languages.length - 1 && <span className="mx-1">|</span>}
+              </div>
+            ))}
+          </div>
+          
+          {/* Social Icons */}
+          <div className="flex items-center space-x-3 ml-4">
+            <a
+              href="https://instagram.com"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="text-gray-600 hover:text-accent transition-colors"
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              href="https://facebook.com"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="text-gray-600 hover:text-accent transition-colors"
+            >
+              <FacebookIcon />
+            </a>
+          </div>
+        </nav>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-white hover:text-accent-red text-3xl"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden text-gray-700 hover:text-accent transition-colors text-3xl"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? (
-            <CloseIcon fontSize="inherit" />
-          ) : (
-            <MenuIcon fontSize="inherit" />
-          )}
+          {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-dark-brown shadow-lg animate-slide-down">
+        <div className="md:hidden bg-white/90 backdrop-blur w-full shadow-inner">
           <div className="flex flex-col px-6 py-4 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block font-bold text-xl py-4 transition-colors ${
-                  pathname === link.href
-                    ? "text-accent-red"
-                    : "text-white hover:text-accent-red"
+                className={`block font-medium text-lg transition-colors ${
+                  pathname === link.href ? "text-accent underline" : "text-gray-700 hover:text-accent"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="flex space-x-6 pt-4">
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center justify-center space-x-3 border-t border-gray-300 pt-4">
+              {languages.map((lang, idx) => (
+                <div key={lang.code} className="flex items-center">
+                  <Link href={lang.href} onClick={() => setIsMenuOpen(false)}>
+                    <span
+                      className={`font-medium transition-colors hover:text-accent ${
+                        pathname.startsWith(lang.href) ? "text-accent" : "text-gray-700"
+                      }`}
+                    >
+                      {lang.label}
+                    </span>
+                  </Link>
+                  {idx < languages.length - 1 && <span className="mx-1">|</span>}
+                </div>
+              ))}
+            </div>
+            {/* Social Icons */}
+            <div className="flex space-x-4 pt-4 justify-center">
               <a
-                href="https://www.instagram.com/"
-                target="_blank"
+                href="https://instagram.com"
                 rel="noopener noreferrer"
-                className="text-white hover:text-accent-red text-3xl"
+                target="_blank"
+                className="text-gray-700 hover:text-accent transition-colors"
               >
-                <InstagramIcon fontSize="inherit" />
+                <InstagramIcon />
               </a>
               <a
-                href="https://www.facebook.com/"
-                target="_blank"
+                href="https://facebook.com"
                 rel="noopener noreferrer"
-                className="text-white hover:text-accent-red text-3xl"
+                target="_blank"
+                className="text-gray-700 hover:text-accent transition-colors"
               >
-                <FacebookIcon fontSize="inherit" />
+                <FacebookIcon />
               </a>
             </div>
           </div>
