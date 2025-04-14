@@ -1,5 +1,7 @@
-import HeroIT from "@/components/HeroIT";
+"use client";
 
-export default function ItalianPage() {
-  return <HeroIT/>;
+import Hero from "@/components/home/Hero";
+
+export default function HomePageItalian() {
+  return <Hero />;
 }

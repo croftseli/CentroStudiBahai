@@ -8,11 +8,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import TranslateIcon from "@mui/icons-material/Translate";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { language, switchLanguage, languages } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,20 +26,53 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/calendar", label: "Calendar" },
-    { href: "/ourStory", label: "Our Story" },
-    { href: "/surroundings", label: "Surroundings" },
-    { href: "/activities", label: "Activities" },
-    { href: "/contactUs", label: "Contact Us" },
-  ];
+  // Close language menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setIsLangMenuOpen(false);
+    };
+    
+    if (isLangMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isLangMenuOpen]);
 
-  // Language links for the app directory; these are the routes that correspond to your languages.
-  const languages = [
-    { code: "en", label: "EN", href: "/" },
-    { code: "it", label: "IT", href: "/it" },
-  ];
+  // Navigation links with translations
+  const navLinksTranslations = {
+    en: [
+      { href: "/", label: "Home" },
+      { href: "/calendar", label: "Calendar" },
+      { href: "/ourStory", label: "Our Story" },
+      { href: "/surroundings", label: "Surroundings" },
+      { href: "/activities", label: "Activities" },
+      { href: "/contactUs", label: "Contact Us" },
+    ],
+    it: [
+      { href: "/it", label: "Home" },
+      { href: "/it/calendar", label: "Calendario" },
+      { href: "/it/ourStory", label: "La Nostra Storia" },
+      { href: "/it/surroundings", label: "Dintorni" },
+      { href: "/it/activities", label: "Attività" },
+      { href: "/it/contactUs", label: "Contattaci" },
+    ]
+  };
+  
+  // Get current language navigation links
+  const navLinks = navLinksTranslations[language];
+
+  const handleLanguageToggle = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    setIsLangMenuOpen(!isLangMenuOpen);
+  };
+
+  const handleLanguageSelect = (langCode) => {
+    switchLanguage(langCode);
+    setIsLangMenuOpen(false);
+  };
 
   return (
     <header
@@ -46,7 +83,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/">
+        <Link href={language === 'en' ? '/' : '/it'}>
           <div className="flex items-center space-x-3">
             <Image
               src="/hotelLaPanoramicaLogo.jpg"
@@ -68,29 +105,44 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`font-medium text-gray-700 transition-colors hover:text-accent ${
-                pathname === link.href ? "text-accent underline" : ""
+                (pathname === link.href || 
+                 (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
+                 ? "text-accent underline" : ""
               }`}
             >
               {link.label}
             </Link>
           ))}
 
-          {/* Language Switcher */}
-          <div className="flex items-center space-x-3 ml-4 border-l border-gray-300 pl-4">
-            {languages.map((lang, idx) => (
-              <div key={lang.code} className="flex items-center">
-                <Link href={lang.href}>
-                  <span
-                    className={`font-medium transition-colors hover:text-accent ${
-                      pathname.startsWith(lang.href) ? "text-accent" : "text-gray-700"
+          {/* Language Switcher - Improved UI */}
+          <div className="relative ml-4">
+            <button 
+              onClick={handleLanguageToggle}
+              className="flex items-center space-x-2 px-3 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+              aria-label="Change Language"
+            >
+              <TranslateIcon className="h-5 w-5" />
+              <span className="font-medium uppercase">{language}</span>
+            </button>
+            
+            {isLangMenuOpen && (
+              <div 
+                className="absolute top-full mt-1 right-0 bg-white shadow-lg rounded-md py-2 w-36 z-50"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => handleLanguageSelect(lang.code)}
+                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors ${
+                      language === lang.code ? "font-bold text-accent bg-gray-50" : "text-gray-700"
                     }`}
                   >
                     {lang.label}
-                  </span>
-                </Link>
-                {idx < languages.length - 1 && <span className="mx-1">|</span>}
+                  </button>
+                ))}
               </div>
-            ))}
+            )}
           </div>
           
           {/* Social Icons */}
@@ -115,14 +167,44 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-gray-700 hover:text-accent transition-colors text-3xl"
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          aria-label="Toggle Menu"
-        >
-          {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-        </button>
+        <div className="md:hidden flex items-center space-x-2">
+          {/* Mobile Language Switcher */}
+          <button 
+            onClick={handleLanguageToggle}
+            className="flex items-center p-2 rounded-md text-gray-700 hover:text-accent transition-colors"
+            aria-label="Change Language"
+          >
+            <TranslateIcon className="h-6 w-6" />
+          </button>
+          
+          <button
+            className="text-gray-700 hover:text-accent transition-colors text-3xl"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-label="Toggle Menu"
+          >
+            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Language Menu */}
+      {isLangMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white/90 backdrop-blur shadow-lg z-40">
+          <div className="px-6 py-3 space-y-2">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => handleLanguageSelect(lang.code)}
+                className={`w-full text-left px-4 py-2 rounded-md hover:bg-gray-100 transition-colors ${
+                  language === lang.code ? "font-bold text-accent bg-gray-50" : "text-gray-700"
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Mobile Menu */}
       {isMenuOpen && (
@@ -134,29 +216,15 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
                 className={`block font-medium text-lg transition-colors ${
-                  pathname === link.href ? "text-accent underline" : "text-gray-700 hover:text-accent"
+                  (pathname === link.href || 
+                   (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
+                   ? "text-accent underline" : "text-gray-700 hover:text-accent"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            {/* Mobile Language Switcher */}
-            <div className="flex items-center justify-center space-x-3 border-t border-gray-300 pt-4">
-              {languages.map((lang, idx) => (
-                <div key={lang.code} className="flex items-center">
-                  <Link href={lang.href} onClick={() => setIsMenuOpen(false)}>
-                    <span
-                      className={`font-medium transition-colors hover:text-accent ${
-                        pathname.startsWith(lang.href) ? "text-accent" : "text-gray-700"
-                      }`}
-                    >
-                      {lang.label}
-                    </span>
-                  </Link>
-                  {idx < languages.length - 1 && <span className="mx-1">|</span>}
-                </div>
-              ))}
-            </div>
+            
             {/* Social Icons */}
             <div className="flex space-x-4 pt-4 justify-center">
               <a
