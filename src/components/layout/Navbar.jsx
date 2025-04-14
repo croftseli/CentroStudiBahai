@@ -4,17 +4,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TranslateIcon from "@mui/icons-material/Translate";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const pathname = usePathname();
   const { language, switchLanguage, languages } = useLanguage();
 
@@ -25,21 +24,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Close language menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = () => {
-      setIsLangMenuOpen(false);
-    };
-    
-    if (isLangMenuOpen) {
-      document.addEventListener('click', handleClickOutside);
-    }
-    
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [isLangMenuOpen]);
 
   // Navigation links with translations
   const navLinksTranslations = {
@@ -64,24 +48,78 @@ export default function Navbar() {
   // Get current language navigation links
   const navLinks = navLinksTranslations[language];
 
-  const handleLanguageToggle = (e) => {
-    e.stopPropagation(); // Prevent event bubbling
-    setIsLangMenuOpen(!isLangMenuOpen);
+  // Toggle language function
+  const handleLanguageToggle = (langCode) => {
+    switchLanguage(langCode);
   };
 
-  const handleLanguageSelect = (langCode) => {
-    switchLanguage(langCode);
-    setIsLangMenuOpen(false);
+  // Language Toggle Slider component
+  const LanguageToggleSlider = () => {
+    const TOGGLE_CLASSES = "text-sm font-medium flex items-center px-3 md:pl-3 md:pr-3.5 py-2 md:py-1.5 transition-colors relative z-10";
+    
+    return (
+      <div className="relative flex w-fit items-center rounded-full border border-gray-200">
+        <button
+          className={`cursor-pointer ${TOGGLE_CLASSES} ${
+            language === "en" ? "text-white" : "text-slate-800"
+          }`}
+          onClick={() => handleLanguageToggle("en")}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" className="relative z-10">
+            <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect>
+            <path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path>
+            <path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path>
+            <path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path>
+            <path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path>
+            <rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
+            <rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
+            <rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+            <rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect>
+            <path d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z" fill="#b92932"></path>
+            <path d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z" fill="#b92932"></path>
+            <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+            <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+          </svg>
+          <span className="relative z-10 ml-1">English</span>
+        </button>
+        <button
+          className={`cursor-pointer ${TOGGLE_CLASSES} ${
+            language === "it" ? "text-white" : "text-slate-800"
+          }`}
+          onClick={() => handleLanguageToggle("it")}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" className="relative z-10">
+            <path fill="#fff" d="M10 4H22V28H10z"></path>
+            <path d="M5,4h6V28H5c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z" fill="#41914d"></path>
+            <path d="M25,4h6V28h-6c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z" transform="rotate(180 26 16)" fill="#bf393b"></path>
+            <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+            <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+          </svg>
+          <span className="relative z-10 ml-1">Italiano</span>
+        </button>
+        <div
+          className={`absolute inset-0 z-0 flex ${
+            language === "it" ? "justify-end" : "justify-start"
+          }`}
+        >
+          <motion.span
+            layout
+            transition={{ type: "spring", damping: 15, stiffness: 250 }}
+            className="h-full w-1/2 rounded-full bg-gradient-to-r from-green-600 to-red-600"
+          />
+        </div>
+      </div>
+    );
   };
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        hasScrolled ? "bg-white/90 backdrop-blur shadow-sm py-3" : "bg-white/70 py-4"
+      className={`fixed w-full z-90 transition-all duration-300 ${
+        hasScrolled ? "bg-white/90 backdrop-blur shadow-sm py-3" : "bg-white/70 py-2"
       }`}
       style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-8xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href={language === 'en' ? '/' : '/it'}>
           <div className="flex items-center space-x-3">
@@ -114,35 +152,9 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Language Switcher - Improved UI */}
-          <div className="relative ml-4">
-            <button 
-              onClick={handleLanguageToggle}
-              className="flex items-center space-x-2 px-3 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
-              aria-label="Change Language"
-            >
-              <TranslateIcon className="h-5 w-5" />
-              <span className="font-medium uppercase">{language}</span>
-            </button>
-            
-            {isLangMenuOpen && (
-              <div 
-                className="absolute top-full mt-1 right-0 bg-white shadow-lg rounded-md py-2 w-36 z-50"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => handleLanguageSelect(lang.code)}
-                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors ${
-                      language === lang.code ? "font-bold text-accent bg-gray-50" : "text-gray-700"
-                    }`}
-                  >
-                    {lang.label}
-                  </button>
-                ))}
-              </div>
-            )}
+          {/* Desktop Language Toggle */}
+          <div className="ml-4">
+            <LanguageToggleSlider />
           </div>
           
           {/* Social Icons */}
@@ -168,14 +180,10 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center space-x-2">
-          {/* Mobile Language Switcher */}
-          <button 
-            onClick={handleLanguageToggle}
-            className="flex items-center p-2 rounded-md text-gray-700 hover:text-accent transition-colors"
-            aria-label="Change Language"
-          >
-            <TranslateIcon className="h-6 w-6" />
-          </button>
+          {/* Mobile Language Toggle */}
+          <div className="mr-2">
+            <LanguageToggleSlider />
+          </div>
           
           <button
             className="text-gray-700 hover:text-accent transition-colors text-3xl"
@@ -186,25 +194,6 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-
-      {/* Mobile Language Menu */}
-      {isLangMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white/90 backdrop-blur shadow-lg z-40">
-          <div className="px-6 py-3 space-y-2">
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => handleLanguageSelect(lang.code)}
-                className={`w-full text-left px-4 py-2 rounded-md hover:bg-gray-100 transition-colors ${
-                  language === lang.code ? "font-bold text-accent bg-gray-50" : "text-gray-700"
-                }`}
-              >
-                {lang.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Mobile Menu */}
       {isMenuOpen && (
