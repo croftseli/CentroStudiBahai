@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -60,7 +60,7 @@ export default function Navbar() {
     return (
       <div className="relative flex w-fit items-center rounded-full border border-gray-200">
         <button
-          className={`cursor-pointer ${TOGGLE_CLASSES} ${
+          className={`${TOGGLE_CLASSES} ${
             language === "en" ? "text-white" : "text-slate-800"
           }`}
           onClick={() => handleLanguageToggle("en")}
@@ -83,7 +83,7 @@ export default function Navbar() {
           <span className="relative z-10 ml-1">English</span>
         </button>
         <button
-          className={`cursor-pointer ${TOGGLE_CLASSES} ${
+          className={`${TOGGLE_CLASSES} ${
             language === "it" ? "text-white" : "text-slate-800"
           }`}
           onClick={() => handleLanguageToggle("it")}
@@ -114,12 +114,12 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full z-90 transition-all duration-300 ${
-        hasScrolled ? "bg-white/90 backdrop-blur shadow-sm py-3" : "bg-white/70 py-2"
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        hasScrolled ? "bg-white/90 backdrop-blur shadow-sm py-3" : "bg-white/70 py-4"
       }`}
       style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}
     >
-      <div className="max-w-8xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href={language === 'en' ? '/' : '/it'}>
           <div className="flex items-center space-x-3">
@@ -196,46 +196,70 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white/90 backdrop-blur w-full shadow-inner">
-          <div className="flex flex-col px-6 py-4 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block font-medium text-lg transition-colors ${
-                  (pathname === link.href || 
-                   (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
-                   ? "text-accent underline" : "text-gray-700 hover:text-accent"
-                }`}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="md:hidden bg-white/90 backdrop-blur w-full shadow-inner"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <motion.div 
+              className="flex flex-col px-6 py-4 space-y-4"
+              initial={{ y: -20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2, delay: 0.1 + index * 0.05 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block font-medium text-lg transition-colors ${
+                      (pathname === link.href || 
+                      (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
+                      ? "text-accent underline" : "text-gray-700 hover:text-accent"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              {/* Social Icons */}
+              <motion.div 
+                className="flex space-x-4 pt-4 justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
               >
-                {link.label}
-              </Link>
-            ))}
-            
-            {/* Social Icons */}
-            <div className="flex space-x-4 pt-4 justify-center">
-              <a
-                href="https://instagram.com"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="text-gray-700 hover:text-accent transition-colors"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href="https://facebook.com"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="text-gray-700 hover:text-accent transition-colors"
-              >
-                <FacebookIcon />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+                <a
+                  href="https://instagram.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="text-gray-700 hover:text-accent transition-colors"
+                >
+                  <InstagramIcon />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="text-gray-700 hover:text-accent transition-colors"
+                >
+                  <FacebookIcon />
+                </a>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
