@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -102,11 +102,11 @@ export default function Navbar() {
             language === "it" ? "justify-end" : "justify-start"
           }`}
         >
-          <motion.span
-            layout
-            transition={{ type: "spring", damping: 15, stiffness: 250 }}
-            className="h-full w-1/2 rounded-full bg-gradient-to-r from-green-600 to-red-600"
-          />
+          {language === "it" ? (
+            <span className="h-full w-1/2 rounded-full bg-gradient-to-r from-green-600 to-red-600" />
+          ) : (
+            <span className="h-full w-1/2 rounded-full bg-gradient-to-r from-blue-600 to-red-600" />
+          )}
         </div>
       </div>
     );
@@ -114,113 +114,65 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full z-90 transition-all duration-300 ${
-        hasScrolled ? "bg-white/90 backdrop-blur shadow-sm py-3" : "bg-white/70 py-2"
+      className={`fixed w-full z-80 transition-all duration-300 ${
+        hasScrolled ? "bg-white/90 backdrop-blur shadow-sm py-3" : "bg-white/70 py-4"
       }`}
       style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}
     >
-      <div className="max-w-8xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href={language === 'en' ? '/' : '/it'}>
-          <div className="flex items-center space-x-3">
-            <Image
-              src="/hotelLaPanoramicaLogo.jpg"
-              alt="Hotel La Panoramica Logo"
-              width={60}
-              height={60}
-              className="rounded"
-            />
-            <span className="hidden md:block text-xl font-bold tracking-wide">
-              Hotel La Panoramica
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`font-medium text-gray-700 transition-colors hover:text-accent ${
-                (pathname === link.href || 
-                 (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
-                 ? "text-accent underline" : ""
-              }`}
-            >
-              {link.label}
+      <div className="max-w-8xl mx-auto px-6">
+        {/* Three-section layout: Logo | Navigation | Language/Social */}
+        <div className="flex items-center justify-between">
+          {/* Logo - Left section */}
+          <div className="w-1/4">
+            <Link href={language === 'en' ? '/' : '/it'}>
+              <div className="flex items-center space-x-3">
+                <Image
+                  src="/hotelLaPanoramicaLogo.jpg"
+                  alt="Hotel La Panoramica Logo"
+                  width={60}
+                  height={60}
+                  className="rounded"
+                />
+                <span className="hidden md:block text-xl font-bold tracking-wide">
+                  Hotel La Panoramica
+                </span>
+              </div>
             </Link>
-          ))}
-
-          {/* Desktop Language Toggle */}
-          <div className="ml-4">
-            <LanguageToggleSlider />
           </div>
-          
-          {/* Social Icons */}
-          <div className="flex items-center space-x-3 ml-4">
-            <a
-              href="https://instagram.com"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="text-gray-600 hover:text-accent transition-colors"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href="https://facebook.com"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="text-gray-600 hover:text-accent transition-colors"
-            >
-              <FacebookIcon />
-            </a>
-          </div>
-        </nav>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center space-x-2">
-          {/* Mobile Language Toggle */}
-          <div className="mr-2">
-            <LanguageToggleSlider />
-          </div>
-          
-          <button
-            className="text-gray-700 hover:text-accent transition-colors text-3xl"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            aria-label="Toggle Menu"
-          >
-            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
-        </div>
-      </div>
+          {/* Desktop Navigation - Center section */}
+          <nav className="hidden md:flex items-center justify-center w-2/4">
+            <div className="flex items-center justify-center space-x-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-medium text-gray-700 transition-colors hover:text-accent ${
+                    (pathname === link.href || 
+                     (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
+                     ? "text-accent underline" : ""
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white/90 backdrop-blur w-full shadow-inner">
-          <div className="flex flex-col px-6 py-4 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block font-medium text-lg transition-colors ${
-                  (pathname === link.href || 
-                   (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
-                   ? "text-accent underline" : "text-gray-700 hover:text-accent"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          {/* Language and Social - Right section */}
+          <div className="hidden md:flex items-center justify-end w-1/4">
+            {/* Desktop Language Toggle */}
+            <div className="mr-4">
+              <LanguageToggleSlider />
+            </div>
             
             {/* Social Icons */}
-            <div className="flex space-x-4 pt-4 justify-center">
+            <div className="flex items-center space-x-3">
               <a
                 href="https://instagram.com"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="text-gray-700 hover:text-accent transition-colors"
+                className="text-gray-600 hover:text-accent transition-colors"
               >
                 <InstagramIcon />
               </a>
@@ -228,14 +180,96 @@ export default function Navbar() {
                 href="https://facebook.com"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="text-gray-700 hover:text-accent transition-colors"
+                className="text-gray-600 hover:text-accent transition-colors"
               >
                 <FacebookIcon />
               </a>
             </div>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Language Toggle */}
+            <div className="mr-2">
+              <LanguageToggleSlider />
+            </div>
+            
+            <button
+              className="text-gray-700 hover:text-accent transition-colors text-3xl"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              aria-label="Toggle Menu"
+            >
+              {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
         </div>
-      )}
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="md:hidden bg-white/90 backdrop-blur w-full shadow-inner"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <motion.div 
+              className="flex flex-col px-6 py-4 space-y-4"
+              initial={{ y: -20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2, delay: 0.1 + index * 0.05 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block font-medium text-lg transition-colors ${
+                      (pathname === link.href || 
+                      (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
+                      ? "text-accent underline" : "text-gray-700 hover:text-accent"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              {/* Social Icons */}
+              <motion.div 
+                className="flex space-x-4 pt-4 justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+              >
+                <a
+                  href="https://instagram.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="text-gray-700 hover:text-accent transition-colors"
+                >
+                  <InstagramIcon />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="text-gray-700 hover:text-accent transition-colors"
+                >
+                  <FacebookIcon />
+                </a>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

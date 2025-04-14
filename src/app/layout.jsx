@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <LanguageProvider>
           <Navbar />
-          <main className="flex-grow pt-20">{children}</main>
+          <main className="flex-grow pt-23">{children}</main>
           <Footer />
         </LanguageProvider>
       </body>
