@@ -60,7 +60,7 @@ export default function Navbar() {
     return (
       <div className="relative flex w-fit items-center rounded-full border border-gray-200">
         <button
-          className={`${TOGGLE_CLASSES} ${
+          className={`cursor-pointer ${TOGGLE_CLASSES} ${
             language === "en" ? "text-white" : "text-slate-800"
           }`}
           onClick={() => handleLanguageToggle("en")}
@@ -83,7 +83,7 @@ export default function Navbar() {
           <span className="relative z-10 ml-1">English</span>
         </button>
         <button
-          className={`${TOGGLE_CLASSES} ${
+          className={`cursor-pointer ${TOGGLE_CLASSES} ${
             language === "it" ? "text-white" : "text-slate-800"
           }`}
           onClick={() => handleLanguageToggle("it")}
@@ -102,11 +102,11 @@ export default function Navbar() {
             language === "it" ? "justify-end" : "justify-start"
           }`}
         >
-          <motion.span
-            layout
-            transition={{ type: "spring", damping: 15, stiffness: 250 }}
-            className="h-full w-1/2 rounded-full bg-gradient-to-r from-green-600 to-red-600"
-          />
+          {language === "it" ? (
+            <span className="h-full w-1/2 rounded-full bg-gradient-to-r from-green-600 to-red-600" />
+          ) : (
+            <span className="h-full w-1/2 rounded-full bg-gradient-to-r from-blue-600 to-red-600" />
+          )}
         </div>
       </div>
     );
@@ -114,84 +114,94 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-80 transition-all duration-300 ${
         hasScrolled ? "bg-white/90 backdrop-blur shadow-sm py-3" : "bg-white/70 py-4"
       }`}
       style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href={language === 'en' ? '/' : '/it'}>
-          <div className="flex items-center space-x-3">
-            <Image
-              src="/hotelLaPanoramicaLogo.jpg"
-              alt="Hotel La Panoramica Logo"
-              width={60}
-              height={60}
-              className="rounded"
-            />
-            <span className="hidden md:block text-xl font-bold tracking-wide">
-              Hotel La Panoramica
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`font-medium text-gray-700 transition-colors hover:text-accent ${
-                (pathname === link.href || 
-                 (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
-                 ? "text-accent underline" : ""
-              }`}
-            >
-              {link.label}
+      <div className="max-w-8xl mx-auto px-6">
+        {/* Three-section layout: Logo | Navigation | Language/Social */}
+        <div className="flex items-center justify-between">
+          {/* Logo - Left section */}
+          <div className="w-1/4">
+            <Link href={language === 'en' ? '/' : '/it'}>
+              <div className="flex items-center space-x-3">
+                <Image
+                  src="/hotelLaPanoramicaLogo.jpg"
+                  alt="Hotel La Panoramica Logo"
+                  width={60}
+                  height={60}
+                  className="rounded"
+                />
+                <span className="hidden md:block text-xl font-bold tracking-wide">
+                  Hotel La Panoramica
+                </span>
+              </div>
             </Link>
-          ))}
+          </div>
 
-          {/* Desktop Language Toggle */}
-          <div className="ml-4">
-            <LanguageToggleSlider />
-          </div>
-          
-          {/* Social Icons */}
-          <div className="flex items-center space-x-3 ml-4">
-            <a
-              href="https://instagram.com"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="text-gray-600 hover:text-accent transition-colors"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href="https://facebook.com"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="text-gray-600 hover:text-accent transition-colors"
-            >
-              <FacebookIcon />
-            </a>
-          </div>
-        </nav>
+          {/* Desktop Navigation - Center section */}
+          <nav className="hidden md:flex items-center justify-center w-2/4">
+            <div className="flex items-center justify-center space-x-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-medium text-gray-700 transition-colors hover:text-accent ${
+                    (pathname === link.href || 
+                     (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
+                     ? "text-accent underline" : ""
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center space-x-2">
-          {/* Mobile Language Toggle */}
-          <div className="mr-2">
-            <LanguageToggleSlider />
+          {/* Language and Social - Right section */}
+          <div className="hidden md:flex items-center justify-end w-1/4">
+            {/* Desktop Language Toggle */}
+            <div className="mr-4">
+              <LanguageToggleSlider />
+            </div>
+            
+            {/* Social Icons */}
+            <div className="flex items-center space-x-3">
+              <a
+                href="https://instagram.com"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-gray-600 hover:text-accent transition-colors"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href="https://facebook.com"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-gray-600 hover:text-accent transition-colors"
+              >
+                <FacebookIcon />
+              </a>
+            </div>
           </div>
-          
-          <button
-            className="text-gray-700 hover:text-accent transition-colors text-3xl"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            aria-label="Toggle Menu"
-          >
-            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
+
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Language Toggle */}
+            <div className="mr-2">
+              <LanguageToggleSlider />
+            </div>
+            
+            <button
+              className="text-gray-700 hover:text-accent transition-colors text-3xl"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              aria-label="Toggle Menu"
+            >
+              {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
         </div>
       </div>
 
