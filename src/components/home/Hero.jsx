@@ -24,6 +24,19 @@ const underlineVariants = {
   hidden: { scaleX: 0 },
   visible: { scaleX: 1, transition: { duration: 0.5, ease: "easeOut", delay: 0.5 } },
 };
+// Text animation variants for activities and surroundings
+const fancySectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (customDelay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.5,
+      ease: "easeOut",
+      delay: customDelay,
+    },
+  }),
+};
 
 // Content for different languages
 const content = {
@@ -153,36 +166,37 @@ export default function Hero() {
 
         {/* Centered Hero Text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-40">
-          <motion.div variants={textVariants} initial="hidden" animate="visible" className="max-w-3xl">
-            <h1
-              className="text-white text-4xl md:text-6xl font-bold drop-shadow-md"
-              style={{ color: "white", textShadow: "0 3px 8px rgba(0,0,0,0.8)" }}
-            >
-              {text.welcome}
-            </h1>
-            <motion.div
-              variants={underlineVariants}
-              initial="hidden"
-              animate="visible"
-              className="h-1 bg-white w-1/2 mx-auto mt-2"
-            />
-            <p
-              className="mt-4 mb-6 drop-shadow"
-              style={{
-                color: "#cb956f",
-                fontSize: "1.125rem",
-                textShadow: "0 4px 12px rgba(0,0,0,0.9)",
-              }}
-            >
-              {text.tagline}
-            </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-              <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
-                {text.bookButton}
-              </Button>
-            </motion.div>
+        <motion.div variants={textVariants} initial="hidden" animate="visible" className="max-w-3xl">
+          <h1
+            className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg"
+            style={{ color: "white", textShadow: "0 4px 12px rgba(0,0,0,0.9)" }}
+          >
+            {text.welcome}
+          </h1>
+          <motion.div
+            variants={underlineVariants}
+            initial="hidden"
+            animate="visible"
+            className="h-1 bg-white w-1/2 mx-auto mt-2"
+          />
+          <p
+            className="mt-4 mb-6 font-serif font-bold"
+            style={{
+              color: "white",
+              fontSize: "1.125rem",
+              textShadow: "0 5px 15px rgba(0,0,0,1)"
+            }}
+          >
+            {text.tagline}
+          </p>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+            <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
+              {text.bookButton}
+            </Button>
           </motion.div>
-        </div>
+        </motion.div>
+      </div>
+
 
       </div>
 
@@ -191,10 +205,11 @@ export default function Hero() {
         {/* Our Mission */}
         <motion.section
           className="text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          variants={fancySectionVariants}
+          custom={0}
         >
           <h2 className="text-3xl font-bold mb-4">{text.mission}</h2>
           <p className="text-gray-700 max-w-3xl mx-auto">
@@ -202,18 +217,19 @@ export default function Hero() {
           </p>
         </motion.section>
 
-        {/* Activities Section with Images */}
+        {/* Activities*/}
         <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          variants={fancySectionVariants}
+          custom={0.3}
         >
           <h2 className="text-3xl font-bold text-center mb-8">{text.activities}</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {/* Card 1 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
+            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+              <div className="relative h-60 mb-4">
                 <Image
                   src="/activity1.jpg" // Replace with your image path
                   alt={text.activity1Title}
@@ -227,13 +243,13 @@ export default function Hero() {
               </p>
             </div>
             {/* Card 2 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
+            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+              <div className="relative h-60 mb-4">
                 <Image
                   src="/activity2.jpg" // Replace with your image path
                   alt={text.activity2Title}
                   fill
-                  className="object-cover rounded-md"
+                  className="object-cover [object-position:50%_20%]"
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">{text.activity2Title}</h3>
@@ -242,8 +258,8 @@ export default function Hero() {
               </p>
             </div>
             {/* Card 3 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
+            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+              <div className="relative h-60 mb-4">
                 <Image
                   src="/activity3.jpg" // Replace with your image path
                   alt={text.activity3Title}
@@ -259,23 +275,31 @@ export default function Hero() {
           </div>
         </motion.section>
 
-        {/* Surroundings Section with Images */}
+    {/* Decorative Divider */}
+    <div className="w-full flex justify-center">
+          <svg width="80" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 H40 C45 0, 55 0, 60 10 H100" stroke="#cb956f" strokeWidth="3" fill="transparent" />
+          </svg>
+        </div>
+
+        {/* Surroundings*/}
         <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          variants={fancySectionVariants}
+          custom={0.8}
         >
           <h2 className="text-3xl font-bold text-center mb-8">{text.surroundings}</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {/* Card 1 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
+            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+              <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings1.jpg" // Replace with your image path
                   alt={text.surroundings1Title}
                   fill
-                  className="object-cover rounded-md"
+                  className="object-cover [object-position:50%_100%]"
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">{text.surroundings1Title}</h3>
@@ -284,13 +308,13 @@ export default function Hero() {
               </p>
             </div>
             {/* Card 2 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
+            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+              <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings2.jpg" // Replace with your image path
                   alt={text.surroundings2Title}
                   fill
-                  className="object-cover rounded-md"
+                  className="object-cover [object-position:30%_100%]"
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">{text.surroundings2Title}</h3>
@@ -299,13 +323,13 @@ export default function Hero() {
               </p>
             </div>
             {/* Card 3 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50">
-              <div className="relative h-40 mb-4">
+            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+              <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings3.jpg" // Replace with your image path
                   alt={text.surroundings3Title}
                   fill
-                  className="object-cover rounded-md"
+                  className="object-cover [object-position:50%_65%]"
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">{text.surroundings3Title}</h3>
