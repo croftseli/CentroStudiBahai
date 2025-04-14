@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -43,7 +42,7 @@ const content = {
   en: {
     welcome: "Welcome to Our Sacred Retreat",
     tagline: "Experience the tranquility of nature, tradition, and modern comfort in one place.",
-    bookButton: "Book Your Stay",
+    bookButton: "Inquire about your stay",
     mission: "Our Mission",
     missionText: "At Spirit Grove we believe in the transformative power of nature, mindfulness, and community. Our mission is to provide a serene and supportive environment where guests can reconnect with themselves and the world around them.",
     activities: "Activities",
@@ -64,7 +63,7 @@ const content = {
   it: {
     welcome: "Benvenuti nel Nostro Rifugio Sacro",
     tagline: "Vivi la tranquillità della natura, la tradizione e il comfort moderno in un unico posto.",
-    bookButton: "Prenota il Tuo Soggiorno",
+    bookButton: "Richiedi informazioni sul tuo soggiorno",
     mission: "La Nostra Missione",
     missionText: "A Spirit Grove crediamo nel potere trasformativo della natura, della consapevolezza e della comunità. La nostra missione è fornire un ambiente sereno e di supporto dove gli ospiti possono riconnettersi con se stessi e con il mondo che li circonda.",
     activities: "Attività",
@@ -189,11 +188,17 @@ export default function Hero() {
           >
             {text.tagline}
           </p>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-            <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
-              {text.bookButton}
-            </Button>
-          </motion.div>
+          <a href="/contactUs">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block"
+            >
+              <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
+                {text.bookButton}
+              </Button>
+            </motion.div>
+          </a>
         </motion.div>
       </div>
 
