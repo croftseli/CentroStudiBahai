@@ -169,7 +169,7 @@ export default function Navbar() {
             {/* Social Icons */}
             <div className="flex items-center space-x-3">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/centrostudibahai9/"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-gray-600 hover:text-accent transition-colors"
@@ -250,7 +250,7 @@ export default function Navbar() {
                 transition={{ duration: 0.3, delay: 0.3 }}
               >
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/centrostudibahai9/"
                   rel="noopener noreferrer"
                   target="_blank"
                   className="text-gray-700 hover:text-accent transition-colors"
