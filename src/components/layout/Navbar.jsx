@@ -150,7 +150,7 @@ export default function Navbar() {
                   className={`font-medium text-gray-700 transition-colors hover:text-accent ${
                     (pathname === link.href || 
                      (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
-                     ? "text-accent underline" : ""
+                     ? "text-accent border-b-2 border0accent pb-1" : ""
                   }`}
                 >
                   {link.label}
@@ -234,7 +234,7 @@ export default function Navbar() {
                     className={`block font-medium text-lg transition-colors ${
                       (pathname === link.href || 
                       (pathname.replace(/^\/it/, '') === link.href.replace(/^\/it/, ''))) 
-                      ? "text-accent underline" : "text-gray-700 hover:text-accent"
+                      ? "text-accent border-b-2 border-accent" : "text-gray-700 hover:text-accent"
                     }`}
                   >
                     {link.label}

@@ -38,7 +38,7 @@ const fancySectionVariants = {
   }),
 };
 
-export default function HeroEnglish() {
+export default function HeroItalian() {
   const heroImages = [
     "/view1.jpg",
     "/view2.jpg",
@@ -123,7 +123,7 @@ export default function HeroEnglish() {
               className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg"
               style={{ color: "white", textShadow: "0 4px 12px rgba(0,0,0,0.9)" }}
             >
-              Welcome to Our Sacred Retreat
+              Benvenuti nel Nostro Rifugio Sacro
             </h1>
             <motion.div
               variants={underlineVariants}
@@ -139,11 +139,11 @@ export default function HeroEnglish() {
                 textShadow: "0 5px 15px rgba(0,0,0,1)"
               }}
             >
-              Experience the tranquility of nature, tradition, and modern comfort in one place.
+              Vivi la tranquillità della natura, la tradizione e il comfort moderno in un unico posto.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
               <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
-                Book Your Stay
+                Prenota il Tuo Soggiorno
               </Button>
             </motion.div>
           </motion.div>
@@ -161,9 +161,9 @@ export default function HeroEnglish() {
           variants={fancySectionVariants}
           custom={0}
         >
-          <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+          <h2 className="text-3xl font-bold mb-4">La Nostra Missione</h2>
           <p className="text-gray-700 max-w-3xl mx-auto">
-            At Spirit Grove we believe in the transformative power of nature, mindfulness, and community. Our mission is to provide a serene and supportive environment where guests can reconnect with themselves and the world around them.
+            A Spirit Grove crediamo nel potere trasformativo della natura, della consapevolezza e della comunità. La nostra missione è fornire un ambiente sereno e di supporto dove gli ospiti possono riconnettersi con se stessi e con il mondo che li circonda.
           </p>
         </motion.section>
 
@@ -180,21 +180,21 @@ export default function HeroEnglish() {
           variants={fancySectionVariants}
           custom={0.3}
         >
-          <h2 className="text-3xl font-bold text-center mb-8">Activities</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">Attività</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {/* Card 1 */}
             <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
               <div className="relative h-60 mb-4">
                 <Image
                   src="/activity1.jpg"
-                  alt="Community Gatherings"
+                  alt="Incontri Comunitari"
                   fill
                   className="object-cover rounded-md"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Community Gatherings</h3>
+              <h3 className="text-xl font-semibold mb-2">Incontri Comunitari</h3>
               <p className="text-gray-600">
-                Participate in local events and gatherings featuring music, poetry, and cultural celebrations that embody unity and collective reflection.
+                Partecipa a eventi locali e incontri con musica, poesia e celebrazioni culturali che incarnano l'unità e la riflessione collettiva.
               </p>
             </div>
             {/* Card 2 */}
@@ -202,14 +202,14 @@ export default function HeroEnglish() {
               <div className="relative h-60 mb-4">
                 <Image
                   src="/activity2.jpg"
-                  alt="Guided Tours & Hikes"
+                  alt="Tour Guidati ed Escursioni"
                   fill
                   className="object-cover [object-position:50%_20%]"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Guided Tours & Hikes</h3>
+              <h3 className="text-xl font-semibold mb-2">Tour Guidati ed Escursioni</h3>
               <p className="text-gray-600">
-                Explore Acuto's historic alleys and breathtaking mountain trails. Discover ancient churches, medieval towers, and serene natural vistas on our guided tours.
+                Esplora i vicoli storici di Acuto e i sentieri montuosi mozzafiato. Scopri antiche chiese, torri medievali e sereni panorami naturali nei nostri tour guidati.
               </p>
             </div>
             {/* Card 3 */}
@@ -217,14 +217,14 @@ export default function HeroEnglish() {
               <div className="relative h-60 mb-4">
                 <Image
                   src="/activity3.jpg"
-                  alt="Seasonal Festivals"
+                  alt="Festival Stagionali"
                   fill
                   className="object-cover rounded-md"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Seasonal Festivals</h3>
+              <h3 className="text-xl font-semibold mb-2">Festival Stagionali</h3>
               <p className="text-gray-600">
-                Enjoy regional festivities such as jazz concerts, art fairs, and traditional culinary events that celebrate the rich heritage of Ciociaria.
+                Goditi le festività regionali come concerti jazz, fiere d'arte ed eventi culinari tradizionali che celebrano il ricco patrimonio della Ciociaria.
               </p>
             </div>
           </div>
@@ -245,21 +245,21 @@ export default function HeroEnglish() {
           variants={fancySectionVariants}
           custom={0.8}
         >
-          <h2 className="text-3xl font-bold text-center mb-8">Surroundings</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">Dintorni</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {/* Card 1 */}
             <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
               <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings1.jpg"
-                  alt="Historic Acuto"
+                  alt="Acuto Storico"
                   fill
                   className="object-cover [object-position:50%_100%]"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Historic Acuto</h3>
+              <h3 className="text-xl font-semibold mb-2">Acuto Storico</h3>
               <p className="text-gray-600">
-                Immerse yourself in Acuto's storied past by wandering narrow, cobbled alleys, ancient arches, and historic churches dating from pre-Roman times.
+                Immergiti nel passato di Acuto passeggiando per stretti vicoli acciottolati, antichi archi e chiese storiche risalenti all'epoca pre-romana.
               </p>
             </div>
             {/* Card 2 */}
@@ -267,14 +267,14 @@ export default function HeroEnglish() {
               <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings2.jpg"
-                  alt="Natural Landscapes"
+                  alt="Paesaggi Naturali"
                   fill
                   className="object-cover [object-position:30%_100%]"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Natural Landscapes</h3>
+              <h3 className="text-xl font-semibold mb-2">Paesaggi Naturali</h3>
               <p className="text-gray-600">
-                Enjoy chestnut woods, olive groves, and rolling vineyards under the majestic Apennine Mountains, accompanied by a serene lake.
+                Goditi boschi di castagni, uliveti e vigneti ondulati sotto le maestose montagne degli Appennini, accompagnati da un sereno lago.
               </p>
             </div>
             {/* Card 3 */}
@@ -282,14 +282,14 @@ export default function HeroEnglish() {
               <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings3.jpg"
-                  alt="Local Culture"
+                  alt="Cultura Locale"
                   fill
                   className="object-cover [object-position:50%_65%]"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Local Culture</h3>
+              <h3 className="text-xl font-semibold mb-2">Cultura Locale</h3>
               <p className="text-gray-600">
-                Savor local flavors like Cesanese wine and artisanal cheeses while exploring traditional crafts and customs of the Ciociaria region.
+                Assapora i sapori locali come il vino Cesanese e i formaggi artigianali mentre esplori l'artigianato tradizionale e i costumi della regione Ciociaria.
               </p>
             </div>
           </div>
