@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function ActivitiesPage() {
+export default function ServicesPage() {
   return (
     <main className="container mx-auto px-6 py-12 space-y-12">
       <h1 className="text-4xl font-bold text-dark-brown mb-10 text-center">
