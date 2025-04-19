@@ -32,7 +32,7 @@ export default function Navbar() {
       { href: "/calendar", label: "Calendar" },
       { href: "/ourStory", label: "Our Story" },
       { href: "/surroundings", label: "Surroundings" },
-      { href: "/activities", label: "Activities" },
+      { href: "/activities", label: "Services" },
       { href: "/contactUs", label: "Contact Us" },
     ],
     it: [
@@ -40,7 +40,7 @@ export default function Navbar() {
       { href: "/it/calendar", label: "Calendario" },
       { href: "/it/ourStory", label: "La Nostra Storia" },
       { href: "/it/surroundings", label: "Dintorni" },
-      { href: "/it/activities", label: "Attività" },
+      { href: "/it/activities", label: "Servizi" },
       { href: "/it/contactUs", label: "Contattaci" },
     ]
   };
@@ -134,7 +134,7 @@ export default function Navbar() {
                   className="rounded"
                 />
                 <span className="hidden md:block text-xl font-bold tracking-wide">
-                  Hotel La Panoramica
+                  Centro Studi Baha'i
                 </span>
               </div>
             </Link>
@@ -177,7 +177,7 @@ export default function Navbar() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/centre.for.bahai.studies/"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-gray-600 hover:text-accent transition-colors"
