@@ -131,7 +131,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/centrostudibahai9/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
