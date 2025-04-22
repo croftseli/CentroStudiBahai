@@ -140,7 +140,7 @@ export default function Footer() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://facebook.com/"
+                href="https://www.facebook.com/centre.for.bahai.studies/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -190,15 +190,15 @@ export default function Footer() {
             <p className="text-sm">
               <span className="font-medium">{text.email} </span>
               <a
-                href="mailto:support@unitywall.co"
+                href="mailto:info@centrostudibahai.it"
                 className="hover:underline hover:text-accent transition-colors"
               >
-                support@unitywall.co
+                info@centrostudibahai.it
               </a>
             </p>
             <p className="text-sm">
               <span className="font-medium">{text.phone} </span>
-              +1 (123) 456-7890
+              +39 351 483 4549
             </p>
           </div>
         </div>

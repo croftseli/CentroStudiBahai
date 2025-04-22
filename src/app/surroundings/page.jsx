@@ -124,7 +124,7 @@ export default function Explore() {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-dark-brown">
-          Ski & Adventure
+          Hiking and Biking Trails
         </h2>
         <p className="text-gray-700">
           Snow-capped peaks of the Simbruini and Ernici mountains surround the
@@ -132,7 +132,7 @@ export default function Explore() {
           Campocatino are two of central Italy’s most loved resorts.
         </p>
         <Image
-          src="/images/ski-resort.jpg"
+          src="/images/hikind-trails.jpg"
           alt="Skiing in Campo Staffi"
           width={800}
           height={500}

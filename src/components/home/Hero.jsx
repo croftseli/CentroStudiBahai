@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -15,13 +14,20 @@ const bgVariants = {
 // Text animation variants
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.5,
+      ease: "easeOut",
+      delay,
+    },
+  }),
 };
-
 // Underline animation variants
 const underlineVariants = {
   hidden: { scaleX: 0 },
-  visible: { scaleX: 1, transition: { duration: 0.5, ease: "easeOut", delay: 0.5 } },
+  visible: { scaleX: 1.25, transition: { duration: 2, ease: "easeOut", delay: 1 } },
 };
 
 // Text animation variants for activities and surroundings
@@ -38,7 +44,30 @@ const fancySectionVariants = {
   }),
 };
 
-export default function HeroEnglish() {
+// Content for English language
+const text = {
+  welcome: "Welcome to Our Sacred Retreat",
+  tagline: "Experience the tranquility of nature, tradition, and modern comfort in one place.",
+  bookButton: "Inquire about your stay",
+  mission: "Our Mission",
+  missionText: "At Spirit Grove we believe in the transformative power of nature, mindfulness, and community. Our mission is to provide a serene and supportive environment where guests can reconnect with themselves and the world around them.",
+  activities: "Services",
+  activity1Title: "Community Gatherings",
+  activity1Text: "Participate in local events and gatherings featuring music, poetry, and cultural celebrations that embody unity and collective reflection.",
+  activity2Title: "Guided Tours & Hikes",
+  activity2Text: "Explore Acuto's historic alleys and breathtaking mountain trails. Discover ancient churches, medieval towers, and serene natural vistas on our guided tours.",
+  activity3Title: "Seasonal Festivals",
+  activity3Text: "Enjoy regional festivities such as jazz concerts, art fairs, and traditional culinary events that celebrate the rich heritage of Ciociaria.",
+  surroundings: "Surroundings",
+  surroundings1Title: "Historic Acuto",
+  surroundings1Text: "Immerse yourself in Acuto's storied past by wandering narrow, cobbled alleys, ancient arches, and historic churches dating from pre-Roman times.",
+  surroundings2Title: "Natural Landscapes",
+  surroundings2Text: "Enjoy chestnut woods, olive groves, and rolling vineyards under the majestic Apennine Mountains, accompanied by a serene lake.",
+  surroundings3Title: "Local Culture",
+  surroundings3Text: "Savor local flavors like Cesanese wine and artisanal cheeses while exploring traditional crafts and customs of the Ciociaria region."
+};
+
+export default function Hero() {
   const heroImages = [
     "/view1.jpg",
     "/view2.jpg",
@@ -65,7 +94,7 @@ export default function HeroEnglish() {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full text-lg md:text-xl">
       {/* Hero Section */}
       <div className="relative h-screen overflow-hidden">
         {heroImages.map((src, index) => (
@@ -117,37 +146,60 @@ export default function HeroEnglish() {
         </button>
 
         {/* Centered Hero Text */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-40">
-          <motion.div variants={textVariants} initial="hidden" animate="visible" className="max-w-3xl">
-            <h1
-              className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg"
-              style={{ color: "white", textShadow: "0 4px 12px rgba(0,0,0,0.9)" }}
-            >
-              Welcome to Our Sacred Retreat
-            </h1>
-            <motion.div
-              variants={underlineVariants}
-              initial="hidden"
-              animate="visible"
-              className="h-1 bg-white w-1/2 mx-auto mt-2"
-            />
-            <p
-              className="mt-4 mb-6 font-serif font-bold"
-              style={{
-                color: "white",
-                fontSize: "1.125rem",
-                textShadow: "0 5px 15px rgba(0,0,0,1)"
-              }}
-            >
-              Experience the tranquility of nature, tradition, and modern comfort in one place.
-            </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-              <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
-                Book Your Stay
-              </Button>
-            </motion.div>
-          </motion.div>
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-40">
+        <div className="max-w-3xl">
+          <motion.h1
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0} //delay
+            className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg"
+            style={{ color: "white", textShadow: "0 4px 12px rgba(0,0,0,0.9)" }}
+          >
+            {text.welcome}
+          </motion.h1>
+
+          <motion.div
+            variants={underlineVariants}
+            initial="hidden"
+            animate="visible"
+            className="h-1 bg-white w-1/2 mx-auto mt-2"
+          />
+
+          <motion.p
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0.5}
+            className="mt-4 mb-6 font-serif font-bold"
+            style={{
+              color: "white",
+              fontSize: "1.125rem",
+              textShadow: "0 5px 15px rgba(0,0,0,1)"
+            }}
+          >
+            {text.tagline}
+          </motion.p>
+
+          <motion.a
+            href="/contactUs"
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0.75}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block"
+          >
+            <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
+              {text.bookButton}
+            </Button>
+          </motion.a>
         </div>
+      </div>
+
+
+
       </div>
 
       {/* Additional Content */}
@@ -161,18 +213,17 @@ export default function HeroEnglish() {
           variants={fancySectionVariants}
           custom={0}
         >
-          <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-          <p className="text-gray-700 max-w-3xl mx-auto">
-            At Spirit Grove we believe in the transformative power of nature, mindfulness, and community. Our mission is to provide a serene and supportive environment where guests can reconnect with themselves and the world around them.
-          </p>
+          <h2 className="text-4xl font-bold mb-4">{text.mission}</h2>
+
+          <motion.div
+            variants={fancySectionVariants}
+            custom={0.5} 
+            className="text-gray-700 max-w-3xl mx-auto">
+            {text.missionText}  
+          </motion.div>
         </motion.section>
 
-        {/* picture layout */}
-        <div className="h-screen py-20 w-full">
-          
-        </div>
-
-        {/* Activities*/}
+        {/* Services Section */}
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -180,121 +231,157 @@ export default function HeroEnglish() {
           variants={fancySectionVariants}
           custom={0.3}
         >
-          <h2 className="text-3xl font-bold text-center mb-8">Activities</h2>
+          <h2 className="text-4xl font-bold text-center mb-8">{text.activities}</h2>
           <div className="grid gap-6 md:grid-cols-3">
+
             {/* Card 1 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+            <motion.div
+              variants={fancySectionVariants}
+              custom={0} // delay
+              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
+            >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/activity1.jpg"
-                  alt="Community Gatherings"
+                  src="/activity1.jpg" 
+                  alt={text.activity1Title}
                   fill
                   className="object-cover rounded-md"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Community Gatherings</h3>
-              <p className="text-gray-600">
-                Participate in local events and gatherings featuring music, poetry, and cultural celebrations that embody unity and collective reflection.
-              </p>
-            </div>
+              <h3 className="text-xl font-semibold mb-2">{text.activity1Title}</h3>
+              <p className="text-gray-600">{text.activity1Text}</p>
+            </motion.div>
+
             {/* Card 2 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+            <motion.div
+              variants={fancySectionVariants}
+              custom={0.5} 
+              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
+            >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/activity2.jpg"
-                  alt="Guided Tours & Hikes"
+                  src="/activity2.jpg" 
+                  alt={text.activity2Title}
                   fill
                   className="object-cover [object-position:50%_20%]"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Guided Tours & Hikes</h3>
-              <p className="text-gray-600">
-                Explore Acuto's historic alleys and breathtaking mountain trails. Discover ancient churches, medieval towers, and serene natural vistas on our guided tours.
-              </p>
-            </div>
+              <h3 className="text-xl font-semibold mb-2">{text.activity2Title}</h3>
+              <p className="text-gray-600">{text.activity2Text}</p>
+            </motion.div>
+
             {/* Card 3 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+            <motion.div
+              variants={fancySectionVariants}
+              custom={0.75} 
+              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
+            >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/activity3.jpg"
-                  alt="Seasonal Festivals"
+                  src="/activity3.jpg" 
+                  alt={text.activity3Title}
                   fill
                   className="object-cover rounded-md"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Seasonal Festivals</h3>
-              <p className="text-gray-600">
-                Enjoy regional festivities such as jazz concerts, art fairs, and traditional culinary events that celebrate the rich heritage of Ciociaria.
-              </p>
-            </div>
+              <h3 className="text-xl font-semibold mb-2">{text.activity3Title}</h3>
+              <p className="text-gray-600">{text.activity3Text}</p>
+            </motion.div>
           </div>
         </motion.section>
 
         {/* Decorative Divider */}
-        <div className="w-full flex justify-center">
-          <svg width="80" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 10 H40 C45 0, 55 0, 60 10 H100" stroke="#cb956f" strokeWidth="3" fill="transparent" />
-          </svg>
-        </div>
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.div
+            variants={fancySectionVariants}
+            custom={0}
+            className="w-full flex justify-center"
+          >
+            <svg width="100%" height="20" viewBox="-200 0 500 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M-200 10 H40 C45 0, 55 0, 60 10 H300" stroke="#cb956f" strokeWidth="4" fill="transparent" />
+            </svg>
+          </motion.div>
+        </motion.section>
 
-        {/* Surroundings*/}
+        {/* Surroundings Section */}
         <motion.section
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fancySectionVariants}
-          custom={0.8}
+          custom={0.3}
         >
-          <h2 className="text-3xl font-bold text-center mb-8">Surroundings</h2>
+          <h2 className="text-4xl font-bold text-center mb-8">{text.surroundings}</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {/* Card 1 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+            <motion.div
+              variants={fancySectionVariants}
+              custom={0}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
+            >
               <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings1.jpg"
-                  alt="Historic Acuto"
+                  alt={text.surroundings1Title}
                   fill
                   className="object-cover [object-position:50%_100%]"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Historic Acuto</h3>
-              <p className="text-gray-600">
-                Immerse yourself in Acuto's storied past by wandering narrow, cobbled alleys, ancient arches, and historic churches dating from pre-Roman times.
-              </p>
-            </div>
+              <h3 className="text-xl font-semibold mb-2">{text.surroundings1Title}</h3>
+              <p className="text-gray-600">{text.surroundings1Text}</p>
+            </motion.div>
+
             {/* Card 2 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+            <motion.div
+              variants={fancySectionVariants}
+              custom={0.5}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
+            >
               <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings2.jpg"
-                  alt="Natural Landscapes"
+                  alt={text.surroundings2Title}
                   fill
                   className="object-cover [object-position:30%_100%]"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Natural Landscapes</h3>
-              <p className="text-gray-600">
-                Enjoy chestnut woods, olive groves, and rolling vineyards under the majestic Apennine Mountains, accompanied by a serene lake.
-              </p>
-            </div>
+              <h3 className="text-xl font-semibold mb-2">{text.surroundings2Title}</h3>
+              <p className="text-gray-600">{text.surroundings2Text}</p>
+            </motion.div>
+
             {/* Card 3 */}
-            <div className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md">
+            <motion.div
+              variants={fancySectionVariants}
+              custom={0.75}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
+            >
               <div className="relative h-60 mb-4">
                 <Image
                   src="/surroundings3.jpg"
-                  alt="Local Culture"
+                  alt={text.surroundings3Title}
                   fill
                   className="object-cover [object-position:50%_65%]"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Local Culture</h3>
-              <p className="text-gray-600">
-                Savor local flavors like Cesanese wine and artisanal cheeses while exploring traditional crafts and customs of the Ciociaria region.
-              </p>
-            </div>
+              <h3 className="text-xl font-semibold mb-2">{text.surroundings3Title}</h3>
+              <p className="text-gray-600">{text.surroundings3Text}</p>
+            </motion.div>
           </div>
         </motion.section>
-      </div>
+        </div>
     </div>
   );
 }
