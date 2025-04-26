@@ -1,7 +1,7 @@
 "use client";
 
-import Hero from "@/components/home/Hero";
+import HeroItalian from "@/components/home/HeroIT";
 
 export default function HomePageItalian() {
-  return <Hero />;
+  return <HeroItalian />;
 }
