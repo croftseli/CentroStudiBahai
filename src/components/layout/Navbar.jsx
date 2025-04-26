@@ -32,7 +32,7 @@ export default function Navbar() {
       { href: "/calendar", label: "Calendar" },
       { href: "/ourStory", label: "Our Story" },
       { href: "/surroundings", label: "Surroundings" },
-      { href: "/activities", label: "Services" },
+      { href: "/services", label: "Services" },
       { href: "/contactUs", label: "Contact Us" },
     ],
     it: [
@@ -40,7 +40,7 @@ export default function Navbar() {
       { href: "/it/calendar", label: "Calendario" },
       { href: "/it/ourStory", label: "La Nostra Storia" },
       { href: "/it/surroundings", label: "Dintorni" },
-      { href: "/it/activities", label: "Servizi" },
+      { href: "/it/services", label: "Servizi" },
       { href: "/it/contactUs", label: "Contattaci" },
     ],
   };
