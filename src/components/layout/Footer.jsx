@@ -21,7 +21,8 @@ export default function Footer() {
   // Footer text content translations
   const content = {
     en: {
-      tagline: "Discover peace, purpose, and connection at our nature-immersed sanctuary.",
+      tagline:
+        "Discover peace, purpose, and connection at our nature-immersed sanctuary.",
       exploreHeading: "Explore",
       connectHeading: "Connect",
       followUs: "Follow us for updates, stories, and more:",
@@ -29,19 +30,23 @@ export default function Footer() {
       contactHeading: "Contact",
       email: "Email:",
       phone: "Phone:",
-      rights: "© " + new Date().getFullYear() + " Hotel La Panoramica. All rights reserved.",
+      rights:
+        "© " +
+        new Date().getFullYear() +
+        " Hotel La Panoramica. All rights reserved.",
       developedBy: "Developed by",
       links: [
         { href: "/", label: "Home" },
         { href: "/calendar", label: "Calendar" },
         { href: "/ourStory", label: "Our Story" },
         { href: "/surroundings", label: "Surroundings" },
-        { href: "/activities", label: "Activities" },
+        { href: "/services", label: "Services" },
         { href: "/contactUs", label: "Contact Us" },
       ],
     },
     it: {
-      tagline: "Scopri pace, scopo e connessione nel nostro santuario immerso nella natura.",
+      tagline:
+        "Scopri pace, scopo e connessione nel nostro santuario immerso nella natura.",
       exploreHeading: "Esplora",
       connectHeading: "Connettiti",
       followUs: "Seguici per aggiornamenti, storie e altro:",
@@ -49,14 +54,17 @@ export default function Footer() {
       contactHeading: "Contatto",
       email: "Email:",
       phone: "Telefono:",
-      rights: "© " + new Date().getFullYear() + " Albergo La Panoramica. Tutti i diritti riservati.",
+      rights:
+        "© " +
+        new Date().getFullYear() +
+        " Albergo La Panoramica. Tutti i diritti riservati.",
       developedBy: "Sviluppato da",
       links: [
         { href: "/it", label: "Home" },
         { href: "/it/calendar", label: "Calendario" },
         { href: "/it/ourStory", label: "La Nostra Storia" },
         { href: "/it/surroundings", label: "Dintorni" },
-        { href: "/it/activities", label: "Attività" },
+        { href: "/it/services", label: "Servizi" },
         { href: "/it/contactUs", label: "Contattaci" },
       ],
     },
@@ -67,13 +75,13 @@ export default function Footer() {
     const handleClickOutside = () => {
       setIsLangMenuOpen(false);
     };
-    
+
     if (isLangMenuOpen) {
-      document.addEventListener('click', handleClickOutside);
+      document.addEventListener("click", handleClickOutside);
     }
-    
+
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [isLangMenuOpen]);
 
@@ -95,27 +103,31 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Logo & Tagline */}
           <div className="flex flex-col space-y-4">
-            <Link href={language === 'en' ? '/' : '/it'} className="w-32">
+            <Link href={language === "en" ? "/" : "/it"} className="w-32">
               <Image
                 src="/hotelLaPanoramicaLogo.jpg"
-                alt={language === 'en' ? "Hotel La Panoramica Logo" : "Logo Albergo La Panoramica"}
+                alt={
+                  language === "en"
+                    ? "Hotel La Panoramica Logo"
+                    : "Logo Albergo La Panoramica"
+                }
                 width={120}
                 height={60}
                 className="rounded"
               />
             </Link>
-            <p className="text-sm">
-              {text.tagline}
-            </p>
+            <p className="text-sm">{text.tagline}</p>
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-col space-y-3">
-            <h3 className="text-lg font-semibold text-gray-800">{text.exploreHeading}</h3>
+            <h3 className="text-lg font-semibold text-gray-800">
+              {text.exploreHeading}
+            </h3>
             {text.links.map((link) => (
-              <Link 
-                key={link.href} 
-                href={link.href} 
+              <Link
+                key={link.href}
+                href={link.href}
                 className="hover:text-accent transition-colors"
               >
                 {link.label}
@@ -125,10 +137,10 @@ export default function Footer() {
 
           {/* Connect / Social */}
           <div className="flex flex-col space-y-3">
-            <h3 className="text-lg font-semibold text-gray-800">{text.connectHeading}</h3>
-            <p className="text-sm">
-              {text.followUs}
-            </p>
+            <h3 className="text-lg font-semibold text-gray-800">
+              {text.connectHeading}
+            </h3>
+            <p className="text-sm">{text.followUs}</p>
             <div className="flex space-x-4">
               <a
                 href="https://www.instagram.com/centrostudibahai9/"
@@ -153,21 +165,25 @@ export default function Footer() {
 
           {/* Language & Contact Info */}
           <div className="flex flex-col space-y-3">
-            <h3 className="text-lg font-semibold text-gray-800">{text.languageHeading}</h3>
-            
+            <h3 className="text-lg font-semibold text-gray-800">
+              {text.languageHeading}
+            </h3>
+
             {/* Updated Language Dropdown */}
             <div className="relative">
-              <button 
+              <button
                 onClick={handleLanguageToggle}
                 className="flex items-center space-x-2 px-3 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
                 aria-label="Change Language"
               >
                 <TranslateIcon className="h-5 w-5" />
-                <span className="font-medium">{languages.find(lang => lang.code === language)?.label}</span>
+                <span className="font-medium">
+                  {languages.find((lang) => lang.code === language)?.label}
+                </span>
               </button>
-              
+
               {isLangMenuOpen && (
-                <div 
+                <div
                   className="absolute top-full mt-1 left-0 bg-white shadow-lg rounded-md py-2 w-36 z-50"
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -176,7 +192,9 @@ export default function Footer() {
                       key={lang.code}
                       onClick={() => handleLanguageSelect(lang.code)}
                       className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors ${
-                        language === lang.code ? "font-bold text-accent bg-gray-50" : "text-gray-700"
+                        language === lang.code
+                          ? "font-bold text-accent bg-gray-50"
+                          : "text-gray-700"
                       }`}
                     >
                       {lang.label}
@@ -186,7 +204,9 @@ export default function Footer() {
               )}
             </div>
 
-            <h3 className="text-lg font-semibold text-gray-800 pt-4">{text.contactHeading}</h3>
+            <h3 className="text-lg font-semibold text-gray-800 pt-4">
+              {text.contactHeading}
+            </h3>
             <p className="text-sm">
               <span className="font-medium">{text.email} </span>
               <a
