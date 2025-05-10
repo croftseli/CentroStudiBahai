@@ -140,7 +140,7 @@ export default function Footer() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://www.facebook.com/centre.for.bahai.studies/"
+                href="https://www.facebook.com/profile.php?id=61550518948072"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"

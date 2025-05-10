@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
-
+// TODO: bigger, centered card titles. Hover animation and click function
 // Background image animation variants
 const bgVariants = {
   initial: { scale: 1.01 },
@@ -95,7 +95,6 @@ export default function Hero() {
     "/view1.jpg",
     "/view2.jpg",
     "/view3.jpg",
-    "/view4.jpg",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

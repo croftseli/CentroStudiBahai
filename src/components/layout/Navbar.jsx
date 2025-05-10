@@ -177,7 +177,7 @@ export default function Navbar() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://www.facebook.com/centre.for.bahai.studies/"
+                href="https://www.facebook.com/profile.php?id=61550518948072"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-gray-600 hover:text-accent transition-colors"
