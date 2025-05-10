@@ -30,7 +30,6 @@ export default function Navbar() {
     en: [
       { href: "/", label: "Home" },
       { href: "/calendar", label: "Calendar" },
-      { href: "/ourStory", label: "Our Story" },
       { href: "/surroundings", label: "Surroundings" },
       { href: "/services", label: "Services" },
       { href: "/contactUs", label: "Contact Us" },
@@ -38,7 +37,6 @@ export default function Navbar() {
     it: [
       { href: "/it", label: "Home" },
       { href: "/it/calendar", label: "Calendario" },
-      { href: "/it/ourStory", label: "La Nostra Storia" },
       { href: "/it/surroundings", label: "Dintorni" },
       { href: "/it/services", label: "Servizi" },
       { href: "/it/contactUs", label: "Contattaci" },
@@ -248,7 +246,7 @@ export default function Navbar() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://www.facebook.com/centre.for.bahai.studies/"
+                href="https://www.facebook.com/profile.php?id=61550518948072"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-gray-600 hover:text-accent transition-colors"

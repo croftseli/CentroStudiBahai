@@ -38,7 +38,6 @@ export default function Footer() {
       links: [
         { href: "/", label: "Home" },
         { href: "/calendar", label: "Calendar" },
-        { href: "/ourStory", label: "Our Story" },
         { href: "/surroundings", label: "Surroundings" },
         { href: "/services", label: "Services" },
         { href: "/contactUs", label: "Contact Us" },
@@ -62,7 +61,6 @@ export default function Footer() {
       links: [
         { href: "/it", label: "Home" },
         { href: "/it/calendar", label: "Calendario" },
-        { href: "/it/ourStory", label: "La Nostra Storia" },
         { href: "/it/surroundings", label: "Dintorni" },
         { href: "/it/services", label: "Servizi" },
         { href: "/it/contactUs", label: "Contattaci" },
@@ -152,7 +150,7 @@ export default function Footer() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://www.facebook.com/centre.for.bahai.studies/"
+                href="https://www.facebook.com/profile.php?id=61550518948072"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
