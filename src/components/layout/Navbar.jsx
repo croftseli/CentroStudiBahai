@@ -203,7 +203,7 @@ export default function Navbar() {
                   className="rounded"
                 />
                 <span className="hidden md:block text-xl font-bold tracking-wide">
-                  Centro Studi Baha'i
+                  Centro Studi Baháʼí
                 </span>
               </div>
             </Link>
