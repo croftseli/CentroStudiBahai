@@ -49,7 +49,7 @@ const fancySectionVariants = {
 
 // Content for English language
 const text = {
-  welcome: "Benvenuti nel Nostro Rifugio Sacro",
+  welcome: "Benvenuto nella tua casa lontano da casa",
   tagline:
     "Vivi la tranquillità della natura, la tradizione e il comfort moderno in un unico posto.",
   bookButton: "Richiedi informazioni sul tuo soggiorno",
