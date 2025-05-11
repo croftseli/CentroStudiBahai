@@ -53,7 +53,7 @@ export default function ContactForm() {
                 name="name"
                 value={formData.name}
                 onChange={handleFormChange}
-                className="w-full p-3 border border-[#5C4033]  rounded-md"
+                className="w-full p-3 border border-gray-300 rounded-md"
                 placeholder="Your name"
                 required
               />
@@ -67,7 +67,7 @@ export default function ContactForm() {
                 name="email"
                 value={formData.email}
                 onChange={handleFormChange}
-                className="w-full p-3 border border-[#5C4033]  rounded-md"
+                className="w-full p-3 border border-gray-300 rounded-md"
                 placeholder="Your email address"
                 required
               />
@@ -82,14 +82,14 @@ export default function ContactForm() {
               value={formData.message}
               onChange={handleFormChange}
               rows="5"
-              className="w-full p-3 border border-[#5C4033]  rounded-md"
+              className="w-full p-3 border border-gray-300 rounded-md"
               placeholder="Please let us know what we can help you with or you can leave your feedback here as well (If you want to leave an anonymous review, please fill in your name and email as anonymous@email.com)"
               required
             />
           </div>
           <button
             type="submit"
-            className="bg-accent-red hover:bg-accent-red/80 text-dark-brown px-6 py-3 rounded-lg font-medium transition-colors border border-[#5C4033]"
+            className="bg-accent-red hover:bg-accent-red/80 text-white px-6 py-3 rounded-full font-medium transition-colors"
           >
             Send Message
           </button>
