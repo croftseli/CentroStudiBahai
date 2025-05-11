@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import emailjs from "emailjs-com";
 
-export default function ContactForm() {
+export default function ContactUs() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,7 +10,8 @@ export default function ContactForm() {
   });
 
   const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmitForm = (e) => {
