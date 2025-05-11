@@ -1,5 +1,6 @@
-"use client";
+import SimpleCalendar from "./simpleCalendar";
 
+<<<<<<< HEAD:src/app/ourStory/page.jsx
 export default function ourStory() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-soft-cream text-dark-brown px-4 text-center">
@@ -20,5 +21,12 @@ export default function ourStory() {
         .
       </div>
     </div>
+=======
+export default function CalendarPage() {
+  return (
+    <main>
+      <SimpleCalendar />
+    </main>
+>>>>>>> ccff4c973bd1abbc944c3e607c227f5d36db9d58:src/app/it/calendar/page.jsx
   );
 }
