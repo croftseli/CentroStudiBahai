@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
-export default function ContactUs() {
+export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,15 +11,30 @@ export default function ContactUs() {
   });
 
   const handleFormChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send to API or email)
-    console.log("Form submitted: ", formData);
-    setFormData({ name: "", email: "", message: "" }); // Reset form
+
+    emailjs
+      .send(
+        "service_bremis8", // Replace with your actual service ID
+        "template_6vkoxic", // Replace with your actual template ID
+        formData,
+        "el3REInqe6tNtlj9N" // Replace with your actual public key
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          alert("Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (err) => {
+          console.error("FAILED...", err);
+          alert("There was an error sending your message.");
+        }
+      );
   };
 
   return (
