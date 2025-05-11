@@ -30,7 +30,6 @@ export default function Navbar() {
     en: [
       { href: "/", label: "Home" },
       { href: "/calendar", label: "Calendar" },
-      { href: "/ourStory", label: "Our Story" },
       { href: "/surroundings", label: "Surroundings" },
       { href: "/activities", label: "Services" },
       { href: "/contactUs", label: "Contact Us" },
