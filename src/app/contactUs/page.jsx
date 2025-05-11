@@ -19,10 +19,10 @@ export default function ContactForm() {
 
     emailjs
       .send(
-        "service_bremis8", // Replace with your actual service ID
-        "template_6vkoxic", // Replace with your actual template ID
+        "service_bremis8",
+        "template_6vkoxic",
         formData,
-        "el3REInqe6tNtlj9N" // Replace with your actual public key
+        "el3REInqe6tNtlj9N"
       )
       .then(
         (response) => {
