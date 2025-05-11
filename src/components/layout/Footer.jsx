@@ -38,7 +38,6 @@ export default function Footer() {
       links: [
         { href: "/", label: "Home" },
         { href: "/calendar", label: "Calendar" },
-        { href: "/ourStory", label: "Our Story" },
         { href: "/surroundings", label: "Surroundings" },
         { href: "/activities", label: "Activities" },
         { href: "/contactUs", label: "Contact Us" },
@@ -62,7 +61,6 @@ export default function Footer() {
       links: [
         { href: "/it", label: "Home" },
         { href: "/it/calendar", label: "Calendario" },
-        { href: "/it/ourStory", label: "La Nostra Storia" },
         { href: "/it/surroundings", label: "Dintorni" },
         { href: "/it/activities", label: "Attività" },
         { href: "/it/contactUs", label: "Contattaci" },

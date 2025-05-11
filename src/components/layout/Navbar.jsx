@@ -37,7 +37,6 @@ export default function Navbar() {
     it: [
       { href: "/it", label: "Home" },
       { href: "/it/calendar", label: "Calendario" },
-      { href: "/it/ourStory", label: "La Nostra Storia" },
       { href: "/it/surroundings", label: "Dintorni" },
       { href: "/it/activities", label: "Servizi" },
       { href: "/it/contactUs", label: "Contattaci" },

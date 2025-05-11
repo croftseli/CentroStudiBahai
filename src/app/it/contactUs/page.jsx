@@ -19,42 +19,42 @@ export default function ContactForm() {
 
     emailjs
       .send(
-        "service_bremis8", // Replace with your actual service ID
-        "template_6vkoxic", // Replace with your actual template ID
+        "service_bremis8",
+        "template_6vkoxic",
         formData,
-        "el3REInqe6tNtlj9N" // Replace with your actual public key
+        "el3REInqe6tNtlj9N"
       )
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
-          alert("Message sent successfully!");
+          alert("Messaggio inviato con successo!");
           setFormData({ name: "", email: "", message: "" });
         },
         (err) => {
-          console.error("FAILED...", err);
-          alert("There was an error sending your message.");
+          console.error("FALLITO...", err);
+          alert("Si è verificato un errore durante l'invio del messaggio.");
         }
       );
   };
 
   return (
     <div className="container mx-auto px-6 py-12">
-      {/* Contact Form */}
+      {/* Modulo di Contatto */}
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-dark-brown mb-6">
-          Contact Us
+          Contattaci
         </h2>
         <form onSubmit={handleSubmitForm} className="space-y-6">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="w-full md:w-1/2">
-              <label className="block text-lg text-dark-brown mb-2">Name</label>
+              <label className="block text-lg text-dark-brown mb-2">Nome</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleFormChange}
-                className="w-full p-3 border border-[#5C4033]  rounded-md"
-                placeholder="Your name"
+                className="w-full p-3 border border-[#5C4033] rounded-md"
+                placeholder="Il tuo nome"
                 required
               />
             </div>
@@ -67,23 +67,23 @@ export default function ContactForm() {
                 name="email"
                 value={formData.email}
                 onChange={handleFormChange}
-                className="w-full p-3 border border-[#5C4033]  rounded-md"
-                placeholder="Your email address"
+                className="w-full p-3 border border-[#5C4033] rounded-md"
+                placeholder="Il tuo indirizzo email"
                 required
               />
             </div>
           </div>
           <div>
             <label className="block text-lg text-dark-brown mb-2">
-              Message
+              Messaggio
             </label>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleFormChange}
               rows="5"
-              className="w-full p-3 border border-[#5C4033]  rounded-md"
-              placeholder="Please let us know what we can help you with or you can leave your feedback here as well (If you want to leave an anonymous review, please fill in your name and email as anonymous@email.com)"
+              className="w-full p-3 border border-[#5C4033] rounded-md"
+              placeholder="Facci sapere come possiamo aiutarti oppure lascia un tuo commento. (Se desideri lasciare un feedback anonimo, inserisci nome ed email come anonymous@email.com)"
               required
             />
           </div>
@@ -91,80 +91,84 @@ export default function ContactForm() {
             type="submit"
             className="bg-accent-red hover:bg-accent-red/80 text-dark-brown px-6 py-3 rounded-lg font-medium transition-colors border border-[#5C4033] cursor-pointer"
           >
-            Send Message
+            Invia Messaggio
           </button>
         </form>
       </section>
 
-      {/* FAQ Section */}
+      {/* Sezione FAQ */}
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-dark-brown mb-6">
-          Frequently Asked Questions
+          Domande Frequenti
         </h2>
         <div className="space-y-4">
           <div className="transition-colors">
-            <p className="font-medium text-lg">How can I book a room?</p>
+            <p className="font-medium text-lg">
+              Come posso prenotare una stanza?
+            </p>
             <p className="text-gray-500">
-              You can book a room directly through our website or by contacting
-              us via the contact form.
+              Puoi prenotare una stanza direttamente dal nostro sito o
+              contattandoci tramite il modulo di contatto.
             </p>
           </div>
           <div className="transition-colors">
             <p className="font-medium text-lg">
-              What are the check-in/check-out times?
+              Quali sono gli orari di check-in e check-out?
             </p>
             <p className="text-gray-500">
-              Our check-in time is from 2:00 PM, and check-out is by 11:00 AM.
-              If you need flexibility, please let us know.
+              Il check-in è disponibile dalle 14:00, mentre il check-out è entro
+              le 11:00. Se hai bisogno di flessibilità, faccelo sapere.
             </p>
           </div>
           <div className="transition-colors">
-            <p className="font-medium text-lg">Is breakfast included?</p>
+            <p className="font-medium text-lg">La colazione è inclusa?</p>
             <p className="text-gray-500">
-              Yes, breakfast is included with your stay. We offer a variety of
-              options, including vegetarian and vegan choices.
+              Sì, la colazione è inclusa nel soggiorno. Offriamo diverse
+              opzioni, incluse quelle vegetariane e vegane.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Phone Numbers and Emails Section */}
+      {/* Sezione Contatti */}
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-dark-brown mb-6">
-          Contact Details
+          Dettagli di Contatto
         </h2>
         <div className="grid gap-4 md:grid-cols-2 text-lg text-gray-700">
           <div>
-            <h3 className="font-medium text-dark-brown mb-2">Phone Numbers</h3>
+            <h3 className="font-medium text-dark-brown mb-2">
+              Numeri di Telefono
+            </h3>
             <ul className="space-y-1">
               <li>Reception: +39 0775 56061</li>
-              <li>Customer Support: +39 351 912 0094</li>
+              <li>Assistenza Clienti: +39 351 912 0094</li>
               <li>WhatsApp: +39 351 483 4549</li>
             </ul>
           </div>
           <div>
             <h3 className="font-medium text-dark-brown mb-2">
-              Email Addresses
+              Indirizzi Email
             </h3>
             <ul className="space-y-1">
-              <li>General Inquiries: lapanoramicahotel@bahai.it</li>
-              <li>Bookings: lapanoramicahotel@gmail.com</li>
+              <li>Informazioni generali: lapanoramicahotel@bahai.it</li>
+              <li>Prenotazioni: lapanoramicahotel@gmail.com</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Mappa */}
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-dark-brown mb-6">
-          Find Us Here
+          Dove Siamo
         </h2>
         <div className="w-full h-64 bg-gray-200 rounded-md mb-4">
-          {/* Replace with actual map component or iframe */}
-          <p className="text-center pt-24 text-gray-500">Map Placeholder</p>
+          {/* Sostituire con mappa reale */}
+          <p className="text-center pt-24 text-gray-500">Segnaposto Mappa</p>
         </div>
         <p className="text-lg text-gray-700">
-          Via Giovanni Falcone, 7, ex Capodimonte, 49, Acuto, Lazio, Italy,
+          Via Giovanni Falcone, 7, ex Capodimonte, 49, Acuto, Lazio, Italia,
           03010
         </p>
       </section>
