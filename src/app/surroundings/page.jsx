@@ -39,13 +39,13 @@ export default function Explore() {
             <li>Campo Staffi Ski Resort – 47 km</li>
           </ul>
         </div>
-        <Image
+        {/* <Image
           src="/images/fiuggi.jpg"
           alt="Fiuggi Thermal Centre"
           width={600}
           height={400}
           className="rounded-xl shadow"
-        />
+        /> */}
       </section>
 
       <section className="space-y-6">
@@ -57,13 +57,13 @@ export default function Explore() {
           The region is known for its extra virgin olive oil and sheep and goat
           cheeses—some of the most sought-after products in the area.
         </p>
-        <Image
+        {/* <Image
           src="/images/olive-groves.jpg"
           alt="Olive groves"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"
-        />
+        /> */}
       </section>
 
       <section className="space-y-6">
@@ -112,13 +112,13 @@ export default function Explore() {
               </li>
             </ul>
           </div>
-          <Image
+          {/* <Image
             src="/images/ciociaria.jpg"
             alt="Ciociaria landscape"
             width={600}
             height={400}
             className="rounded-xl shadow"
-          />
+          /> */}
         </div>
       </section>
 
@@ -131,13 +131,13 @@ export default function Explore() {
           region, perfect for skiing until late April. Campo Staffi and
           Campocatino are two of central Italy’s most loved resorts.
         </p>
-        <Image
+        {/* <Image
           src="/images/hikind-trails.jpg"
           alt="Skiing in Campo Staffi"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"
-        />
+        /> */}
       </section>
     </main>
   );

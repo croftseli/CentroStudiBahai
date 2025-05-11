@@ -19,13 +19,13 @@ export default function ActivitiesPage() {
           adaptable to your needs and ideal for seminars, conferences, and group
           discussions.
         </p>
-        <Image
+        {/* <Image
           src="/images/conference-room.jpg"
           alt="Conference Room"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       {/* Team Building & Retreats */}
@@ -40,13 +40,13 @@ export default function ActivitiesPage() {
           nature — you'll find the right balance of activity and calm to boost
           group morale.
         </p>
-        <Image
+        {/* <Image
           src="/images/team-retreat.jpg"
           alt="Team Building in Nature"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       {/* Family Reunions & Weddings */}
@@ -69,13 +69,13 @@ export default function ActivitiesPage() {
           romantic setting — with experienced staff assisting from ceremony to
           reception, and a restaurant ready to delight with refined dishes.
         </p>
-        <Image
+        {/* <Image
           src="/images/wedding-view.jpg"
           alt="Wedding with a view"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       {/* Yoga & Martial Arts Retreats */}
@@ -89,13 +89,13 @@ export default function ActivitiesPage() {
           indoor halls and tranquil outdoor areas provide the right conditions
           for both meditation and movement.
         </p>
-        <Image
+        {/* <Image
           src="/images/yoga-retreat.jpg"
           alt="Yoga Retreat"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       {/* Slow Tourism & Biking */}
@@ -109,13 +109,13 @@ export default function ActivitiesPage() {
           hidden gems at your own pace while contributing to environmental
           wellbeing.
         </p>
-        <Image
+        {/* <Image
           src="/images/bike-tour.jpg"
           alt="Cycling in Ciociaria"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       <section className="text-center mt-12">

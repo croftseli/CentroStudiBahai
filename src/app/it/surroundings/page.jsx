@@ -10,8 +10,8 @@ export default function ExploreSurroundingsItalian() {
           Esplora i Dintorni
         </h1>
         <p className="text-lg text-gray-700 mb-6">
-          Dove andiamo? Cosa facciamo? Cosa mangiamo? Lasciati guidare attraverso 
-          gli affascinanti dintorni della nostra regione.
+          Dove andiamo? Cosa facciamo? Cosa mangiamo? Lasciati guidare
+          attraverso gli affascinanti dintorni della nostra regione.
         </p>
         <a
           href="https://comune.acuto.fr.it/"
@@ -39,13 +39,13 @@ export default function ExploreSurroundingsItalian() {
             <li>Stazione sciistica di Campo Staffi – 47 km</li>
           </ul>
         </div>
-        <Image
+        {/* <Image
           src="/images/fiuggi.jpg"
           alt="Centro Termale di Fiuggi"
           width={600}
           height={400}
           className="rounded-xl shadow"
-        />
+        /> */}
       </section>
 
       <section className="space-y-6">
@@ -57,13 +57,13 @@ export default function ExploreSurroundingsItalian() {
           La regione è nota per il suo olio extravergine d'oliva e formaggi di
           pecora e capra—alcuni dei prodotti più ricercati della zona.
         </p>
-        <Image
+        {/* <Image
           src="/images/olive-groves.jpg"
           alt="Uliveti"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"
-        />
+        /> */}
       </section>
 
       <section className="space-y-6">
@@ -71,7 +71,7 @@ export default function ExploreSurroundingsItalian() {
           Scopri la Ciociaria
         </h2>
         <p className="text-gray-700">
-          La regione della Ciociaria offre un ricco mix di bellezze culturali, 
+          La regione della Ciociaria offre un ricco mix di bellezze culturali,
           storiche e naturali—dalle antiche città ai ritiri spirituali.
         </p>
         <div className="grid md:grid-cols-2 gap-8">
@@ -81,44 +81,49 @@ export default function ExploreSurroundingsItalian() {
             </h3>
             <ul className="text-gray-700 list-disc list-inside space-y-2">
               <li>
-                Anagni – La Città dei Papi, nota per la sua storia medievale e 
+                Anagni – La Città dei Papi, nota per la sua storia medievale e
                 il suo significato religioso
               </li>
               <li>
-                Alatri – Famosa per le sue antiche mura poligonali e l'Acropoli 
+                Alatri – Famosa per le sue antiche mura poligonali e l'Acropoli
                 ben conservata
               </li>
               <li>
-                Ferentino – Una città leggendaria fondata da Saturno, con possenti 
-                mura di pietra
+                Ferentino – Una città leggendaria fondata da Saturno, con
+                possenti mura di pietra
               </li>
               <li>
-                Fiuggi – Una delle principali destinazioni termali d'Europa con 
+                Fiuggi – Una delle principali destinazioni termali d'Europa con
                 acque curative
               </li>
               <li>
-                Fumone – Città fortezza medievale, un tempo prigione di Papa Celestino V
-              </li>
-              <li>Vico nel Lazio – Un villaggio medievale perfettamente conservato</li>
-              <li>
-                Guarcino – Noto per il suo prosciutto e i bellissimi paesaggi montani
+                Fumone – Città fortezza medievale, un tempo prigione di Papa
+                Celestino V
               </li>
               <li>
-                Certosa di Trisulti – Un monastero di montagna con un'antica 
+                Vico nel Lazio – Un villaggio medievale perfettamente conservato
+              </li>
+              <li>
+                Guarcino – Noto per il suo prosciutto e i bellissimi paesaggi
+                montani
+              </li>
+              <li>
+                Certosa di Trisulti – Un monastero di montagna con un'antica
                 farmacia e biblioteca
               </li>
               <li>
-                Filettino – La città più alta del Lazio, meta per sci ed escursioni
+                Filettino – La città più alta del Lazio, meta per sci ed
+                escursioni
               </li>
             </ul>
           </div>
-          <Image
+          {/* <Image
             src="/images/ciociaria.jpg"
             alt="Paesaggio della Ciociaria"
             width={600}
             height={400}
             className="rounded-xl shadow"
-          />
+          /> */}
         </div>
       </section>
 
@@ -127,17 +132,17 @@ export default function ExploreSurroundingsItalian() {
           Sci e Avventura
         </h2>
         <p className="text-gray-700">
-          Le cime innevate dei monti Simbruini ed Ernici circondano la regione, 
-          perfette per sciare fino a fine aprile. Campo Staffi e Campocatino 
+          Le cime innevate dei monti Simbruini ed Ernici circondano la regione,
+          perfette per sciare fino a fine aprile. Campo Staffi e Campocatino
           sono due delle stazioni sciistiche più amate dell'Italia centrale.
         </p>
-        <Image
+        {/* <Image
           src="/images/ski-resort.jpg"
           alt="Sciare a Campo Staffi"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"
-        />
+        /> */}
       </section>
     </main>
   );

@@ -19,13 +19,13 @@ export default function AttivitaPage() {
           piccole, adattabili alle vostre esigenze e ideali per seminari,
           conferenze e discussioni di gruppo.
         </p>
-        <Image
+        {/* <Image
           src="/images/conference-room.jpg"
           alt="Sala Conferenze"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       {/* Team Building e Ritiri */}
@@ -41,13 +41,13 @@ export default function AttivitaPage() {
           equilibrio tra attività e tranquillità per rafforzare lo spirito di
           gruppo.
         </p>
-        <Image
+        {/* <Image
           src="/images/team-retreat.jpg"
           alt="Team Building nella Natura"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       {/* Riunioni di Famiglia e Matrimoni */}
@@ -72,13 +72,13 @@ export default function AttivitaPage() {
           cerimonia al ricevimento, e un ristorante pronto a deliziarvi con
           piatti raffinati.
         </p>
-        <Image
+        {/* <Image
           src="/images/wedding-view.jpg"
           alt="Matrimonio con vista"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       {/* Ritiri Yoga e Arti Marziali */}
@@ -92,13 +92,13 @@ export default function AttivitaPage() {
           pacifici. Ampie sale interne e aree esterne tranquille offrono le
           condizioni ideali per meditazione e movimento.
         </p>
-        <Image
+        {/* <Image
           src="/images/yoga-retreat.jpg"
           alt="Ritiro Yoga"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       {/* Turismo Lento e Bici */}
@@ -111,13 +111,13 @@ export default function AttivitaPage() {
           classici che attraversano la bellezza naturale del Lazio. Scopri gemme
           nascoste al tuo ritmo, contribuendo al benessere ambientale.
         </p>
-        <Image
+        {/* <Image
           src="/images/bike-tour.jpg"
           alt="Ciclismo in Ciociaria"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
-        />
+        /> */}
       </section>
 
       <section className="text-center mt-12">
