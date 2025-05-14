@@ -55,7 +55,7 @@ export default function CalendarClient() {
       </div>
 
       {/* Manual Event Cards */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {events.map((event) => (
           <div
             key={event.id}
@@ -71,7 +71,7 @@ export default function CalendarClient() {
             <p className="text-gray-700">{event.description}</p>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
