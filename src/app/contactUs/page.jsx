@@ -19,10 +19,10 @@ export default function ContactForm() {
 
     emailjs
       .send(
-        "service_bremis8", // Replace with your actual service ID
-        "template_6vkoxic", // Replace with your actual template ID
+        "service_bremis8",
+        "template_6vkoxic",
         formData,
-        "el3REInqe6tNtlj9N" // Replace with your actual public key
+        "el3REInqe6tNtlj9N"
       )
       .then(
         (response) => {
@@ -160,7 +160,7 @@ export default function ContactForm() {
           Find Us Here
         </h2>
         <div className="w-full h-64 bg-gray-200 rounded-md mb-4">
-          {/* Replace with actual map component or iframe */}
+          {/*TODO: Replace with actual map component or iframe */}
           <p className="text-center pt-24 text-gray-500">Map Placeholder</p>
         </div>
         <p className="text-lg text-gray-700">
