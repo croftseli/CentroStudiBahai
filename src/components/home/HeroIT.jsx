@@ -50,7 +50,7 @@ const fancySectionVariants = {
 
 // Content for English language
 const text = {
-  welcome: "Benvenuto nella tua casa lontano da casa",
+  welcome: "Benvenuto a Casa!",
   tagline:
     "Vivi la tranquillità della natura, la tradizione e il comfort moderno in un unico posto.",
   bookButton: "Richiedi informazioni sul tuo soggiorno",

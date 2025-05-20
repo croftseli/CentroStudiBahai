@@ -51,7 +51,7 @@ const fancySectionVariants = {
 // Content for different languages
 const content = {
   en: {
-    welcome: "Welcome to Our Sacred Retreat",
+    welcome: "Welcome Home!",
     tagline:
       "Experience the tranquility of nature, tradition, and modern comfort in one place.",
     bookButton: "Inquire about your stay",
