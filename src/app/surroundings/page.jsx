@@ -36,7 +36,6 @@ export default function Explore() {
             <li>Naples – 180 km (1½ hours)</li>
             <li>Valmontone Outlet – 30 km</li>
             <li>Campocatino Ski Resort – 40 km</li>
-            <li>Campo Staffi Ski Resort – 47 km</li>
           </ul>
         </div>
         {/* <Image
@@ -77,7 +76,7 @@ export default function Explore() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-dark-brown">
-              Highlights
+              To experience!
             </h3>
             <ul className="text-gray-700 list-disc list-inside space-y-2">
               <li>
@@ -126,11 +125,7 @@ export default function Explore() {
         <h2 className="text-2xl font-semibold text-dark-brown">
           Hiking and Biking Trails
         </h2>
-        <p className="text-gray-700">
-          Snow-capped peaks of the Simbruini and Ernici mountains surround the
-          region, perfect for skiing until late April. Campo Staffi and
-          Campocatino are two of central Italy’s most loved resorts.
-        </p>
+        <p className="text-gray-700">Ask for our professional guides!</p>
         {/* <Image
           src="/images/hikind-trails.jpg"
           alt="Skiing in Campo Staffi"

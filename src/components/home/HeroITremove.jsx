@@ -52,31 +52,31 @@ const fancySectionVariants = {
 const text = {
   welcome: "Benvenuto a Casa!",
   tagline:
-    "Vivi la tranquillità della natura, la tradizione e il comfort moderno in un unico posto.",
-  bookButton: "Richiedi informazioni sul tuo soggiorno",
+    "Vivi la tranquillità della natura e l'energia dell'incontro in un unico luogo.",
+  bookButton: "Contattaci per prenotare!",
   mission: "La Nostra Missione",
   missionText:
-    "A Spirit Grove crediamo nel potere trasformativo della natura, della consapevolezza e della comunità. La nostra missione è fornire un ambiente sereno e di supporto dove gli ospiti possono riconnettersi con se stessi e con il mondo che li circonda.",
-  activities: "Servizi",
-  activity1Title: "Incontri Comunitari",
+    "La nostra missione è fornire un ambiente sereno, un rifugio confortevole, dove gli ospiti possono riconnettersi con sé stessi e con il mondo che li circonda, sviluppare nuove capacità, scoprire altre realtà e progettare insieme.",
+  activities: "OSPITIAMO",
+  activity1Title: "INCONTRI",
   activity1Text:
-    "Partecipa a eventi locali e incontri con musica, poesia e celebrazioni culturali che incarnano l'unità e la riflessione collettiva.",
-  activity2Title: "Tour Guidati ed Escursioni",
+    "Partecipa a conferenze, ritiri, incontri comunitari, di studio e di espressioni artistiche, celebrazioni culturali che incarnano l'unità e la riflessione collettiva.",
+  activity2Title: "TOUR GUIDATI ED ESCURSIONI",
   activity2Text:
-    "Esplora i vicoli storici di Acuto e i sentieri montuosi mozzafiato. Scopri antiche chiese, torri medievali e sereni panorami naturali nei nostri tour guidati.",
-  activity3Title: "Festival Stagionali",
+    "Esplora i vicoli storici di Acuto, le meraviglie dell’antica Roma, la suggestiva Napoli, le fonti di Fiuggi, la Cattedrale di Anagni, le mura ciclopiche di Alatri, i gioielli di borghi laziali. Sfida te stesso sui percorsi ciclistici ed i sentieri montuosi mozzafiato dei colli Ernici e Simbruini. Scopri antiche chiese, torri medievali e sereni panorami naturali anche con tour guidati.",
+  activity3Title: "FESTIVAL STAGIONALI",
   activity3Text:
-    "Goditi le festività regionali come concerti jazz, fiere d'arte ed eventi culinari tradizionali che celebrano il ricco patrimonio della Ciociaria.",
-  surroundings: "Dintorni",
-  surroundings1Title: "Acuto Storico",
+    "Goditi gli eventi regionali come concerti jazz, fiere d'arte e tradizione, eventi culinari e sociali che celebrano il ricco patrimonio della Ciociaria.",
+  surroundings: "I NOSTRI DINTORNI OFFRONO:",
+  surroundings1Title: "ACUTO STORICO",
   surroundings1Text:
-    "Immergiti nel passato di Acuto passeggiando per stretti vicoli acciottolati, antichi archi e chiese storiche risalenti all'epoca pre-romana.",
-  surroundings2Title: "Paesaggi Naturali",
+    "Immergiti nel passato di Acuto passeggiando per stretti vicoli acciottolati, antichi archi e chiese storiche risalenti al V secolo DC.",
+  surroundings2Title: "PAESAGGI NATURALI",
   surroundings2Text:
-    "Goditi boschi di castagni, uliveti e vigneti ondulati sotto le maestose montagne degli Appennini, accompagnati da un sereno lago.",
-  surroundings3Title: "Cultura Locale",
+    "Goditi boschi di castagni, uliveti e vigneti ondulati sotto le maestose montagne degli Appennini, raggiungete il sereno lago di Canterno.",
+  surroundings3Title: "CULTURA LOCALE",
   surroundings3Text:
-    "Assapora i sapori locali come il vino Cesanese e i formaggi artigianali mentre esplori l'artigianato tradizionale e i costumi della regione Ciociaria.",
+    "Assapora le eccellenze del territorio come l’olio extravergine di oliva e i formaggi artigianali mentre esplori l'artigianato tradizionale e i costumi della Ciociaria.",
 };
 
 export default function HeroItalian() {

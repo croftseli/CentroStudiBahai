@@ -147,8 +147,8 @@ export default function ContactForm() {
               Email Addresses
             </h3>
             <ul className="space-y-1">
-              <li>General Inquiries: lapanoramicahotel@bahai.it</li>
-              <li>Bookings: lapanoramicahotel@gmail.com</li>
+              <li>General Inquiries: info@centrostudibahai.it</li>
+              <li>Bookings: centrostudibahai@gmail.com</li>
             </ul>
           </div>
         </div>

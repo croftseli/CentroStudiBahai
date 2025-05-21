@@ -19,7 +19,7 @@ export default function AttivitaPage() {
           è essenziale per un lavoro concentrato ed efficace. Il nostro centro è
           dotato sia di una grande sala conferenze che di sale riunioni più
           piccole, adattabili alle vostre esigenze e ideali per seminari,
-          conferenze e discussioni di gruppo.
+          conferenze e workshops di gruppo.
         </p>
         {/* <Image
           src="/images/conference-room.jpg"
@@ -36,12 +36,13 @@ export default function AttivitaPage() {
           Team Building e Ritiri
         </h2>
         <p className="text-lg mb-4">
-          Ideale per piccoli gruppi che cercano connessione e rinnovamento, la
-          nostra location offre diverse attività di team building.
-          Dall'equitazione al rafting, dal trekking alle escursioni culturali —
-          o semplicemente rilassarsi nella natura — troverete il giusto
-          equilibrio tra attività e tranquillità per rafforzare lo spirito di
-          gruppo.
+          Ideale per piccoli gruppi che cercano connessione e rinnovamento, i
+          nostri dintorni offrono diverse attività di team building.
+          Dall'equitazione al rafting sul fiume Aniene, dal parapendio sul monte
+          Scalambra all’arrampicata libera a Pilarocca, dal trekking alle
+          escursioni culturali — o semplicemente rilassarsi e meditare a
+          contatto con la natura — troverete il giusto equilibrio tra attività e
+          tranquillità per rafforzare lo spirito di gruppo.
         </p>
         {/* <Image
           src="/images/team-retreat.jpg"
@@ -58,15 +59,14 @@ export default function AttivitaPage() {
           Riunioni di Famiglia e Matrimoni
         </h2>
         <p className="text-lg mb-2">
-          Che si tratti di riunire i propri cari o organizzare il matrimonio dei
-          vostri sogni, il nostro centro offre un ambiente indimenticabile. Le
-          sale conferenze e gli spazi esterni possono ospitare gruppi intimi o
-          numerosi.
+          Che si tratti di riunire i propri cari o di organizzare il matrimonio
+          dei vostri sogni, il nostro centro offre un ambiente indimenticabile.
+          Le sale conferenze e gli spazi esterni possono ospitare gruppi intimi
+          o numerosi.
         </p>
         <p className="text-lg mb-2">
-          I bambini possono divertirsi nel campo da basket e nelle aree gioco
-          all'aperto, mentre gli adulti possono gustare un caffè italiano o un
-          tè persiano sotto il glicine o sulla nostra terrazza panoramica.
+          Potete gustare un caffè italiano o un tè persiano sotto il glicine o
+          sulla nostra terrazza panoramica.
         </p>
         <p className="text-lg mb-4">
           Per i matrimoni, lasciate che lo sfondo delle colline ciociare sia la
@@ -89,10 +89,10 @@ export default function AttivitaPage() {
           Ritiri di Yoga e Arti Marziali
         </h2>
         <p className="text-lg mb-4">
-          Da oltre 20 anni, gruppi che praticano yoga, tai chi, taekwondo e
-          altro utilizzano le nostre strutture per ritiri rigeneranti e
-          pacifici. Ampie sale interne e aree esterne tranquille offrono le
-          condizioni ideali per meditazione e movimento.
+          Da oltre 20 anni, gruppi che praticano yoga, tai chi e taekwondo
+          utilizzano le nostre strutture per ritiri rigeneranti. Ampie sale
+          interne e aree esterne tranquille offrono le condizioni ideali per
+          meditazione e movimento.
         </p>
         {/* <Image
           src="/images/yoga-retreat.jpg"
@@ -111,7 +111,8 @@ export default function AttivitaPage() {
         <p className="text-lg mb-4">
           Abbraccia il viaggio sostenibile con e-bike e percorsi ciclistici
           classici che attraversano la bellezza naturale del Lazio. Scopri gemme
-          nascoste al tuo ritmo, contribuendo al benessere ambientale.
+          nascoste seguendo il tuo ritmo personale e contribuendo al benessere
+          ambientale.
         </p>
         {/* <Image
           src="/images/bike-tour.jpg"

@@ -15,11 +15,11 @@ export default function ActivitiesPage() {
           Conferences & Trainings
         </h2>
         <p className="text-lg mb-4">
-          A professional and welcoming atmosphere — far from the chaos of city
-          life — is essential for focused and efficient work. Our centre is
-          equipped with both a large conference room and smaller meeting rooms,
-          adaptable to your needs and ideal for seminars, conferences, and group
-          discussions.
+          A professional and welcoming environment-away from city chaos-is
+          essential for concentrated and effective work. Our center has both a
+          large conference room and smaller meeting rooms that can be adapted to
+          your needs and are ideal for seminars, conferences and group
+          workshops.
         </p>
         {/* <Image
           src="/images/conference-room.jpg"
@@ -36,11 +36,13 @@ export default function ActivitiesPage() {
           Team Building & Retreats
         </h2>
         <p className="text-lg mb-4">
-          Ideal for small groups seeking deeper connection and renewal, our
-          location offers various team-building activities. From horse-riding
-          and rafting to hiking and cultural excursions — or simply unwinding in
-          nature — you'll find the right balance of activity and calm to boost
-          group morale.
+          Ideal for small groups seeking connection and renewal, our
+          surroundings offer a variety of team building activities. From
+          horseback riding to rafting on the Aniene river, from paragliding on
+          Mount Scalambra to free climbing at Pilarocca, from trekking to
+          cultural excursions-or simply relaxing and meditating in contact with
+          nature-you'll find the right balance of activity and tranquility to
+          strengthen your group spirit.
         </p>
         {/* <Image
           src="/images/team-retreat.jpg"
@@ -57,19 +59,18 @@ export default function ActivitiesPage() {
           Family Reunions & Weddings
         </h2>
         <p className="text-lg mb-2">
-          Whether you're gathering loved ones or planning your dream wedding,
-          our centre offers an unforgettable setting. The conference rooms and
-          garden spaces can host both intimate and larger groups.
+          Whether you are reuniting with loved ones or planning the wedding of
+          your dreams, our center offers an unforgettable setting. Conference
+          rooms and outdoor spaces can accommodate intimate or large groups.
         </p>
         <p className="text-lg mb-2">
-          Children can enjoy the basketball court and outdoor play spaces, while
-          adults savour Italian coffee or Persian tea under the wisteria or on
-          our panoramic terrace.
+          You can enjoy an Italian coffee or Persian tea under the wisteria or
+          on our rooftop terrace.
         </p>
         <p className="text-lg mb-4">
-          For weddings, let the backdrop of the Ciociarian hills be your
-          romantic setting — with experienced staff assisting from ceremony to
-          reception, and a restaurant ready to delight with refined dishes.
+          For weddings, let the backdrop of the Ciocian hills be your romantic
+          setting -- with experienced staff to assist you from ceremony to
+          reception, and a restaurant ready to delight you with fine dining.
         </p>
         {/* <Image
           src="/images/wedding-view.jpg"
@@ -86,10 +87,10 @@ export default function ActivitiesPage() {
           Yoga & Martial Arts Retreats
         </h2>
         <p className="text-lg mb-4">
-          For over 20 years, groups practising yoga, tai chi, taekwondo and more
-          have used our facilities for peaceful, regenerating retreats. Spacious
-          indoor halls and tranquil outdoor areas provide the right conditions
-          for both meditation and movement.
+          For more than 20 years, groups practicing yoga, tai chi and taekwondo
+          have used our facilities for rejuvenating retreats. Spacious indoor
+          rooms and quiet outdoor areas provide ideal conditions for meditation
+          and movement.
         </p>
         {/* <Image
           src="/images/yoga-retreat.jpg"
@@ -106,10 +107,9 @@ export default function ActivitiesPage() {
           Slow Tourism & Biking
         </h2>
         <p className="text-lg mb-4">
-          Embrace sustainable travel with e-bikes and classic cycling routes
-          that weave through the natural beauty of the Lazio region. Discover
-          hidden gems at your own pace while contributing to environmental
-          wellbeing.
+          Embrace sustainable travel with e-bikes and classic bike routes
+          through Lazio's natural beauty. Discover hidden gems by following your
+          personal pace and contributing to environmental well-being.
         </p>
         {/* <Image
           src="/images/bike-tour.jpg"

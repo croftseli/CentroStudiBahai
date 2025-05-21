@@ -36,7 +36,6 @@ export default function ExploreSurroundingsItalian() {
             <li>Napoli – 180 km (1 ora e mezza)</li>
             <li>Outlet di Valmontone – 30 km</li>
             <li>Stazione sciistica di Campocatino – 40 km</li>
-            <li>Stazione sciistica di Campo Staffi – 47 km</li>
           </ul>
         </div>
         {/* <Image
@@ -53,7 +52,7 @@ export default function ExploreSurroundingsItalian() {
           Natura e Gastronomia
         </h2>
         <p className="text-gray-700">
-          Sentieri, laghi, boschi di castagni e uliveti circondano la struttura.
+          Sentieri, laghi, boschi di castagni e ulivi circondano la struttura.
           La regione è nota per il suo olio extravergine d'oliva e formaggi di
           pecora e capra—alcuni dei prodotti più ricercati della zona.
         </p>
@@ -71,49 +70,51 @@ export default function ExploreSurroundingsItalian() {
           Scopri la Ciociaria
         </h2>
         <p className="text-gray-700">
-          La regione della Ciociaria offre un ricco mix di bellezze culturali,
-          storiche e naturali—dalle antiche città ai ritiri spirituali.
+          Il territorio della Ciociaria offre un ricco mix di bellezze
+          culturali, storiche e naturali—dalle antiche città ai ritiri
+          spirituali.
         </p>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-dark-brown">
-              Punti Salienti
+              Da vivere!
             </h3>
             <ul className="text-gray-700 list-disc list-inside space-y-2">
               <li>
                 Anagni – La Città dei Papi, nota per la sua storia medievale e
-                il suo significato religioso
+                il suo significato religioso.
               </li>
               <li>
                 Alatri – Famosa per le sue antiche mura poligonali e l'Acropoli
-                ben conservata
+                ben conservata.
               </li>
               <li>
                 Ferentino – Una città leggendaria fondata da Saturno, con
-                possenti mura di pietra
+                possenti mura di pietra.
               </li>
               <li>
                 Fiuggi – Una delle principali destinazioni termali d'Europa con
-                acque curative
+                acque curative.
               </li>
               <li>
                 Fumone – Città fortezza medievale, un tempo prigione di Papa
-                Celestino V
+                Celestino V.
               </li>
               <li>
-                Vico nel Lazio – Un villaggio medievale perfettamente conservato
+                Vico nel Lazio – Un villaggio medievale perfettamente
+                conservato.
               </li>
               <li>
                 Guarcino – Noto per il suo prosciutto e i bellissimi paesaggi
-                montani
+                montani.
               </li>
               <li>
                 Certosa di Trisulti – Un monastero di montagna con un'antica
-                farmacia e biblioteca
+                farmacia e biblioteca.
               </li>
               <li>
                 Filettino – La città più alta del Lazio, meta per sci ed
-                escursioni
+                escursioni.
               </li>
             </ul>
           </div>
@@ -129,12 +130,10 @@ export default function ExploreSurroundingsItalian() {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-dark-brown">
-          Sci e Avventura
+          Sentieri per escursioni a piedi e in bicicletta
         </h2>
         <p className="text-gray-700">
-          Le cime innevate dei monti Simbruini ed Ernici circondano la regione,
-          perfette per sciare fino a fine aprile. Campo Staffi e Campocatino
-          sono due delle stazioni sciistiche più amate dell'Italia centrale.
+          Chiedete delle nostre guide professionali!
         </p>
         {/* <Image
           src="/images/ski-resort.jpg"

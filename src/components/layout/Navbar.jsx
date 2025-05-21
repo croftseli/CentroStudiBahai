@@ -31,14 +31,14 @@ export default function Navbar() {
       { href: "/", label: "Home" },
       { href: "/calendar", label: "Calendar" },
       { href: "/surroundings", label: "Surroundings" },
-      { href: "/activities", label: "Services" },
+      { href: "/activities", label: "Activities" },
       { href: "/contactUs", label: "Contact Us" },
     ],
     it: [
       { href: "/it", label: "Home" },
       { href: "/it/calendar", label: "Calendario" },
       { href: "/it/surroundings", label: "Dintorni" },
-      { href: "/it/activities", label: "Servizi" },
+      { href: "/it/activities", label: "Attività" },
       { href: "/it/contactUs", label: "Contattaci" },
     ],
   };
