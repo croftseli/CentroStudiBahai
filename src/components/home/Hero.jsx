@@ -111,13 +111,7 @@ const content = {
 };
 
 export default function Hero() {
-  const heroImages = [
-    "/view1.jpg",
-    "/view2.jpg",
-    "/view_3.jpg",
-    "/view4.jpg",
-    "/view5.jpg",
-  ];
+  const heroImages = ["/view1.jpg", "/view2.jpg", "/view3.jpg", "/view4.jpg"];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const { language } = useLanguage();

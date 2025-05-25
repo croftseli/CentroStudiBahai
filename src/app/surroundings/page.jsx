@@ -5,11 +5,11 @@ import Image from "next/image";
 export default function Explore() {
   return (
     <main className="container mx-auto px-6 py-12 space-y-12">
-      <section className="py-12">
+      <section className="py-12 text-center">
         <h1 className="text-4xl font-bold text-dark-brown mb-4 text-center">
           Explore the Surroundings
         </h1>
-        <p className="text-lg text-gray-700 mb-6">
+        <p className="text-lg text-gray-700 mb-6 text-center">
           Where do we go? What do we do? What do we eat? Let us guide you
           through the charming surroundings of our region.
         </p>
@@ -48,21 +48,26 @@ export default function Explore() {
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold text-dark-brown">
-          Nature & Gastronomy
-        </h2>
-        <p className="text-gray-700">
-          Paths, lakes, chestnut woods and olive groves surround the facility.
-          The region is known for its extra virgin olive oil and sheep and goat
-          cheeses—some of the most sought-after products in the area.
-        </p>
-        {/* <Image
-          src="/images/olive-groves.jpg"
-          alt="Olive groves"
-          width={800}
-          height={500}
-          className="rounded-xl shadow mx-auto"
-        /> */}
+        <div className="flex flex-col md:flex-row items-center gap-6">
+          <div>
+            <h2 className="text-2xl font-semibold text-dark-brown">
+              Nature & Gastronomy
+            </h2>
+            <p className="text-gray-700">
+              Paths, lakes, chestnut woods and olive groves surround the
+              facility. The region is known for its extra virgin olive oil and
+              sheep and goat cheeses—some of the most sought-after products in
+              the area.
+            </p>
+          </div>
+          <Image
+            src="/images/olive-groves.jpg"
+            alt="Olive groves"
+            width={800}
+            height={500}
+            className="rounded-xl shadow mx-auto"
+          />
+        </div>
       </section>
 
       <section className="space-y-6">
@@ -126,13 +131,13 @@ export default function Explore() {
           Hiking and Biking Trails
         </h2>
         <p className="text-gray-700">Ask for our professional guides!</p>
-        {/* <Image
+        <Image
           src="/images/hikind-trails.jpg"
           alt="Skiing in Campo Staffi"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"
-        /> */}
+        />
       </section>
     </main>
   );
