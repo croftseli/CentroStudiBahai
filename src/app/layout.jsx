@@ -7,9 +7,9 @@ import { LanguageProvider } from "@/context/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Centro Studio Bahai",
+  title: "Centro Studio Bahá'í",
   description:
-    "Centro Studio Bahai - Explore meaningful stories and inspiring projects with a modern twist.",
+    "Centro Studio Bahá'í - Explore meaningful stories and inspiring projects with a modern twist.",
 };
 
 export default function RootLayout({ children }) {

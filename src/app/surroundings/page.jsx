@@ -23,7 +23,7 @@ export default function Explore() {
         </a>
       </section>
 
-      <section className="grid md:grid-cols-2 gap-8 items-start">
+      <section className="grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-2xl font-semibold text-dark-brown mb-4">
             Nearby Attractions
@@ -38,35 +38,32 @@ export default function Explore() {
             <li>Campocatino Ski Resort – 40 km</li>
           </ul>
         </div>
-        {/* <Image
-          src="/images/fiuggi.jpg"
-          alt="Fiuggi Thermal Centre"
+        <Image
+          src="/images/beach.jpg"
+          alt="Beach view"
           width={600}
           height={400}
           className="rounded-xl shadow"
-        /> */}
+        />
       </section>
 
-      <section className="space-y-6">
-        <div className="flex flex-col md:flex-row items-center gap-6">
-          <div>
-            <h2 className="text-2xl font-semibold text-dark-brown">
-              Nature & Gastronomy
-            </h2>
-            <p className="text-gray-700">
-              Paths, lakes, chestnut woods and olive groves surround the
-              facility. The region is known for its extra virgin olive oil and
-              sheep and goat cheeses—some of the most sought-after products in
-              the area.
-            </p>
-          </div>
-          <Image
-            src="/images/olive-groves.jpg"
-            alt="Olive groves"
-            width={800}
-            height={500}
-            className="rounded-xl shadow mx-auto"
-          />
+      <section className="grid md:grid-cols-2 gap-8 items-center">
+        <Image
+          src="/images/olive-groves.jpg"
+          alt="Olive groves"
+          width={800}
+          height={500}
+          className="rounded-xl shadow mx-auto"
+        />
+        <div>
+          <h2 className="text-2xl font-semibold text-dark-brown text-center mb-4">
+            Nature & Gastronomy
+          </h2>
+          <p className="text-gray-700 text-center">
+            Paths, lakes, chestnut woods and olive groves surround the facility.
+            The region is known for its extra virgin olive oil and sheep and
+            goat cheeses—some of the most sought-after products in the area.
+          </p>
         </div>
       </section>
 
@@ -127,12 +124,14 @@ export default function Explore() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-dark-brown">
+        <h2 className="text-2xl font-semibold text-dark-brown text-center">
           Hiking and Biking Trails
         </h2>
-        <p className="text-gray-700">Ask for our professional guides!</p>
+        <p className="text-gray-700 text-center">
+          Ask for our professional guides!
+        </p>
         <Image
-          src="/images/hikind-trails.jpg"
+          src="/images/hiking-trails.jpg"
           alt="Skiing in Campo Staffi"
           width={800}
           height={500}

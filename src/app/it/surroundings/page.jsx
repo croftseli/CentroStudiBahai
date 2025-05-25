@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function ExploreSurroundingsItalian() {
   return (
     <main className="container mx-auto px-6 py-12 space-y-12">
-      <section className="py-12">
+      <section className="py-12 text-center">
         <h1 className="text-4xl font-bold text-dark-brown mb-4 text-center">
           Esplora i Dintorni
         </h1>
@@ -23,7 +23,7 @@ export default function ExploreSurroundingsItalian() {
         </a>
       </section>
 
-      <section className="grid md:grid-cols-2 gap-8 items-start">
+      <section className="grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-2xl font-semibold text-dark-brown mb-4">
             Attrazioni Nelle Vicinanze
@@ -38,31 +38,33 @@ export default function ExploreSurroundingsItalian() {
             <li>Stazione sciistica di Campocatino – 40 km</li>
           </ul>
         </div>
-        {/* <Image
-          src="/images/fiuggi.jpg"
-          alt="Centro Termale di Fiuggi"
+        <Image
+          src="/images/beach.jpg"
+          alt="Vista della spiaggia"
           width={600}
           height={400}
           className="rounded-xl shadow"
-        /> */}
+        />
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold text-dark-brown">
-          Natura e Gastronomia
-        </h2>
-        <p className="text-gray-700">
-          Sentieri, laghi, boschi di castagni e ulivi circondano la struttura.
-          La regione è nota per il suo olio extravergine d'oliva e formaggi di
-          pecora e capra—alcuni dei prodotti più ricercati della zona.
-        </p>
-        {/* <Image
+      <section className="grid md:grid-cols-2 gap-8 items-center">
+        <Image
           src="/images/olive-groves.jpg"
           alt="Uliveti"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"
-        /> */}
+        />
+        <div>
+          <h2 className="text-2xl font-semibold text-dark-brown text-center mb-4">
+            Natura e Gastronomia
+          </h2>
+          <p className="text-gray-700 text-center">
+            Sentieri, laghi, boschi di castagni e ulivi circondano la struttura.
+            La regione è nota per il suo olio extravergine d'oliva e formaggi di
+            pecora e capra—alcuni dei prodotti più ricercati della zona.
+          </p>
+        </div>
       </section>
 
       <section className="space-y-6">
@@ -129,19 +131,19 @@ export default function ExploreSurroundingsItalian() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-dark-brown">
+        <h2 className="text-2xl font-semibold text-dark-brown text-center">
           Sentieri per escursioni a piedi e in bicicletta
         </h2>
-        <p className="text-gray-700">
+        <p className="text-gray-700 text-center">
           Chiedete delle nostre guide professionali!
         </p>
-        {/* <Image
-          src="/images/ski-resort.jpg"
-          alt="Sciare a Campo Staffi"
+        <Image
+          src="/images/hiking-trails.jpg"
+          alt="Escursioni a piedi e in bicicletta"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"
-        /> */}
+        />
       </section>
     </main>
   );
