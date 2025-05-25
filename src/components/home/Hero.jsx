@@ -67,7 +67,7 @@ const content = {
       "Explore the historic alleys of Acuto, the fountains of Fiuggi, the Cathedral of Anagni, the cyclopean walls of Alatri, and the jewels of Lazio villages. Challenge yourself on the breathtaking cycling routes and mountain trails of the Ernici and Simbruini hills. Discover ancient churches, medieval towers, and serene natural panoramas, also with guided tours.",
     activity3Title: "SEASONAL FESTIVALS",
     activity3Text:
-      "Enjoy regional festivities such as jazz concerts, art and traditional fairs, culinary and social events that celebrate the rich heritage of Ciociaria.",
+      "Enjoy regional festivities such as jazz concerts, art and traditional fairs, culinary and social events that celebrate the rich heritage of Ciociaria. ",
     surroundings: "OUR SURROUNDINGS OFFER:",
     surroundings1Title: "HISTORIC ACUTO",
     surroundings1Text:
@@ -96,7 +96,7 @@ const content = {
       "Esplora i vicoli storici di Acuto, le meraviglie dell’antica Roma, la suggestiva Napoli, le fonti di Fiuggi, la Cattedrale di Anagni, le mura ciclopiche di Alatri, i gioielli di borghi laziali. Sfida te stesso sui percorsi ciclistici ed i sentieri montuosi mozzafiato dei colli Ernici e Simbruini. Scopri antiche chiese, torri medievali e sereni panorami naturali anche con tour guidati.",
     activity3Title: "FESTIVAL STAGIONALI",
     activity3Text:
-      "Goditi gli eventi regionali come concerti jazz, fiere d'arte e tradizione, eventi culinari e sociali che celebrano il ricco patrimonio della Ciociaria.",
+      "Goditi gli eventi regionali come concerti jazz, fiere d'arte e tradizione, eventi culinari e sociali che celebrano il ricco patrimonio della Ciociaria. ",
     surroundings: "I NOSTRI DINTORNI OFFRONO:",
     surroundings1Title: "ACUTO STORICO",
     surroundings1Text:
@@ -111,7 +111,13 @@ const content = {
 };
 
 export default function Hero() {
-  const heroImages = ["/view1.jpg", "/view2.jpg", "/view3.jpg"];
+  const heroImages = [
+    "/view1.jpg",
+    "/view2.jpg",
+    "/view_3.jpg",
+    "/view4.jpg",
+    "/view5.jpg",
+  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const { language } = useLanguage();
@@ -335,7 +341,21 @@ export default function Hero() {
               <h3 className="text-xl font-semibold mb-2">
                 {text.activity3Title}
               </h3>
-              <p className="text-gray-600">{text.activity3Text}</p>
+              <p className="text-gray-600">
+                {text.activity3Text}
+                <a
+                  href={
+                    language === "en"
+                      ? "http://www.visitacuto.it/?lang=en"
+                      : "http://www.visitacuto.it"
+                  }
+                  className="underline ml-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  visitacuto.it
+                </a>
+              </p>
             </motion.div>
           </div>
         </motion.section>
