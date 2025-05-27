@@ -39,7 +39,7 @@ export default function Footer() {
         { href: "/calendar", label: "Calendar" },
         { href: "/surroundings", label: "Surroundings" },
         { href: "/activities", label: "Activities" },
-        { href: "/contactUs", label: "Contact Us" },
+        { href: "/booking", label: "Booking" },
       ],
     },
     it: {
@@ -62,7 +62,7 @@ export default function Footer() {
         { href: "/it/calendar", label: "Calendario" },
         { href: "/it/surroundings", label: "Dintorni" },
         { href: "/it/activities", label: "Attività" },
-        { href: "/it/contactUs", label: "Contattaci" },
+        { href: "/it/booking", label: "Prenota" },
       ],
     },
   };
