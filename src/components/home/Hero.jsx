@@ -61,7 +61,7 @@ const content = {
     activities: "WE HOST",
     activity1Title: "MEETINGS",
     activity1Text:
-      "Attend conferences, retreats, community gatherings, workshops, artistic expressions, and cultural celebrations that embody unity and collective reflection.",
+      "Organise conferences, retreats, community gatherings, workshops, artistic expressions, and cultural celebrations that embody unity and collective reflection.",
     activity2Title: "GUIDED TOURS AND EXCURSIONS",
     activity2Text:
       "Explore the historic alleys of Acuto, the fountains of Fiuggi, the Cathedral of Anagni, the cyclopean walls of Alatri, and the jewels of Lazio villages. Challenge yourself on the breathtaking cycling routes and mountain trails of the Ernici and Simbruini hills. Discover ancient churches, medieval towers, and serene natural panoramas, also with guided tours.",
@@ -90,7 +90,7 @@ const content = {
     activities: "OSPITIAMO",
     activity1Title: "INCONTRI",
     activity1Text:
-      "Partecipa a conferenze, ritiri, incontri comunitari, di studio e di espressioni artistiche, celebrazioni culturali che incarnano l'unità e la riflessione collettiva.",
+      "Organizza conferenze, ritiri, incontri comunitari, di studio e di espressioni artistiche, celebrazioni culturali che incarnano l'unità e la riflessione collettiva.",
     activity2Title: "TOUR GUIDATI ED ESCURSIONI",
     activity2Text:
       "Esplora i vicoli storici di Acuto, le meraviglie dell’antica Roma, la suggestiva Napoli, le fonti di Fiuggi, la Cattedrale di Anagni, le mura ciclopiche di Alatri, i gioielli di borghi laziali. Sfida te stesso sui percorsi ciclistici ed i sentieri montuosi mozzafiato dei colli Ernici e Simbruini. Scopri antiche chiese, torri medievali e sereni panorami naturali anche con tour guidati.",
