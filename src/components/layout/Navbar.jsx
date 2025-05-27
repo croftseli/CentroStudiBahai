@@ -32,14 +32,14 @@ export default function Navbar() {
       { href: "/calendar", label: "Calendar" },
       { href: "/surroundings", label: "Surroundings" },
       { href: "/activities", label: "Activities" },
-      { href: "/contactUs", label: "Contact Us" },
+      { href: "/booking", label: "Booking" },
     ],
     it: [
       { href: "/it", label: "Home" },
       { href: "/it/calendar", label: "Calendario" },
       { href: "/it/surroundings", label: "Dintorni" },
       { href: "/it/activities", label: "Attività" },
-      { href: "/it/contactUs", label: "Contattaci" },
+      { href: "/it/booking", label: "Prenota" },
     ],
   };
 
@@ -200,9 +200,14 @@ export default function Navbar() {
                   height={60}
                   className="rounded"
                 />
-                <span className="hidden md:block text-xl font-bold tracking-wide">
-                  Centro Studi Bahá'í
-                </span>
+                <div className="hidden md:block">
+                  <span className="text-xl font-bold tracking-wide">
+                    Centro Studi Bahá'í
+                  </span>
+                  <div className="text-sm text-gray-500 text-left">
+                    {language === "en" ? "All are welcome!" : "Aperto a tutti!"}
+                  </div>
+                </div>
               </div>
             </Link>
           </div>

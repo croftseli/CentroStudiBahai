@@ -55,19 +55,24 @@ const content = {
     tagline:
       "Experience the tranquillity of nature and the energy of encounter in one place.",
     bookButton: "Contact us to book!",
-    mission: "Our Mission",
-    missionText:
-      "Our mission is to provide a serene environment and a comfortable refuge, where guests can reconnect with themselves and forge new partnerships with the world around them, develop new skills, discover other realities and plan together.",
+    mission: "Nice to Meet You!",
+    missionText: [
+      "The Centro Studi Baha'i - Hotel La Panoramica, is immersed in a relaxing atmosphere, surrounded by luscious nature, just 10 minutes from the spa resort of Fiuggi and less than an hour from Rome. Thanks to its unique panoramic position and large terrace overlooking the enchanting medieval village of Acuto (750 metres above sea level), it offers a splendid view over the valleys of Ciociaria.",
+      "Situated on a ridge of the Ernici Mountains and accessible from the Anagni-Fiuggi motorway exit and railway station, it offers functional and comfortable settings for conferences, seminars, business meetings, weddings, celebrations, spiritual and wellness retreats. It is a starting point for excursions in the area on foot, by bicycle and by car.",
+      "Equipped with 35 rooms,single, doubles, triple, quadruple; a conference room featuring audio and video systems, up to 140 seats; a restaurant hall that seats up to 100 people.",
+      "We provide a serene environment and a comfortable refuge, where guests can reconnect with themselves and forge new partnerships with the world around them, develop new skills, discover other realities and plan together.",
+      'Inspired by the Bahá’í faith. For more information, please visit <a href="https://www.bahai.it" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">bahai.it</a>',
+    ],
     activities: "WE HOST",
     activity1Title: "MEETINGS",
     activity1Text:
-      "Organise conferences, retreats, community gatherings, workshops, artistic expressions, and cultural celebrations that embody unity and collective reflection.",
+      "Organize conferences, retreats, community gatherings, workshops, artistic expressions, and cultural celebrations that foster a spirit of unity, encourage meaningful dialogue, and create spaces for collective reflection, learning, and inspiration across diverse groups.",
     activity2Title: "GUIDED TOURS AND EXCURSIONS",
     activity2Text:
       "Explore the historic alleys of Acuto, the fountains of Fiuggi, the Cathedral of Anagni, the cyclopean walls of Alatri, and the jewels of Lazio villages. Challenge yourself on the breathtaking cycling routes and mountain trails of the Ernici and Simbruini hills. Discover ancient churches, medieval towers, and serene natural panoramas, also with guided tours.",
-    activity3Title: "SEASONAL FESTIVALS",
+    activity3Title: "CONFERENCE & STUDY FACILITIES",
     activity3Text:
-      "Enjoy regional festivities such as jazz concerts, art and traditional fairs, culinary and social events that celebrate the rich heritage of Ciociaria. ",
+      "The Conference Hall seats 150 and is equipped with free Wi-Fi, a projector, HD wall screen, video camera, sound system, microphones, and instruments for artistic performances. Two additional study halls, also with Wi-Fi and flexible seating, accommodate groups of up to 20.",
     surroundings: "OUR SURROUNDINGS OFFER:",
     surroundings1Title: "HISTORIC ACUTO",
     surroundings1Text:
@@ -84,19 +89,24 @@ const content = {
     tagline:
       "Vivi la tranquillità della natura e l'energia dell'incontro in un unico luogo.",
     bookButton: "Contattaci per prenotare!",
-    mission: "La Nostra Missione",
-    missionText:
-      "La nostra missione è fornire un ambiente sereno, un rifugio confortevole, dove gli ospiti possono riconnettersi con sé stessi e con il mondo che li circonda, sviluppare nuove capacità, scoprire altre realtà e progettare insieme.",
+    mission: "Conosciamoci!",
+    missionText: [
+      "Il Centro Studi Bahá’í - Hotel La Panoramica è immerso in un’atmosfera di relax a contatto con la natura, a soli 10 minuti dalla stazione termale di Fiuggi e a meno di un’ora da Roma. Grazie all’esclusiva posizione panoramica e alla grande terrazza affacciata sull’incantevole borgo medioevale di Acuto (750 metri s.l.m.), offre una splendida vista sulle vallate della Ciociaria.",
+      "Situato su un costone dei Monti Ernici e raggiungibile dal casello autostradale e dalla stazione ferroviaria di Anagni-Fiuggi, offre ambienti funzionali e confortevoli per convegni, seminari, riunioni di lavoro e gruppi, matrimoni, celebrazioni, ritiri spirituali e di benessere. E' punto di partenza per escursioni sul territorio a piedi, in bici e macchina.",
+      "Dotato di 35 camere, singole, doppie, triple, quadruple; una sala conferenza attrezzata di impianto audio e video, fino a 140 posti; una sala ristorante fino a 100 posti a sedere.",
+      "Forniamo un ambiente sereno, un rifugio confortevole, dove gli ospiti possono riconnettersi con sé stessi e con il mondo che li circonda, sviluppare nuove capacità, scoprire altre realtà e progettare insieme.",
+      'Ispirati dagli insegnamenti della Fede Bahá’í . Per maggiori informazioni visitate <a href="https://www.bahai.it" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">bahai.it</a>',
+    ],
     activities: "OSPITIAMO",
     activity1Title: "INCONTRI",
     activity1Text:
-      "Organizza conferenze, ritiri, incontri comunitari, di studio e di espressioni artistiche, celebrazioni culturali che incarnano l'unità e la riflessione collettiva.",
+      "Organizza conferenze, ritiri, incontri comunitari, laboratori, espressioni artistiche e celebrazioni culturali che promuovono uno spirito di unità, incoraggiano un dialogo significativo e creano spazi per la riflessione collettiva, l’apprendimento e l’ispirazione tra gruppi diversi.",
     activity2Title: "TOUR GUIDATI ED ESCURSIONI",
     activity2Text:
       "Esplora i vicoli storici di Acuto, le meraviglie dell’antica Roma, la suggestiva Napoli, le fonti di Fiuggi, la Cattedrale di Anagni, le mura ciclopiche di Alatri, i gioielli di borghi laziali. Sfida te stesso sui percorsi ciclistici ed i sentieri montuosi mozzafiato dei colli Ernici e Simbruini. Scopri antiche chiese, torri medievali e sereni panorami naturali anche con tour guidati.",
-    activity3Title: "FESTIVAL STAGIONALI",
+    activity3Title: "SPAZI PER CONFERENZE E STUDIO",
     activity3Text:
-      "Goditi gli eventi regionali come concerti jazz, fiere d'arte e tradizione, eventi culinari e sociali che celebrano il ricco patrimonio della Ciociaria. ",
+      "La Sala Conferenze dispone di 150 posti a sedere ed è dotata di Wi-Fi gratuito, proiettore, schermo a parete in alta definizione, videocamera, impianto audio, microfoni e strumenti per performance artistiche. Due aule studio aggiuntive, anch’esse con Wi-Fi e sedute flessibili, possono accogliere gruppi fino a 20 persone.",
     surroundings: "I NOSTRI DINTORNI OFFRONO:",
     surroundings1Title: "ACUTO STORICO",
     surroundings1Text:
@@ -267,9 +277,15 @@ export default function Hero() {
           <motion.div
             variants={fancySectionVariants}
             custom={0.5}
-            className="text-gray-700 max-w-3xl mx-auto"
+            className="text-gray-700 max-w-3xl mx-auto space-y-4"
           >
-            {text.missionText}
+            {text.missionText.map((paragraph, index) => (
+              <p
+                key={index}
+                className="text-base leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: paragraph }}
+              />
+            ))}
           </motion.div>
         </motion.section>
 
@@ -342,21 +358,10 @@ export default function Hero() {
               <h3 className="text-xl font-semibold mb-2">
                 {text.activity3Title}
               </h3>
-              <p className="text-gray-600">
-                {text.activity3Text}
-                <a
-                  href={
-                    language === "en"
-                      ? "http://www.visitacuto.it/?lang=en"
-                      : "http://www.visitacuto.it"
-                  }
-                  className="underline ml-1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  visitacuto.it
-                </a>
-              </p>
+              <p
+                className="text-gray-600"
+                dangerouslySetInnerHTML={{ __html: text.activity3Text }}
+              ></p>
             </motion.div>
           </div>
         </motion.section>

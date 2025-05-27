@@ -168,8 +168,7 @@ export default function ContactForm() {
           <p className="text-center pt-24 text-gray-500">Segnaposto Mappa</p>
         </div>
         <p className="text-lg text-gray-700">
-          Via Giovanni Falcone, 7, ex Capodimonte, 49, Acuto, Lazio, Italia,
-          03010
+          Via Giovanni Falcone 7, Acuto, Lazio, Italia, 03010
         </p>
       </section>
     </div>

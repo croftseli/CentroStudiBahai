@@ -21,8 +21,7 @@ export default function Footer() {
   // Footer text content translations
   const content = {
     en: {
-      tagline:
-        "Discover peace, purpose, and connection at our nature-immersed sanctuary.",
+      tagline: "Where meetings and nature nurture your body, mind and soul.",
       exploreHeading: "Explore",
       connectHeading: "Connect",
       followUs: "Follow us for updates, stories, and more:",
@@ -45,7 +44,7 @@ export default function Footer() {
     },
     it: {
       tagline:
-        "Scopri pace, scopo e connessione nel nostro santuario immerso nella natura.",
+        "Dove gli incontri e la natura nutriscono la mente, il corpo e l'anima.",
       exploreHeading: "Esplora",
       connectHeading: "Connettiti",
       followUs: "Seguici per aggiornamenti, storie e altro:",
