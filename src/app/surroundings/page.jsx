@@ -47,14 +47,14 @@ export default function Explore() {
         />
       </section>
 
-      <section className="grid md:grid-cols-2 gap-8 items-center">
-        <Image
+      <section className="grid md:grid-cols-1 gap-8 items-center">
+        {/* <Image
           src="/images/olive-groves.jpg"
           alt="Olive groves"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"
-        />
+        /> */}
         <div>
           <h2 className="text-2xl font-semibold text-dark-brown text-center mb-4">
             Nature & Gastronomy

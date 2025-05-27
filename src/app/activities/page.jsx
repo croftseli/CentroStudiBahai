@@ -88,7 +88,14 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Yoga & Martial Arts Retreats */}
-      <section className="mb-16 grid md:grid-cols-1 gap-8 items-center">
+      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+        <Image
+          src="/images/yoga-retreat.jpg"
+          alt="Yoga Retreat"
+          width={800}
+          height={500}
+          className="rounded-xl shadow-md"
+        />
         <div className="space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-semibold text-dark-brown mb-4">
             Yoga & Martial Arts Retreats
@@ -100,13 +107,6 @@ export default function ActivitiesPage() {
             conditions for meditation and movement.
           </p>
         </div>
-        {/* <Image
-          src="/images/yoga-retreat.jpg"
-          alt="Yoga Retreat"
-          width={800}
-          height={500}
-          className="rounded-xl shadow-md"
-        /> */}
       </section>
 
       {/* Slow Tourism & Biking */}
