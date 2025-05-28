@@ -44,7 +44,7 @@ export default function Footer() {
     },
     it: {
       tagline:
-        "Dove gli incontri e la natura nutriscono la mente, il corpo e l'anima.",
+        "Dove gli incontri e la natura nutrono la mente, il corpo e l'anima.",
       exploreHeading: "Esplora",
       connectHeading: "Connettiti",
       followUs: "Seguici per aggiornamenti, storie e altro:",
