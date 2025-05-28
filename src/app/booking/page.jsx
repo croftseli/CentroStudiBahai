@@ -155,17 +155,87 @@ export default function ContactForm() {
       </section>
 
       {/* Map Section */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold text-dark-brown mb-6">
-          Find Us Here
+      <section className="mb-12 px-4">
+        <h2 className="text-3xl font-semibold text-dark-brown mb-6 text-center">
+          How to Find Us
         </h2>
-        <div className="w-full h-64 bg-gray-200 rounded-md mb-4">
-          {/*TODO: Replace with actual map component or iframe */}
-          <p className="text-center pt-24 text-gray-500">Map Placeholder</p>
+
+        <div className="space-y-4 max-w-3xl mx-auto text-base leading-relaxed text-gray-700 mb-8">
+          <p>
+            You can find us at the following address:
+            <br />
+            <strong>Via Giovanni Falcone 7, 03010 Acuto (FR), Italia</strong>.
+          </p>
+          <p>
+            Please note that our location on Google Maps may not be accurate. To
+            avoid any confusion, we recommend using the coordinates below for
+            precise navigation.
+          </p>
         </div>
-        <p className="text-lg text-gray-700">
-          Via Giovanni Falcone 7, Acuto, Lazio, Italy, 03010
-        </p>
+
+        <div className="relative w-full pt-[40%] rounded-md overflow-hidden mb-8 max-w-5xl mx-auto shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d743.6473250797192!2d13.174314269655778!3d41.794063998057354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzM4LjYiTiAxM8KwMTAnMjkuOSJF!5e0!3m2!1sen!2sie!4v1748461835618!5m2!1sen!2sie"
+            className="absolute top-0 left-0 w-full h-full border-0"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div className="space-y-4 max-w-3xl mx-auto text-base leading-relaxed text-gray-700 mb-8">
+          <p>
+            We have free parking for guests arriving by car (from the A1
+            highway, take the exit Anagni-Fiuggi).
+          </p>
+          <p>
+            To request a taxi transfer from the airports of Fiumicino or
+            Ciampino, or a pick-up from Rome or Fiuggi, please contact us at:
+            <br />
+            <a
+              href="mailto:centrostudibahai@gmail.com"
+              className="text-blue-600 underline"
+            >
+              centrostudibahai@gmail.com
+            </a>
+          </p>
+          <p>
+            To arrive by bus from Rome, check the schedule at:
+            <br />
+            <a
+              href="https://servizi.cotralspa.it/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              servizi.cotralspa.it
+            </a>{" "}
+            — destination: <strong>Bivio di Acuto</strong> or{" "}
+            <strong>Fiuggi</strong>.
+          </p>
+          <p>
+            To arrive by train, check:
+            <br />
+            <a
+              href="https://www.trenitalia.com/it.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              Trenitalia
+            </a>{" "}
+            or{" "}
+            <a
+              href="https://www.italotreno.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              ItaloTreno
+            </a>{" "}
+            — station: <strong>Anagni-Fiuggi</strong>.
+          </p>
+        </div>
       </section>
     </div>
   );
