@@ -39,6 +39,8 @@ export default function ContactForm() {
 
   return (
     <div className="container mx-auto px-6 py-12">
+      {/* Rooms */}
+
       {/* Contact Form */}
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-dark-brown mb-6">
@@ -175,7 +177,7 @@ export default function ContactForm() {
 
         <div className="relative w-full pt-[40%] rounded-md overflow-hidden mb-8 max-w-5xl mx-auto shadow-lg">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d743.6473250797192!2d13.174314269655778!3d41.794063998057354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzM4LjYiTiAxM8KwMTAnMjkuOSJF!5e0!3m2!1sen!2sie!4v1748461835618!5m2!1sen!2sie"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1487.293037716727!2d13.174292071231392!3d41.79413348649131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzM4LjkiTiAxM8KwMTAnMzAuMiJF!5e0!3m2!1sen!2sie!4v1748545000670!5m2!1sen!2sie"
             className="absolute top-0 left-0 w-full h-full border-0"
             loading="lazy"
             allowFullScreen

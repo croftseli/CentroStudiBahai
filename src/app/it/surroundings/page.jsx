@@ -43,18 +43,18 @@ export default function ExploreSurroundingsItalian() {
           alt="Vista della spiaggia"
           width={600}
           height={400}
-          className="rounded-xl shadow"
+          className="rounded-xl shadow mx-auto"
         />
       </section>
 
       <section className="grid md:grid-cols-1 gap-8 items-center">
-        {/* <Image
-          src="/images/olive-groves.jpg"
-          alt="Uliveti"
-          width={800}
-          height={500}
+        <Image
+          src="/images/homemade-pasta.jpg"
+          alt="Homemade pasta"
+          width={600}
+          height={400}
           className="rounded-xl shadow mx-auto"
-        /> */}
+        />
         <div>
           <h2 className="text-2xl font-semibold text-dark-brown text-center mb-4">
             Natura e Gastronomia
@@ -120,13 +120,13 @@ export default function ExploreSurroundingsItalian() {
               </li>
             </ul>
           </div>
-          {/* <Image
-            src="/images/ciociaria.jpg"
-            alt="Paesaggio della Ciociaria"
+          <Image
+            src="/images/waterfall.jpg"
+            alt="Waterfall"
             width={600}
             height={400}
-            className="rounded-xl shadow"
-          /> */}
+            className="rounded-xl shadow mx-auto"
+          />
         </div>
       </section>
 

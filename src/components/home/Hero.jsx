@@ -80,7 +80,7 @@ const content = {
     surroundings2Title: "NATURAL LANDSCAPES",
     surroundings2Text:
       "Enjoy chestnut forests, olive groves, and vineyards undulating beneath the majestic mountains of the Apennines, and reach the serene Lake Canterno.",
-    surroundings3Title: "Local Culture",
+    surroundings3Title: "LOCAL CULTURE",
     surroundings3Text:
       "Savour the typical flavours such as the extra virgin olive oil and artisanal cheeses as you explore the traditional crafts and customs of the Ciociaria territory.",
   },

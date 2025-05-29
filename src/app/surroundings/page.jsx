@@ -43,18 +43,18 @@ export default function Explore() {
           alt="Beach view"
           width={600}
           height={400}
-          className="rounded-xl shadow"
+          className="rounded-xl shadow mx-auto"
         />
       </section>
 
-      <section className="grid md:grid-cols-1 gap-8 items-center">
-        {/* <Image
-          src="/images/olive-groves.jpg"
-          alt="Olive groves"
-          width={800}
-          height={500}
+      <section className="grid md:grid-cols-2 gap-8 items-center">
+        <Image
+          src="/images/homemade-pasta.jpg"
+          alt="Homemade pasta"
+          width={600}
+          height={400}
           className="rounded-xl shadow mx-auto"
-        /> */}
+        />
         <div>
           <h2 className="text-2xl font-semibold text-dark-brown text-center mb-4">
             Nature & Gastronomy
@@ -71,12 +71,13 @@ export default function Explore() {
         <h2 className="text-3xl font-bold text-dark-brown">
           Discover Ciociaria
         </h2>
-        <p className="text-gray-700">
-          The Ciociaria region offers a rich mix of cultural, historical, and
-          natural beauty—from ancient towns to spiritual retreats.
-        </p>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
+            <p className="text-gray-700">
+              The Ciociaria region offers a rich mix of cultural, historical,
+              and natural beauty—from ancient towns to spiritual retreats.
+            </p>
+
             <h3 className="text-xl font-semibold text-dark-brown">
               To experience!
             </h3>
@@ -113,13 +114,13 @@ export default function Explore() {
               </li>
             </ul>
           </div>
-          {/* <Image
-            src="/images/ciociaria.jpg"
-            alt="Ciociaria landscape"
+          <Image
+            src="/images/waterfall.jpg"
+            alt="Waterfall"
             width={600}
             height={400}
-            className="rounded-xl shadow"
-          /> */}
+            className="rounded-xl shadow mx-auto"
+          />
         </div>
       </section>
 

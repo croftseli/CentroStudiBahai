@@ -159,17 +159,87 @@ export default function ContactForm() {
       </section>
 
       {/* Mappa */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold text-dark-brown mb-6">
-          Dove Siamo
+      <section className="mb-12 px-4">
+        <h2 className="text-3xl font-semibold text-dark-brown mb-6 text-center">
+          Come Raggiungerci
         </h2>
-        <div className="w-full h-64 bg-gray-200 rounded-md mb-4">
-          {/* Sostituire con mappa reale */}
-          <p className="text-center pt-24 text-gray-500">Segnaposto Mappa</p>
+
+        <div className="space-y-4 max-w-3xl mx-auto text-base leading-relaxed text-gray-700 mb-8">
+          <p>
+            Ci trovi al seguente indirizzo:
+            <br />
+            <strong>Via Giovanni Falcone 7, 03010 Acuto (FR), Italia</strong>.
+          </p>
+          <p>
+            Nota: la nostra posizione su Google Maps potrebbe non essere
+            accurata. Per evitare confusione, consigliamo di utilizzare le
+            coordinate qui sotto per una navigazione precisa.
+          </p>
         </div>
-        <p className="text-lg text-gray-700">
-          Via Giovanni Falcone 7, Acuto, Lazio, Italia, 03010
-        </p>
+
+        <div className="relative w-full pt-[40%] rounded-md overflow-hidden mb-8 max-w-5xl mx-auto shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d743.6465210446331!2d13.174413869636869!3d41.79413329805627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzM4LjkiTiAxM8KwMTAnMzAuMiJF!5e0!3m2!1sit!2sie!4v1748544950562!5m2!1sit!2sie"
+            className="absolute top-0 left-0 w-full h-full border-0"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div className="space-y-4 max-w-3xl mx-auto text-base leading-relaxed text-gray-700 mb-8">
+          <p>
+            Disponiamo di un parcheggio gratuito per gli ospiti che arrivano in
+            auto (dall'autostrada A1, uscita Anagni-Fiuggi).
+          </p>
+          <p>
+            Per richiedere un trasferimento in taxi dagli aeroporti di Fiumicino
+            o Ciampino, oppure un passaggio da Roma o Fiuggi, contattaci a:
+            <br />
+            <a
+              href="mailto:centrostudibahai@gmail.com"
+              className="text-blue-600 underline"
+            >
+              centrostudibahai@gmail.com
+            </a>
+          </p>
+          <p>
+            Per arrivare in autobus da Roma, consulta gli orari su:
+            <br />
+            <a
+              href="https://servizi.cotralspa.it/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              servizi.cotralspa.it
+            </a>{" "}
+            — destinazione: <strong>Bivio di Acuto</strong> oppure{" "}
+            <strong>Fiuggi</strong>.
+          </p>
+          <p>
+            Per arrivare in treno, consulta:
+            <br />
+            <a
+              href="https://www.trenitalia.com/it.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              Trenitalia
+            </a>{" "}
+            oppure{" "}
+            <a
+              href="https://www.italotreno.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              ItaloTreno
+            </a>{" "}
+            — stazione: <strong>Anagni-Fiuggi</strong>.
+          </p>
+        </div>
       </section>
     </div>
   );
