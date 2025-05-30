@@ -83,7 +83,9 @@ const content = {
     surroundings3Title: "LOCAL CULTURE",
     surroundings3Text:
       "Savour the typical flavours such as the extra virgin olive oil and artisanal cheeses as you explore the traditional crafts and customs of the Ciociaria territory.",
+    videosTitle: "WHAT OUR GUESTS SAY",
   },
+
   it: {
     welcome: "Benvenuto a Casa!",
     tagline:
@@ -117,7 +119,15 @@ const content = {
     surroundings3Title: "CULTURA LOCALE",
     surroundings3Text:
       "Assapora le eccellenze del territorio come l’olio extravergine di oliva e i formaggi artigianali mentre esplori l'artigianato tradizionale e i costumi della Ciociaria.",
+    videosTitle: "COSA DICONO I NOSTRI OSPITI",
   },
+};
+
+const videos = {
+  Marta: "https://www.youtube.com/embed/83X-dRhhNUA",
+  Celine: "https://www.youtube.com/embed/EFJWqQzpLSw",
+  Rossella: "https://www.youtube.com/embed/vJnkkIHWfms",
+  Fabrizio: "https://www.youtube.com/embed/-ZP_KY5jwuQ",
 };
 
 export default function Hero() {
@@ -129,6 +139,8 @@ export default function Hero() {
     "/view5.jpg",
     "/view6.jpg",
   ];
+
+  const [selectedVideo, setSelectedVideo] = useState("Marta");
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const { language } = useLanguage();
@@ -475,6 +487,70 @@ export default function Hero() {
               <p className="text-gray-600">{text.surroundings3Text}</p>
             </motion.div>
           </div>
+        </motion.section>
+
+        {/* Video Section */}
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fancySectionVariants}
+          custom={0.3}
+          className="text-center"
+        >
+          <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                {text.videosTitle}
+              </h2>
+
+              {/* Buttons to switch videos */}
+              <div className="flex justify-center flex-wrap gap-4 mb-6">
+                {Object.keys(videos).map((key) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedVideo(key)}
+                    className={`px-4 py-2 rounded-md transition ${
+                      selectedVideo === key
+                        ? "bg-[var(--accent-red)] text-white"
+                        : "bg-gray-200 text-gray-800"
+                    }`}
+                  >
+                    {key}
+                  </button>
+                ))}
+              </div>
+
+              {/* Responsive video wrapper */}
+              <div
+                style={{
+                  position: "relative",
+                  paddingBottom: "56.25%", // 16:9 aspect ratio
+                  height: 0,
+                  overflow: "hidden",
+                  borderRadius: "0.75rem",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                }}
+              >
+                <iframe
+                  key={selectedVideo}
+                  src={videos[selectedVideo]}
+                  title="Room video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    border: 0,
+                  }}
+                ></iframe>
+              </div>
+            </div>
+          </section>
         </motion.section>
       </div>
     </div>
