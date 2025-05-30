@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import Image from "next/image";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -39,6 +40,55 @@ export default function ContactForm() {
 
   return (
     <div className="container mx-auto px-6 py-12">
+      {/* Rooms */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Text */}
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Le Nostre Camere
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Goditi il comfort e la tranquillità nelle nostre camere
+              accoglienti e pulite, complete di bagno doccia, WiFi gratuito, TV
+              e una splendida vista sulla vallata o sulla collina. Disponiamo di
+              35 camere: singole, doppie, triple, quadruple e una quintupla,
+              alcune con possibilità di letto extra o culla per neonati fino a 3
+              anni. Il relax ti aspetta.
+            </p>
+            <p className="text-gray-600 text-lg mt-4">
+              Contattaci per prenotare il tuo soggiorno o per qualsiasi
+              richiesta. Siamo qui per aiutarti con le tue esigenze di alloggio.
+            </p>
+          </div>
+
+          {/* Images */}
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="/images/room1.jpg"
+              alt="Double room"
+              width={600}
+              height={400}
+              className="rounded-xl object-cover w-full h-full"
+            />
+            <Image
+              src="/images/room2.jpg"
+              alt="Room interior"
+              width={600}
+              height={400}
+              className="rounded-xl object-cover w-full h-full"
+            />
+            <Image
+              src="/images/room3.jpg"
+              alt="Quadruple room"
+              width={600}
+              height={400}
+              className="rounded-xl object-cover w-full h-full col-span-2"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Modulo di Contatto */}
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-dark-brown mb-6">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import Image from "next/image";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -40,6 +41,51 @@ export default function ContactForm() {
   return (
     <div className="container mx-auto px-6 py-12">
       {/* Rooms */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Text */}
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Rooms</h2>
+            <p className="text-gray-600 text-lg">
+              Enjoy comfort and tranquility in our cozy, clean rooms, complete
+              with a private bathroom, free WiFi, TV, and a beautiful view of
+              the valley or hillside. We have 35 rooms, including singles,
+              doubles, triples, quadruples, and a quintuple, some of which offer
+              the option of an extra bed or crib for infants up to 3 years old.
+              Relaxation awaits you.
+            </p>
+            <p className="text-gray-600 text-lg mt-4">
+              Contact us to book your stay or for any inquiries. We are here to
+              assist you with your accommodation needs.
+            </p>
+          </div>
+
+          {/* Images */}
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="/images/room1.jpg"
+              alt="Double room"
+              width={600}
+              height={400}
+              className="rounded-xl object-cover w-full h-full"
+            />
+            <Image
+              src="/images/room2.jpg"
+              alt="Room interior"
+              width={600}
+              height={400}
+              className="rounded-xl object-cover w-full h-full"
+            />
+            <Image
+              src="/images/room3.jpg"
+              alt="Quadruple room"
+              width={600}
+              height={400}
+              className="rounded-xl object-cover w-full h-full col-span-2"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Contact Form */}
       <section className="mb-12">
