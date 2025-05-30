@@ -32,7 +32,7 @@ export default function Footer() {
       rights:
         "© " +
         new Date().getFullYear() +
-        " Hotel La Panoramica. All rights reserved.",
+        " Hotel La Panoramica. All rights reserved. CIN: IT060002A1FCR22N8J",
       developedBy: "Developed by",
       links: [
         { href: "/", label: "Home" },
@@ -44,7 +44,7 @@ export default function Footer() {
     },
     it: {
       tagline:
-        "Dove gli incontri e la natura nutrono la mente, il corpo e l'anima.",
+        "Dove gli incontri e la natura nutrono la mente, il corpo e l'anima.",
       exploreHeading: "Esplora",
       connectHeading: "Connettiti",
       followUs: "Seguici per aggiornamenti, storie e altro:",
@@ -55,7 +55,7 @@ export default function Footer() {
       rights:
         "© " +
         new Date().getFullYear() +
-        " Albergo La Panoramica. Tutti i diritti riservati.",
+        " Albergo La Panoramica. Tutti i diritti riservati. CIN: IT060002A1FCR22N8J",
       developedBy: "Sviluppato da",
       links: [
         { href: "/it", label: "Home" },
