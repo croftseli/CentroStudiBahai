@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Centro Studio Bahá'í",
   description:
-    "Centro Studio Bahá'í - Explore meaningful stories and inspiring projects with a modern twist.",
+    "Welcome home to the Centro Studi Bahá’í - Hotel la Panoramica, nestled in Acuto",
 };
 
 export default function RootLayout({ children }) {
