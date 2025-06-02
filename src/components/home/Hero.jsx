@@ -59,7 +59,7 @@ const content = {
     missionText: [
       "The Centro Studi Bahá’í – Hotel La Panoramica is immersed in a relaxing atmosphere, surrounded by lush nature, just 10 minutes from the spa resort of Fiuggi and less than an hour from Rome. Thanks to its unique panoramic position and large terrace overlooking the enchanting medieval village of Acuto (750 metres above sea level), it offers a splendid view over the valleys of Ciociaria.",
       "Situated on a ridge of the Ernici Mountains and accessible from the Anagni-Fiuggi motorway exit and railway station, it offers functional and comfortable settings for conferences, seminars, business meetings, weddings, celebrations, and spiritual and wellness retreats. It is a starting point for excursions in the area on foot, by bicycle, and by car.",
-      "Equipped with 35 rooms,single, doubles, triple, quadruple; a conference room featuring audio and video systems, up to 140 seats; a restaurant hall that seats up to 100 people.",
+      "Equipped with 35 rooms,single, doubles, triple, quadruple; a conference room featuring audio and video systems, up to 140 seats. We also have a restaurant hall that seats up to 100 people, offering traditional and ethnic dishes, vegeterian, vegan, lactose, and gluten-free options.",
       "We provide a serene environment and a comfortable refuge, where guests can reconnect and forge new partnerships with the world around them, develop new skills, discover other realities, and plan together.",
       'Inspired by the Bahá’í faith.',
     ],
@@ -95,7 +95,7 @@ const content = {
     missionText: [
       "Il Centro Studi Bahá’í - Hotel La Panoramica è immerso in un’atmosfera di relax a contatto con la natura, a soli 10 minuti dalla stazione termale di Fiuggi e a meno di un’ora da Roma. Grazie all’esclusiva posizione panoramica e alla grande terrazza affacciata sull’incantevole borgo medioevale di Acuto (750 metri s.l.m.), offre una splendida vista sulle vallate della Ciociaria.",
       "Situato su un costone dei Monti Ernici e raggiungibile dal casello autostradale e dalla stazione ferroviaria di Anagni-Fiuggi, offre ambienti funzionali e confortevoli per convegni, seminari, riunioni di lavoro e gruppi, matrimoni, celebrazioni, ritiri spirituali e di benessere. E' punto di partenza per escursioni sul territorio a piedi, in bici e macchina.",
-      "Dotato di 35 camere, singole, doppie, triple, quadruple; una sala conferenza attrezzata di impianto audio e video, fino a 140 posti; una sala ristorante fino a 100 posti a sedere.",
+      "Dotato di 35 camere, singole, doppie, triple, quadruple; una sala conferenza attrezzata di impianto audio e video, fino a 140 posti; una sala ristorante fino a 100 posti a sedere. Il Ristorante offre piatti tipici e tradizioni etniche, un menù personalizzato per vegetariani, vegani e per chi soffre d'intolleranze al glutine e lattosio",
       "Fornisce un ambiente sereno, un rifugio confortevole, dove gli ospiti possono riconnettersi con sé stessi e con il mondo che li circonda, sviluppare nuove capacità, scoprire altre realtà e progettare insieme.",
       'Ispirati dagli insegnamenti della Fede Bahá’í .',
     ],
