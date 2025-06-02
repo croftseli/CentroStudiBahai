@@ -76,13 +76,13 @@ const content = {
     surroundings: "OUR SURROUNDINGS OFFER:",
     surroundings1Title: "HISTORIC ACUTO",
     surroundings1Text:
-      "Immerse yourself in Acuto's past by walking through narrow cobbled alleys, ancient arches, and historic churches dating back to the V century AC.",
+      "Immerse yourself in Acuto's past by walking through narrow cobbled alleys, ancient arches, and historic churches dating back to the 5th century AC.",
     surroundings2Title: "NATURAL LANDSCAPES",
     surroundings2Text:
-      "Enjoy chestnut forests, olive groves, and vineyards undulating beneath the majestic mountains of the Apennines, and reach the serene Lake Canterno.",
+      "Enjoy chestnut forests, olive groves, and vineyards undulating beneath the majestic mountains of the Apennines, and reach serene Lake Canterno.",
     surroundings3Title: "LOCAL CULTURE",
     surroundings3Text:
-      "Savour the typical flavours such as the extra virgin olive oil and artisanal cheeses as you explore the traditional crafts and customs of the Ciociaria territory.",
+      "Savour the typical flavours such as extra virgin olive oil and artisanal cheeses as you explore the traditional crafts and customs of the Ciociaria territory.",
     videosTitle: "WHAT OUR GUESTS SAY",
   },
 
