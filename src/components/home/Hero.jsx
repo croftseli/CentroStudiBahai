@@ -132,7 +132,7 @@ const videos = {
 
 export default function Hero() {
   const heroImages = [
-    "/view1.jpg",
+    "/Newhomeview.jpg",
     "/view2.jpg",
     "/view3.jpg",
     "/view4.jpg",
