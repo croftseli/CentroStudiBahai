@@ -129,14 +129,7 @@ const videos = {
 };
 
 export default function Hero() {
-  const heroImages = [
-    "/Newhomeview.jpg",
-    "/view2.jpg",
-    "/view3.jpg",
-    "/view4.jpg",
-    "/view5.jpg",
-    "/view6.jpg",
-  ];
+  const heroImages = ["/bg1.jpg", "/bg2.jpg", "/bg3.jpg", "/bg4.jpg"];
 
   const [selectedVideo, setSelectedVideo] = useState("Marta");
 
