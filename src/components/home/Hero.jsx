@@ -55,6 +55,7 @@ const content = {
     tagline:
       "Experience the tranquillity of nature and the energy of encounter in one place.",
     bookButton: "Contact us to book!",
+    bookButtonHref: "/booking",
     mission: "Nice to Meet You!",
     missionText: [
       "The Centro Studi Bahá’í – Hotel La Panoramica is immersed in a relaxing atmosphere, surrounded by lush nature, just 10 minutes from the spa resort of Fiuggi and less than an hour from Rome. Thanks to its unique panoramic position and large terrace overlooking the enchanting medieval village of Acuto (750 metres above sea level), it offers a splendid view over the valleys of Ciociaria.",
@@ -90,6 +91,7 @@ const content = {
     tagline:
       "Vivi la tranquillità della natura e l'energia dell'incontro in un unico luogo.",
     bookButton: "Contattaci per prenotare!",
+    bookButtonHref: "/it/booking",
     mission: "Conosciamoci!",
     missionText: [
       "Il Centro Studi Bahá’í - Hotel La Panoramica è immerso in un’atmosfera di relax a contatto con la natura, a soli 10 minuti dalla stazione termale di Fiuggi e a meno di un’ora da Roma. Grazie all’esclusiva posizione panoramica e alla grande terrazza affacciata sull’incantevole borgo medioevale di Acuto (750 metri s.l.m.), offre una splendida vista sulle vallate della Ciociaria.",
@@ -247,7 +249,7 @@ export default function Hero() {
             </motion.p>
 
             <motion.a
-              href="/contactUs"
+              href={text.bookButtonHref || "#"}
               variants={textVariants}
               initial="hidden"
               animate="visible"
