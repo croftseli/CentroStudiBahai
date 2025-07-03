@@ -10,6 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { useLanguage } from "@/context/LanguageContext";
+import { FaTripadvisor } from "react-icons/fa";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -242,6 +243,14 @@ export default function Navbar() {
 
             {/* Social Icons */}
             <div className="flex items-center space-x-3">
+              {/* <a
+                href=""
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-gray-600 hover:text-accent transition-colors"
+              >
+                <FaTripadvisor size={24} color="gray-600" />
+              </a> */}
               <a
                 href="https://www.instagram.com/centrostudibahai9/"
                 rel="noopener noreferrer"
@@ -325,6 +334,14 @@ export default function Navbar() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
               >
+                {/* <a
+                  href=""
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="text-gray-600 hover:text-accent transition-colors"
+                >
+                  <FaTripadvisor size={24} color="gray-600" />
+                </a> */}
                 <a
                   href="https://www.instagram.com/centrostudibahai9/"
                   rel="noopener noreferrer"
@@ -334,7 +351,7 @@ export default function Navbar() {
                   <InstagramIcon />
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=61550518948072"
                   rel="noopener noreferrer"
                   target="_blank"
                   className="text-gray-700 hover:text-accent transition-colors"

@@ -7,13 +7,8 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TranslateIcon from "@mui/icons-material/Translate";
 import { useLanguage } from "@/context/LanguageContext";
+import { FaTripadvisor } from "react-icons/fa";
 
-/**
- * A more robust footer that includes:
- * - A language selector
- * - Additional info/links
- * - Social icons
- */
 export default function Footer() {
   const { language, switchLanguage, languages } = useLanguage();
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
@@ -139,6 +134,14 @@ export default function Footer() {
             </h3>
             <p className="text-sm">{text.followUs}</p>
             <div className="flex space-x-4">
+              {/* <a
+                href=""
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-gray-600 hover:text-accent transition-colors"
+              >
+                <FaTripadvisor size={24} color="gray-600" />
+              </a> */}
               <a
                 href="https://www.instagram.com/centrostudibahai9/"
                 target="_blank"
