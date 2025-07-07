@@ -27,7 +27,7 @@ export default function Footer() {
       rights:
         "© " +
         new Date().getFullYear() +
-        " Hotel La Panoramica. All rights reserved. CIN: IT060002A1FCR22N8J",
+        " Centro Studi Bahá’í. CIN: IT060002A1FCR22N8J",
       developedBy: "Developed by",
       links: [
         { href: "/", label: "Home" },
@@ -50,7 +50,7 @@ export default function Footer() {
       rights:
         "© " +
         new Date().getFullYear() +
-        " Albergo La Panoramica. Tutti i diritti riservati. CIN: IT060002A1FCR22N8J",
+        " Centro Studi Bahá’í. CIN: IT060002A1FCR22N8J",
       developedBy: "Sviluppato da",
       links: [
         { href: "/it", label: "Home" },
