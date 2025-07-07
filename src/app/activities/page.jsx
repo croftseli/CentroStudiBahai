@@ -35,7 +35,7 @@ export default function ActivitiesPage() {
       {/* Team Building & Retreats */}
       <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
         <Image
-          src="/images/team-retreat.png"
+          src="/images/team-retreat.jpg"
           alt="Team Building"
           width={800}
           height={500}
