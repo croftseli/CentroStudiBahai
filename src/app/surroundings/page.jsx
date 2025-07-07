@@ -39,8 +39,8 @@ export default function Explore() {
           </ul>
         </div>
         <Image
-          src="/images/beach.jpg"
-          alt="Beach view"
+          src="/images/bahai-study-center-beach-relaxation-nearby.webp"
+          alt="Sandy beach near the Bahá’í Study Center ideal for relaxation after business meetings"
           width={600}
           height={400}
           className="rounded-xl shadow mx-auto"
@@ -49,8 +49,8 @@ export default function Explore() {
 
       <section className="grid md:grid-cols-2 gap-8 items-center">
         <Image
-          src="/images/homemade-pasta.jpg"
-          alt="Homemade pasta"
+          src="/images/bahai-study-center-homemade-pasta-local-cuisine.webp"
+          alt="Homemade pasta and traditional local cuisine near the Bahá’í Study Center"
           width={600}
           height={400}
           className="rounded-xl shadow mx-auto"
@@ -115,8 +115,8 @@ export default function Explore() {
             </ul>
           </div>
           <Image
-            src="/images/waterfall.jpg"
-            alt="Waterfall"
+            src="/images/bahai-study-center-waterfall-natural-attraction-nearby.webp"
+            alt="Beautiful waterfall near the Bahá’í Study Center for nature excursions and relaxation"
             width={600}
             height={400}
             className="rounded-xl shadow mx-auto"
@@ -132,8 +132,8 @@ export default function Explore() {
           Ask for our professional guides!
         </p>
         <Image
-          src="/images/hiking-trails.jpg"
-          alt="Skiing in Campo Staffi"
+          src="/images/bahai-study-center-lakeside-picnic-area-business-retreats.webp"
+          alt="Lakeside picnic area near the Bahá’í Study Center for business retreat breaks"
           width={800}
           height={500}
           className="rounded-xl shadow mx-auto"

@@ -37,10 +37,10 @@ export default function Navbar() {
     ],
     it: [
       { href: "/it", label: "Home" },
-      { href: "/it/calendar", label: "Calendario" },
-      { href: "/it/surroundings", label: "Dintorni" },
-      { href: "/it/activities", label: "Attività" },
-      { href: "/it/booking", label: "Prenota" },
+      { href: "/it/calendario", label: "Calendario" },
+      { href: "/it/dintorni", label: "Dintorni" },
+      { href: "/it/attivita", label: "Attività" },
+      { href: "/it/prenota", label: "Prenota" },
     ],
   };
 
@@ -195,7 +195,7 @@ export default function Navbar() {
             <Link href={language === "en" ? "/" : "/it"}>
               <div className="flex items-center space-x-3">
                 <Image
-                  src="/CSBLogo.jpg"
+                  src="/CSBLogo.webp"
                   alt="Hotel La Panoramica Logo"
                   width={60}
                   height={60}

@@ -24,8 +24,8 @@ export default function ActivitiesPage() {
           </p>
         </div>
         <Image
-          src="/images/conference-room.jpg"
-          alt="Conference Room"
+          src="/images/bahai-study-center-meeting-room-relaxation-space.webp"
+          alt="Comfortable meeting and relaxation room at the Bahá’í Study Center for corporate groups"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
@@ -35,8 +35,8 @@ export default function ActivitiesPage() {
       {/* Team Building & Retreats */}
       <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
         <Image
-          src="/images/team-retreat.jpg"
-          alt="Team Building"
+          src="/images/bahai-study-center-team-retreat.webp"
+          alt="Team Building at the Bahá’í Study Center"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
@@ -79,8 +79,8 @@ export default function ActivitiesPage() {
           </p>
         </div>
         <Image
-          src="/images/wedding-view.jpg"
-          alt="Wedding with a view"
+          src="/images/bahai-study-center-wedding-venue-corporate-events.webp"
+          alt="Wedding ceremony at the Bahá’í Study Center, also suitable for corporate events"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
@@ -90,8 +90,8 @@ export default function ActivitiesPage() {
       {/* Yoga & Martial Arts Retreats */}
       <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
         <Image
-          src="/images/yoga-retreat.jpg"
-          alt="Yoga Retreat"
+          src="/images/bahai-study-center-yoga-meditation-business-retreats.webp"
+          alt="Yoga and meditation session at the Bahá’í Study Center for business retreats"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
@@ -122,22 +122,22 @@ export default function ActivitiesPage() {
           </p>
         </div>
         <Image
-          src="/images/bike-tour.jpg"
-          alt="Cycling in Ciociaria"
+          src="/images/bahai-study-center-bike-path-nature-corporate-retreats.webp"
+          alt="Bike path surrounded by nature near the Bahá’í Study Center for corporate retreats"
           width={800}
           height={500}
           className="rounded-xl shadow-md"
         />
       </section>
 
-      <section className="text-center mt-12">
+      {/* <section className="text-center mt-12">
         <a
           href="/surroundings"
           className="inline-block bg-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-accent-red/80 transition"
         >
           Discover the Surroundings
         </a>
-      </section>
+      </section> */}
     </main>
   );
 }

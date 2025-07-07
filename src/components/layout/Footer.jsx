@@ -54,10 +54,10 @@ export default function Footer() {
       developedBy: "Sviluppato da",
       links: [
         { href: "/it", label: "Home" },
-        { href: "/it/calendar", label: "Calendario" },
-        { href: "/it/surroundings", label: "Dintorni" },
-        { href: "/it/activities", label: "Attività" },
-        { href: "/it/booking", label: "Prenota" },
+        { href: "/it/calendario", label: "Calendario" },
+        { href: "/it/dintorni", label: "Dintorni" },
+        { href: "/it/attivita", label: "Attività" },
+        { href: "/it/prenota", label: "Prenota" },
       ],
     },
   };
@@ -97,7 +97,7 @@ export default function Footer() {
           <div className="flex flex-col space-y-4">
             <Link href={language === "en" ? "/" : "/it"} className="w-32">
               <Image
-                src="/CSBLogo.jpg"
+                src="/CSBLogo.webp"
                 alt={
                   language === "en"
                     ? "Hotel La Panoramica Logo"

@@ -63,22 +63,22 @@ export default function ContactForm() {
           {/* Images */}
           <div className="grid grid-cols-2 gap-4">
             <Image
-              src="/images/room1.jpg"
-              alt="Double room"
+              src="/images/bahai-study-center-guest-room-business-meeting-accommodation.webp"
+              alt="Comfortable guest room at the Bahá’í Study Center for business meeting participants"
               width={600}
               height={400}
               className="rounded-xl object-cover w-full h-full"
             />
             <Image
-              src="/images/room2.jpg"
-              alt="Room interior"
+              src="/images/bahai-study-center-guest-room-workspace-business-stays.webp"
+              alt="Guest room workspace with natural light at the Bahá’í Study Center for business guests"
               width={600}
               height={400}
               className="rounded-xl object-cover w-full h-full"
             />
             <Image
-              src="/images/room3.jpg"
-              alt="Quadruple room"
+              src="/images/bahai-study-center-family-guest-room-business-travel.webp"
+              alt="Family guest room with double bed and workspace at the Bahá’í Study Center for business travel"
               width={600}
               height={400}
               className="rounded-xl object-cover w-full h-full col-span-2"

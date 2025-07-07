@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, act } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
@@ -64,22 +64,43 @@ const content = {
       "We provide a serene environment and a comfortable refuge, where guests can reconnect and forge new partnerships with the world around them, develop new skills, discover other realities, and plan together.",
     ],
     activities: "WE HOST",
+    activity1Image: "/bahai-study-center-business-conference-meeting-room.webp",
+    activity1Alt:
+      "Business conference and seminar in the meeting room of the Bahá’í Study Center in Italy",
     activity1Title: "MEETINGS",
     activity1Text:
       "Organize conferences, retreats, community gatherings, workshops, artistic expressions, and cultural celebrations that foster a spirit of unity, encourage meaningful dialogue, and create spaces for collective reflection, learning, and inspiration across diverse groups.",
+    activity2Image:
+      "/bahai-study-center-outdoor-relaxation-area-business-meetings.webp",
+    activity2Alt:
+      "Outdoor relaxation area near the Bahá’í Study Center for business meeting participants",
     activity2Title: "GUIDED TOURS AND EXCURSIONS",
     activity2Text:
       "Explore the historic alleys of Acuto, the fountains of Fiuggi, the Cathedral of Anagni, the cyclopean walls of Alatri, and the jewels of Lazio villages. Challenge yourself on the breathtaking cycling routes and mountain trails of the Ernici and Simbruini hills. Discover ancient churches, medieval towers, and serene natural panoramas, also with guided tours.",
+    activity3Image: "/bahai-study-center-conference-room-corporate-events.webp",
+    activity3Alt:
+      "Conference room with seating and stage at the Bahá’í Study Center for corporate events",
     activity3Title: "CONFERENCE & STUDY FACILITIES",
     activity3Text:
       "The Conference Hall seats 150 and is equipped with free Wi-Fi, a projector, HD wall screen, video camera, sound system, microphones, and instruments for artistic performances. Two additional study halls, also with Wi-Fi and flexible seating, accommodate groups of up to 20.",
     surroundings: "OUR SURROUNDINGS OFFER:",
+    surroundings1Image:
+      "/bahai-study-center-team-building-nature-activities.webp",
+    surroundings1Alt:
+      "Team building and group activities in nature near the Bahá’í Study Center",
     surroundings1Title: "HISTORIC ACUTO",
     surroundings1Text:
       "Immerse yourself in Acuto's past by walking through narrow cobbled alleys, ancient arches, and historic churches dating back to the 5th century AC.",
+    surroundings2Image:
+      "/bahai-study-center-natural-surroundings-business-retreats.webp",
+    surroundings2Alt:
+      "Natural surroundings and lake near the Bahá’í Study Center for business retreats",
     surroundings2Title: "NATURAL LANDSCAPES",
     surroundings2Text:
       "Enjoy chestnut forests, olive groves, and vineyards undulating beneath the majestic mountains of the Apennines, and reach serene Lake Canterno.",
+    surroundings3Image: "/bahai-study-center-natural-landscape-olive-tree.webp",
+    surroundings3Alt:
+      "Olive tree branches in the natural landscape around the Bahá’í Study Center",
     surroundings3Title: "LOCAL CULTURE",
     surroundings3Text:
       "Savour the typical flavours such as extra virgin olive oil and artisanal cheeses as you explore the traditional crafts and customs of the Ciociaria territory.",
@@ -100,22 +121,42 @@ const content = {
       "Fornisce un ambiente sereno, un rifugio confortevole, dove gli ospiti possono riconnettersi con sé stessi e con il mondo che li circonda, sviluppare nuove capacità, scoprire altre realtà e progettare insieme.",
     ],
     activities: "OSPITIAMO",
+    activity1Image: "/centro-studi-bahai-conferenza-meeting-aziendale.webp",
+    activity1Alt:
+      "Conferenza aziendale e seminario nella sala meeting del Centro Studi Bahá’í in Italia",
     activity1Title: "INCONTRI",
     activity1Text:
       "Organizza conferenze, ritiri, incontri comunitari, laboratori, espressioni artistiche e celebrazioni culturali che promuovono uno spirito di unità, incoraggiano un dialogo significativo e creano spazi per la riflessione collettiva, l’apprendimento e l’ispirazione tra gruppi diversi.",
+    activity2Image: "/centro-studi-bahai-area-relax-esterna-meeting.webp",
+    activity2Alt:
+      "Area relax esterna vicino al Centro Studi Bahá’í per partecipanti a meeting aziendali",
     activity2Title: "TOUR GUIDATI ED ESCURSIONI",
     activity2Text:
       "Esplora i vicoli storici di Acuto, le meraviglie dell’antica Roma, la suggestiva Napoli, le fonti di Fiuggi, la Cattedrale di Anagni, le mura ciclopiche di Alatri, i gioielli di borghi laziali. Sfida te stesso sui percorsi ciclistici ed i sentieri montuosi mozzafiato dei colli Ernici e Simbruini. Scopri antiche chiese, torri medievali e sereni panorami naturali anche con tour guidati.",
+    activity3Image: "/centro-studi-bahai-sala-conferenze-eventi-aziendali.webp",
+    activity3Alt:
+      "Sala conferenze con sedute e palco al Centro Studi Bahá’í per eventi aziendali",
     activity3Title: "SPAZI PER CONFERENZE E STUDIO",
     activity3Text:
       "La Sala Conferenze dispone di 150 posti a sedere ed è dotata di Wi-Fi gratuito, proiettore, schermo a parete in alta definizione, videocamera, impianto audio, microfoni e strumenti per performance artistiche. Due aule studio aggiuntive, anch’esse con Wi-Fi e sedute flessibili, possono accogliere gruppi fino a 20 persone.",
     surroundings: "I NOSTRI DINTORNI OFFRONO:",
+    surroundings1Image:
+      "/centro-studi-bahai-team-building-attivita-natura.webp",
+    surroundings1Alt:
+      "Attività di team building e gruppo nella natura vicino al Centro Studi Bahá’í",
     surroundings1Title: "ACUTO STORICO",
     surroundings1Text:
       "Immergiti nel passato di Acuto passeggiando per stretti vicoli acciottolati, antichi archi e chiese storiche risalenti al V secolo DC.",
+    surroundings2Image:
+      "/centro-studi-bahai-paesaggio-naturale-ritiri-aziendali.webp",
+    surroundings2Alt:
+      "Paesaggio naturale con lago vicino al Centro Studi Bahá’í per ritiri aziendali",
     surroundings2Title: "PAESAGGI NATURALI",
     surroundings2Text:
       "Goditi boschi di castagni, uliveti e vigneti ondulati sotto le maestose montagne degli Appennini, raggiungete il sereno lago di Canterno.",
+    surroundings3Image: "/centro-studi-bahai-uliveto-paesaggio-naturale.webp",
+    surroundings3Alt:
+      "Rami di ulivo nel paesaggio naturale intorno al Centro Studi Bahá’í",
     surroundings3Title: "CULTURA LOCALE",
     surroundings3Text:
       "Assapora le eccellenze del territorio come l’olio extravergine di oliva e i formaggi artigianali mentre esplori l'artigianato tradizionale e i costumi della Ciociaria.",
@@ -131,7 +172,7 @@ const videos = {
 };
 
 export default function Hero() {
-  const heroImages = ["/bg1.jpg", "/bg2.jpg", "/bg3.jpg", "/bg4.jpg"];
+  const heroImages = ["/bg1.webp", "/bg2.webp", "/bg3.webp", "/bg4.webp"];
 
   const [selectedVideo, setSelectedVideo] = useState("Marta");
 
@@ -139,11 +180,11 @@ export default function Hero() {
   const { language } = useLanguage();
   const text = content[language];
 
-  // Rotate images automatically every 5 seconds
+  // Rotate images automatically every 7.5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+    }, 7500);
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
@@ -314,8 +355,8 @@ export default function Hero() {
             >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/activity1.jpg"
-                  alt={text.activity1Title}
+                  src={text.activity1Image || "/blank-image.webp"}
+                  alt={text.activity1Alt}
                   fill
                   className="object-cover rounded-md"
                 />
@@ -334,8 +375,8 @@ export default function Hero() {
             >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/activity2.jpg"
-                  alt={text.activity2Title}
+                  src={text.activity2Image || "/blank-image.webp"}
+                  alt={text.activity2Alt}
                   fill
                   className="object-cover [object-position:50%_20%]"
                 />
@@ -354,8 +395,8 @@ export default function Hero() {
             >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/activity3.jpg"
-                  alt={text.activity3Title}
+                  src={text.activity3Image || "/blank-image.webp"}
+                  alt={text.activity3Alt}
                   fill
                   className="object-cover rounded-md"
                 />
@@ -422,8 +463,8 @@ export default function Hero() {
             >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/surroundings1.jpg"
-                  alt={text.surroundings1Title}
+                  src={text.surroundings1Image || "/blank-image.webp"}
+                  alt={text.surroundings1Alt}
                   fill
                   className="object-cover [object-position:50%_100%]"
                 />
@@ -445,8 +486,8 @@ export default function Hero() {
             >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/surroundings2.jpg"
-                  alt={text.surroundings2Title}
+                  src={text.surroundings2Image || "/blank-image.webp"}
+                  alt={text.surroundings2Alt}
                   fill
                   className="object-cover [object-position:30%_100%]"
                 />
@@ -468,8 +509,8 @@ export default function Hero() {
             >
               <div className="relative h-60 mb-4">
                 <Image
-                  src="/surroundings3.jpg"
-                  alt={text.surroundings3Title}
+                  src={text.surroundings3Image || "/blank-image.webp"}
+                  alt={text.surroundings3Alt}
                   fill
                   className="object-cover [object-position:50%_65%]"
                 />
