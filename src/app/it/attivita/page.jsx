@@ -1,8 +1,30 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ActivitiesPage() {
+  const router = useRouter();
+
+  // Handle scrolling when the page loads or hash changes
+  useEffect(() => {
+    const hash = window.location.hash; // e.g., #matrimoni
+    if (hash) {
+      const sectionId = hash.replace("#", "");
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const headerOffset = 100; // Matches English version
+        const elementPosition =
+          section.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: elementPosition - headerOffset,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [router.asPath]); // Re-run when URL (including hash) changes
+
   return (
     <main className="container mx-auto px-6 py-12 space-y-12">
       <h1 className="text-4xl font-bold text-dark-brown mb-10 text-center">
@@ -10,7 +32,11 @@ export default function ActivitiesPage() {
       </h1>
 
       {/* Conferences & Trainings */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="conferenze"
+        aria-label="Conferenze e Formazione"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <div className="space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-semibold text-dark-brown mb-4">
             Conferenze e Formazione
@@ -33,7 +59,11 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Team Building & Retreats */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="team-building"
+        aria-label="Team Building e Ritiri"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <Image
           src="/images/centro-studi-bahai-ritrio-della-squadra.webp"
           alt="Team Building al Centro Studi Bahá’í"
@@ -58,7 +88,11 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Family Reunions & Weddings */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="matrimoni"
+        aria-label="Riunioni di Famiglia e Matrimoni"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <div className="space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-semibold text-dark-brown mb-4">
             Riunioni di Famiglia e Matrimoni
@@ -90,7 +124,11 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Yoga & Martial Arts Retreats */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="ritiri-yoga"
+        aria-label="Ritiri di Yoga e Arti Marziali"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <Image
           src="/images/centro-studi-bahai-yoga-meditazione-ritiri-aziendali.webp"
           alt="Sessione di yoga e meditazione al Centro Studi Bahá’í per ritiri aziendali"
@@ -112,7 +150,11 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Slow Tourism & Biking */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="ciclismo"
+        aria-label="Turismo Lento e Bici"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <div className="space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-semibold text-dark-brown mb-4">
             Turismo Lento e Bici
@@ -132,15 +174,6 @@ export default function ActivitiesPage() {
           className="rounded-xl shadow-md"
         />
       </section>
-
-      {/* <section className="text-center mt-12">
-        <a
-          href="/it/surroundings"
-          className="inline-block bg-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-accent-red/80 transition"
-        >
-          Scopri i Dintorni
-        </a>
-      </section> */}
     </main>
   );
 }

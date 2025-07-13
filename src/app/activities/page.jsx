@@ -1,8 +1,30 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ActivitiesPage() {
+  const router = useRouter();
+
+  // Handle scrolling when the page loads or hash changes
+  useEffect(() => {
+    const hash = window.location.hash; // e.g., #weddings
+    if (hash) {
+      const sectionId = hash.replace("#", "");
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const headerOffset = 100;
+        const elementPosition =
+          section.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: elementPosition - headerOffset,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [router.asPath]); // Re-run when URL (including hash) changes
+
   return (
     <main className="container mx-auto px-6 py-12 space-y-12">
       <h1 className="text-4xl font-bold text-dark-brown mb-10 text-center">
@@ -10,7 +32,11 @@ export default function ActivitiesPage() {
       </h1>
 
       {/* Conferences & Trainings */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="conferences"
+        aria-label="Conferences and Trainings"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <div className="space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-semibold text-dark-brown mb-4">
             Conferences & Trainings
@@ -33,7 +59,11 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Team Building & Retreats */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="team-building"
+        aria-label="Team Building and Retreats"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <Image
           src="/images/bahai-study-center-team-retreat.webp"
           alt="Team Building at the Bahá’í Study Center"
@@ -58,7 +88,11 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Family Reunions & Weddings */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="weddings"
+        aria-label="Family Reunions and Weddings"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <div className="space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-semibold text-dark-brown mb-4">
             Family Reunions & Weddings
@@ -88,7 +122,11 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Yoga & Martial Arts Retreats */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="yoga-retreats"
+        aria-label="Yoga and Martial Arts Retreats"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <Image
           src="/images/bahai-study-center-yoga-meditation-business-retreats.webp"
           alt="Yoga and meditation session at the Bahá’í Study Center for business retreats"
@@ -110,7 +148,11 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Slow Tourism & Biking */}
-      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+      <section
+        id="biking"
+        aria-label="Slow Tourism and Biking"
+        className="mb-16 grid md:grid-cols-2 gap-8 items-center"
+      >
         <div className="space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-semibold text-dark-brown mb-4">
             Slow Tourism & Biking
@@ -129,15 +171,6 @@ export default function ActivitiesPage() {
           className="rounded-xl shadow-md"
         />
       </section>
-
-      {/* <section className="text-center mt-12">
-        <a
-          href="/surroundings"
-          className="inline-block bg-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-accent-red/80 transition"
-        >
-          Discover the Surroundings
-        </a>
-      </section> */}
     </main>
   );
 }
