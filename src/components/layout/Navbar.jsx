@@ -9,12 +9,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isActivitiesDropdownOpen, setIsActivitiesDropdownOpen] =
     useState(false);
+  const [isMobileActivitiesOpen, setIsMobileActivitiesOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const pathname = usePathname();
   const { language, switchLanguage } = useLanguage();
@@ -148,7 +151,8 @@ export default function Navbar() {
               opacity=".2"
             />
           </svg>
-          <span className="relative z-10 ml-1">English</span>
+          {/* Removed <span>English</span> for mobile */}
+          <span className="relative z-10 ml-1 md:inline hidden">English</span>
         </button>
         <button
           className={`cursor-pointer ${TOGGLE_CLASSES} ${
@@ -184,7 +188,8 @@ export default function Navbar() {
               opacity=".2"
             />
           </svg>
-          <span className="relative z-10 ml-1">Italiano</span>
+          {/* Removed <span>Italiano</span> for mobile */}
+          <span className="relative z-10 ml-1 md:inline hidden">Italiano</span>
         </button>
         <div
           className={`absolute inset-0 z-0 flex ${
@@ -211,9 +216,7 @@ export default function Navbar() {
       style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}
     >
       <div className="max-w-8xl mx-auto px-6">
-        {/* Three-section layout: Logo | Navigation | Language/Social */}
         <div className="flex items-center justify-between">
-          {/* Logo - Left section */}
           <div className="w-1/4">
             <Link href={language === "en" ? "/" : "/it"}>
               <div className="flex items-center space-x-3">
@@ -236,7 +239,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Navigation - Center section */}
           <nav className="hidden md:flex items-center justify-center w-2/4">
             <div className="flex items-center justify-center space-x-8">
               {navLinks.map((link) => (
@@ -306,7 +308,6 @@ export default function Navbar() {
             </div>
           </nav>
 
-          {/* Language and Social - Right section */}
           <div className="hidden md:flex items-center justify-end w-1/4">
             <div className="mr-4">
               <LanguageToggleSlider />
@@ -331,7 +332,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center space-x-2">
             <div className="mr-2">
               <LanguageToggleSlider />
@@ -347,7 +347,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -370,37 +369,71 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: 0.1 + index * 0.05 }}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block font-medium text-lg transition-colors ${
-                      pathname === link.href ||
-                      pathname.replace(/^\/it/, "") ===
-                        link.href.replace(/^\/it/, "")
-                        ? "text-accent underline"
-                        : "text-gray-700 hover:text-accent"
-                    }`}
-                    aria-label={
-                      link.label === "Activities" || link.label === "Attività"
-                        ? "Activities menu"
-                        : link.label
-                    }
-                  >
-                    {link.label}
-                  </Link>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block font-medium text-lg transition-colors ${
+                        pathname === link.href ||
+                        pathname.replace(/^\/it/, "") ===
+                          link.href.replace(/^\/it/, "")
+                          ? "text-accent underline"
+                          : "text-gray-700 hover:text-accent"
+                      }`}
+                      aria-label={
+                        link.label === "Activities" || link.label === "Attività"
+                          ? "Activities menu"
+                          : link.label
+                      }
+                    >
+                      {link.label}
+                    </Link>
+                    {link.subLinks && (
+                      <button
+                        onClick={() =>
+                          setIsMobileActivitiesOpen((prev) => !prev)
+                        }
+                        aria-label={
+                          isMobileActivitiesOpen
+                            ? "Collapse Activities menu"
+                            : "Expand Activities menu"
+                        }
+                        className="text-gray-700 hover:text-accent"
+                      >
+                        {isMobileActivitiesOpen ? (
+                          <KeyboardArrowUpIcon />
+                        ) : (
+                          <KeyboardArrowDownIcon />
+                        )}
+                      </button>
+                    )}
+                  </div>
                   {link.subLinks && (
-                    <div className="ml-4 mt-2 space-y-2">
-                      {link.subLinks.map((subLink) => (
-                        <Link
-                          key={subLink.href}
-                          href={subLink.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="block text-sm text-gray-600 hover:text-accent"
+                    <AnimatePresence>
+                      {isMobileActivitiesOpen && (
+                        <motion.div
+                          className="ml-4 mt-2 space-y-2"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          {subLink.label}
-                        </Link>
-                      ))}
-                    </div>
+                          {link.subLinks.map((subLink) => (
+                            <Link
+                              key={subLink.href}
+                              href={subLink.href}
+                              onClick={() => {
+                                setIsMenuOpen(false);
+                                setIsMobileActivitiesOpen(false);
+                              }}
+                              className="block text-sm text-gray-600 hover:text-accent"
+                            >
+                              {subLink.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
                 </motion.div>
               ))}
