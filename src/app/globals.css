@@ -151,5 +151,5 @@ html {
 }
 
 section[aria-label] {
-  scroll-margin-top: 80px; /* Matches headerOffset */
+  scroll-margin-top: 100px;
 }

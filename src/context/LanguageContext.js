@@ -29,46 +29,79 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(getLanguageFromPath());
   }, [pathname]);
 
+  // Path and hash translations between languages
+  const pathTranslations = {
+    en: {
+      "/": "/",
+      "/calendar": "/calendar",
+      "/surroundings": "/surroundings",
+      "/activities": "/activities",
+      "/booking": "/booking",
+      hashes: {
+        conferences: "conferences",
+        "team-building": "team-building",
+        weddings: "weddings",
+        "yoga-retreats": "yoga-retreats",
+        biking: "biking",
+      },
+    },
+    it: {
+      "/": "/it",
+      "/calendar": "/it/calendario",
+      "/surroundings": "/it/dintorni",
+      "/activities": "/it/attivita",
+      "/booking": "/it/prenota",
+      hashes: {
+        conferences: "conferenze",
+        "team-building": "team-building",
+        weddings: "matrimoni",
+        "yoga-retreats": "ritiri-yoga",
+        biking: "ciclismo",
+      },
+    },
+  };
+
   // Handle language switching
   const switchLanguage = (newLang) => {
     if (newLang === language) return; // Don't switch if already on the same language
-    
-    const currentLang = language;
-    let currentPath = pathname;
-    
-    // Special handling for home page
-    if (currentPath === '/' || currentPath === '/it') {
-      if (newLang === 'en') {
-        router.push('/');
-        return;
-      } else if (newLang === 'it') {
-        router.push('/it');
-        return;
+
+    const currentPath = pathname;
+    const currentHash = window.location.hash; // e.g., #matrimoni
+    const currentLangPaths = pathTranslations[language];
+    const newLangPaths = pathTranslations[newLang];
+
+    // Find the equivalent path in the new language
+    let newPath = "/";
+    for (const [enPath, itPath] of Object.entries(currentLangPaths)) {
+      if (language === "en" && currentPath === enPath) {
+        newPath = newLangPaths[enPath];
+        break;
+      } else if (language === "it" && currentPath === itPath) {
+        newPath = enPath; // Use the English path as the key for the new language
+        break;
       }
     }
-    
-    // For other pages:
-    // Remove current language prefix if exists
-    let newPath = currentPath;
-    if (currentLang === 'it' && currentPath.startsWith('/it')) {
-      newPath = currentPath.replace(/^\/it/, '');
+
+    // Handle hash translation
+    let newHash = "";
+    if (currentHash) {
+      const hashKey = Object.keys(currentLangPaths.hashes).find(
+        (key) => currentLangPaths.hashes[key] === currentHash.replace("#", "")
+      );
+      if (hashKey) {
+        newHash = `#${newLangPaths.hashes[hashKey]}`;
+      }
     }
-    
-    // Add new language prefix if not default
-    if (newLang === 'it') {
-      newPath = `/it${newPath}`;
-    }
-    
-    // Make sure path starts with /
-    if (!newPath.startsWith('/')) newPath = '/' + newPath;
-    
-    router.push(newPath);
+
+    // Navigate to the new path with hash
+    router.push(`${newPath}${newHash}`);
+    setLanguage(newLang);
   };
 
   const value = {
     language,
     switchLanguage,
-    languages
+    languages,
   };
 
   return (

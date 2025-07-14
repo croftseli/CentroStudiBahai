@@ -10,13 +10,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { useLanguage } from "@/context/LanguageContext";
-import { FaTripadvisor } from "react-icons/fa";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isActivitiesDropdownOpen, setIsActivitiesDropdownOpen] =
+    useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const pathname = usePathname();
-  const { language, switchLanguage, languages } = useLanguage();
+  const { language, switchLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,14 +33,34 @@ export default function Navbar() {
       { href: "/", label: "Home" },
       { href: "/calendar", label: "Calendar" },
       { href: "/surroundings", label: "Surroundings" },
-      { href: "/activities", label: "Activities" },
+      {
+        href: "/activities",
+        label: "Activities",
+        subLinks: [
+          { href: "/activities#conferences", label: "Conferences" },
+          { href: "/activities#team-building", label: "Team Building" },
+          { href: "/activities#weddings", label: "Weddings" },
+          { href: "/activities#yoga-retreats", label: "Yoga Retreats" },
+          { href: "/activities#biking", label: "Biking" },
+        ],
+      },
       { href: "/booking", label: "Booking" },
     ],
     it: [
       { href: "/it", label: "Home" },
       { href: "/it/calendario", label: "Calendario" },
       { href: "/it/dintorni", label: "Dintorni" },
-      { href: "/it/attivita", label: "Attività" },
+      {
+        href: "/it/attivita",
+        label: "Attività",
+        subLinks: [
+          { href: "/it/attivita#conferenze", label: "Conferenze" },
+          { href: "/it/attivita#team-building", label: "Team Building" },
+          { href: "/it/attivita#matrimoni", label: "Matrimoni" },
+          { href: "/it/attivita#ritiri-yoga", label: "Ritiri Yoga" },
+          { href: "/it/attivita#ciclismo", label: "Ciclismo" },
+        ],
+      },
       { href: "/it/prenota", label: "Prenota" },
     ],
   };
@@ -64,6 +85,7 @@ export default function Navbar() {
             language === "en" ? "text-white" : "text-slate-800"
           }`}
           onClick={() => handleLanguageToggle("en")}
+          aria-label="Switch to English"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,26 +102,26 @@ export default function Navbar() {
               rx="4"
               ry="4"
               fill="#071b65"
-            ></rect>
+            />
             <path
               d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z"
               fill="#fff"
-            ></path>
+            />
             <path
               d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z"
               fill="#b92932"
-            ></path>
+            />
             <path
               d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z"
               fill="#b92932"
-            ></path>
+            />
             <path
               d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z"
               fill="#fff"
-            ></path>
-            <rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
-            <rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
-            <rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+            />
+            <rect x="13" y="4" width="6" height="24" fill="#fff" />
+            <rect x="1" y="13" width="30" height="6" fill="#fff" />
+            <rect x="14" y="4" width="4" height="24" fill="#b92932" />
             <rect
               x="14"
               y="1"
@@ -107,24 +129,24 @@ export default function Navbar() {
               height="30"
               transform="translate(32) rotate(90)"
               fill="#b92932"
-            ></rect>
+            />
             <path
               d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z"
               fill="#b92932"
-            ></path>
+            />
             <path
               d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z"
               fill="#b92932"
-            ></path>
+            />
             <path
               d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
               opacity=".15"
-            ></path>
+            />
             <path
               d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
               fill="#fff"
               opacity=".2"
-            ></path>
+            />
           </svg>
           <span className="relative z-10 ml-1">English</span>
         </button>
@@ -133,6 +155,7 @@ export default function Navbar() {
             language === "it" ? "text-white" : "text-slate-800"
           }`}
           onClick={() => handleLanguageToggle("it")}
+          aria-label="Switch to Italian"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -141,25 +164,25 @@ export default function Navbar() {
             viewBox="0 0 32 32"
             className="relative z-10"
           >
-            <path fill="#fff" d="M10 4H22V28H10z"></path>
+            <path fill="#fff" d="M10 4H22V28H10z" />
             <path
               d="M5,4h6V28H5c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z"
               fill="#41914d"
-            ></path>
+            />
             <path
               d="M25,4h6V28h-6c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z"
               transform="rotate(180 26 16)"
               fill="#bf393b"
-            ></path>
+            />
             <path
               d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
               opacity=".15"
-            ></path>
+            />
             <path
               d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
               fill="#fff"
               opacity=".2"
-            ></path>
+            />
           </svg>
           <span className="relative z-10 ml-1">Italiano</span>
         </button>
@@ -196,7 +219,7 @@ export default function Navbar() {
               <div className="flex items-center space-x-3">
                 <Image
                   src="/CSBLogo.webp"
-                  alt="Hotel La Panoramica Logo"
+                  alt="Centro Studi Bahá'í Logo"
                   width={60}
                   height={60}
                   className="rounded"
@@ -217,40 +240,78 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center justify-center w-2/4">
             <div className="flex items-center justify-center space-x-8">
               {navLinks.map((link) => (
-                <Link
+                <div
                   key={link.href}
-                  href={link.href}
-                  className={`font-medium text-gray-700 transition-colors hover:text-accent ${
-                    pathname === link.href ||
-                    pathname.replace(/^\/it/, "") ===
-                      link.href.replace(/^\/it/, "")
-                      ? "text-accent underline"
-                      : ""
-                  }`}
+                  className="relative"
+                  onMouseEnter={() =>
+                    link.subLinks && setIsActivitiesDropdownOpen(true)
+                  }
+                  onMouseLeave={() =>
+                    link.subLinks && setIsActivitiesDropdownOpen(false)
+                  }
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={`font-medium text-gray-700 transition-colors hover:text-accent ${
+                      pathname === link.href ||
+                      pathname.replace(/^\/it/, "") ===
+                        link.href.replace(/^\/it/, "")
+                        ? "text-accent underline"
+                        : ""
+                    }`}
+                    aria-label={
+                      link.label === "Activities" || link.label === "Attività"
+                        ? "Activities menu"
+                        : link.label
+                    }
+                    aria-expanded={
+                      link.subLinks ? isActivitiesDropdownOpen : undefined
+                    }
+                  >
+                    {link.label}
+                  </Link>
+                  {link.subLinks && (
+                    <AnimatePresence>
+                      {isActivitiesDropdownOpen && (
+                        <motion.div
+                          className="absolute z-50 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <div
+                            className="py-1"
+                            role="menu"
+                            aria-orientation="vertical"
+                            aria-labelledby="activities-menu"
+                          >
+                            {link.subLinks.map((subLink) => (
+                              <Link
+                                key={subLink.href}
+                                href={subLink.href}
+                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent"
+                                role="menuitem"
+                              >
+                                {subLink.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
+                </div>
               ))}
             </div>
           </nav>
 
           {/* Language and Social - Right section */}
           <div className="hidden md:flex items-center justify-end w-1/4">
-            {/* Desktop Language Toggle */}
             <div className="mr-4">
               <LanguageToggleSlider />
             </div>
-
-            {/* Social Icons */}
             <div className="flex items-center space-x-3">
-              {/* <a
-                href=""
-                rel="noopener noreferrer"
-                target="_blank"
-                className="text-gray-600 hover:text-accent transition-colors"
-              >
-                <FaTripadvisor size={24} color="gray-600" />
-              </a> */}
               <a
                 href="https://www.instagram.com/centrostudibahai9/"
                 rel="noopener noreferrer"
@@ -272,11 +333,9 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center space-x-2">
-            {/* Mobile Language Toggle */}
             <div className="mr-2">
               <LanguageToggleSlider />
             </div>
-
             <button
               className="text-gray-700 hover:text-accent transition-colors text-3xl"
               onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -321,27 +380,36 @@ export default function Navbar() {
                         ? "text-accent underline"
                         : "text-gray-700 hover:text-accent"
                     }`}
+                    aria-label={
+                      link.label === "Activities" || link.label === "Attività"
+                        ? "Activities menu"
+                        : link.label
+                    }
                   >
                     {link.label}
                   </Link>
+                  {link.subLinks && (
+                    <div className="ml-4 mt-2 space-y-2">
+                      {link.subLinks.map((subLink) => (
+                        <Link
+                          key={subLink.href}
+                          href={subLink.href}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="block text-sm text-gray-600 hover:text-accent"
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               ))}
-
-              {/* Social Icons */}
               <motion.div
                 className="flex space-x-4 pt-4 justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
               >
-                {/* <a
-                  href=""
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="text-gray-600 hover:text-accent transition-colors"
-                >
-                  <FaTripadvisor size={24} color="gray-600" />
-                </a> */}
                 <a
                   href="https://www.instagram.com/centrostudibahai9/"
                   rel="noopener noreferrer"
