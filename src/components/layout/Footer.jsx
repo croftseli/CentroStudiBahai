@@ -12,7 +12,7 @@ export default function Footer() {
         "© " +
         new Date().getFullYear() +
         " Centro Studi Bahá’í. CIN: IT060002A1FCR22N8J",
-      developedBy: "Developed by",
+      developedBy: "Developed by ",
       links: [
         { href: "/", label: "Home" },
         { href: "/calendar", label: "Calendar" },
@@ -26,7 +26,7 @@ export default function Footer() {
         "© " +
         new Date().getFullYear() +
         " Centro Studi Bahá’í. CIN: IT060002A1FCR22N8J",
-      developedBy: "Sviluppato da",
+      developedBy: "Sviluppato da ",
       links: [
         { href: "/it", label: "Home" },
         { href: "/it/calendario", label: "Calendario" },
