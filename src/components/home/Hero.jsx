@@ -1,59 +1,48 @@
 "use client";
 
-import { useState, useEffect, act } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
-// TODO: bigger, centered card titles. Hover animation and click function
-// Background image animation variants
+
+/* ========= MOTION ========= */
+
 const bgVariants = {
   initial: { scale: 1.01 },
   animate: { scale: 1, transition: { duration: 0.8, ease: "easeInOut" } },
 };
 
-// Text animation variants
-const textVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (delay = 0) => ({
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  show: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 1.5,
-      ease: "easeOut",
-      delay,
-    },
-  }),
-};
-// Underline animation variants
-const underlineVariants = {
-  hidden: { scaleX: 0 },
-  visible: {
-    scaleX: 1.25,
-    transition: { duration: 2, ease: "easeOut", delay: 1 },
-  },
-};
-// Text animation variants for activities and surroundings
-const fancySectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: (customDelay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1.5,
-      ease: "easeOut",
-      delay: customDelay,
-    },
+    transition: { duration: 0.75, ease: "easeOut", delay },
   }),
 };
 
-// Content for different languages
+const lineGrow = {
+  hidden: { scaleX: 0, opacity: 0.55 },
+  show: {
+    scaleX: 1,
+    opacity: 1,
+    transition: { duration: 0.9, ease: "easeOut", delay: 0.12 },
+  },
+};
+
+const cardHover = {
+  hover: { y: -6, transition: { duration: 0.25, ease: "easeOut" } },
+};
+
+/* ========= CONTENT (unchanged) ========= */
+
 const content = {
   en: {
     welcome: "Welcome Home!",
     tagline:
-      "Experience the tranquillity of nature and the energy of encounter in one place.",
+      "Experience the Tranquillity of Nature and the Energy of Encounter in One Place.",
     bookButton: "Contact us to book!",
     bookButtonHref: "/booking",
     mission: "Nice to Meet You!",
@@ -171,16 +160,62 @@ const videos = {
   Fabrizio: "https://www.youtube.com/embed/-ZP_KY5jwuQ",
 };
 
+/* ========= SMALL UI PIECES ========= */
+
+function TrioCard({ label, title, text, imgSrc, imgAlt, href }) {
+  return (
+    <motion.a
+      href={href || "#"}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+      custom={0}
+      whileHover={{ y: -6 }}
+      whileTap={{ scale: 0.99 }}
+      className="block rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden"
+    >
+      <div className="relative h-56">
+        <Image
+          src={imgSrc || "/blank-image.webp"}
+          alt={imgAlt || ""}
+          fill
+          className="object-cover grayscale-[10%] contrast-[1.03] saturate-[0.96] hover:grayscale-0 hover:saturate-100 transition duration-500"
+          sizes="(min-width: 768px) 33vw, 100vw"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-white/10" />
+      </div>
+
+      <div className="p-7">
+        <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+          {label}
+        </div>
+        <h3 className="mt-2 text-xl font-semibold text-dark-brown tracking-tight">
+          {title}
+        </h3>
+        <p className="mt-3 text-[15.5px] leading-relaxed text-gray-700">
+          {text}
+        </p>
+      </div>
+
+      <div className="border-t border-black/10 bg-white/60 px-7 py-4">
+        <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
+          Centro Studi Bahá&apos;í
+        </div>
+      </div>
+    </motion.a>
+  );
+}
+
 export default function Hero() {
   const heroImages = ["/bg1.webp", "/bg2.webp", "/bg3.webp", "/bg4.webp"];
 
   const [selectedVideo, setSelectedVideo] = useState("Marta");
-
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const { language } = useLanguage();
   const text = content[language];
 
-  // Rotate images automatically every 7.5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % heroImages.length);
@@ -189,9 +224,7 @@ export default function Hero() {
   }, [heroImages.length]);
 
   const handlePrev = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + heroImages.length) % heroImages.length
-    );
+    setCurrentIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
   };
 
   const handleNext = () => {
@@ -199,9 +232,16 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative w-full text-lg md:text-xl">
-      {/* Hero Section */}
-      <div className="relative h-screen overflow-hidden">
+    <main className="relative bg-[#f0e8e4] overflow-hidden">
+      {/* glow */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-40 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-orange-500/12 blur-[95px]" />
+        <div className="absolute top-[720px] -left-56 h-[560px] w-[560px] rounded-full bg-[#cb956f]/14 blur-[120px]" />
+        <div className="absolute bottom-[-260px] right-[-220px] h-[640px] w-[640px] rounded-full bg-orange-600/10 blur-[140px]" />
+      </div>
+
+      {/* HERO SLIDER */}
+      <div className="relative h-[92vh] min-h-[680px] overflow-hidden">
         {heroImages.map((src, index) => (
           <AnimatePresence key={src}>
             {index === currentIndex && (
@@ -228,365 +268,388 @@ export default function Hero() {
                     className="object-cover object-center"
                   />
                 </motion.div>
-                <div className="absolute inset-0 bg-black/30" />
+
+                <div className="absolute inset-0 bg-black/55" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.10),transparent_60%)]" />
               </motion.div>
             )}
           </AnimatePresence>
         ))}
 
-        {/* Navigation Arrows */}
+        {/* arrows */}
         <button
           onClick={handlePrev}
-          className="absolute z-50 left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white p-2 rounded-full transition-colors"
+          className="absolute z-50 left-5 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white p-2.5 rounded-full transition-colors"
           aria-label="Previous Slide"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
-          className="absolute z-50 right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white p-2 rounded-full transition-colors"
+          className="absolute z-50 right-5 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white p-2.5 rounded-full transition-colors"
           aria-label="Next Slide"
         >
           <ArrowRight className="w-5 h-5" />
         </button>
 
-        {/* Centered Hero Text */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-40">
-          <div className="max-w-3xl">
-            <motion.h1
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              custom={0} //delay
-              className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg"
-              style={{
-                color: "white",
-                textShadow: "0 4px 12px rgba(0,0,0,0.9)",
-              }}
-            >
-              {text.welcome}
-            </motion.h1>
+        {/* hero copy */}
+        <div className="absolute inset-0 z-40 flex items-center justify-center px-6">
+          <motion.section
+            initial="hidden"
+            animate="show"
+            className="w-full max-w-5xl"
+          >
+            <div className="rounded-[2.75rem] border border-white/15 bg-white/10 backdrop-blur-md shadow-[0_22px_80px_rgba(0,0,0,0.45)] overflow-hidden">
+              <div className="p-10 md:p-14 text-center">
+                <motion.div
+                  variants={fadeUp}
+                  custom={0}
+                  className="text-xs tracking-[0.32em] uppercase text-white/80"
+                >
+                  Centro Studi Bahá&apos;í
+                </motion.div>
 
-            <motion.div
-              variants={underlineVariants}
-              initial="hidden"
-              animate="visible"
-              className="h-1 bg-white w-1/2 mx-auto mt-2"
-            />
+                <motion.h1
+                  variants={fadeUp}
+                  custom={0.08}
+                  className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight text-white"
+                  style={{
+                    color: "#ffffff",
+                    textShadow: "0 6px 18px rgba(0,0,0,0.65)",
+                  }}
+                >
+                  {text.welcome}
+                </motion.h1>          
 
-            <motion.p
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              custom={0.5}
-              className="mt-4 mb-6 font-serif font-bold"
-              style={{
-                color: "white",
-                fontSize: "1.125rem",
-                textShadow: "0 5px 15px rgba(0,0,0,1)",
-              }}
-            >
-              {text.tagline}
-            </motion.p>
+                <motion.div
+                  variants={fadeUp}
+                  custom={0.16}
+                  className="mt-6 flex justify-center"
+                >
+                  <motion.div
+                    variants={lineGrow}
+                    className="h-px w-64 origin-left bg-white/55"
+                  />
+                </motion.div>
 
-            <motion.a
-              href={text.bookButtonHref || "#"}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              custom={0.75}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block"
-            >
-              <Button className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
-                {text.bookButton}
-              </Button>
-            </motion.a>
-          </div>
+                <motion.p
+                  variants={fadeUp}
+                  custom={0.22}
+                  className="mt-6 max-w-3xl mx-auto text-base md:text-lg text-white/90 leading-relaxed"
+                  style={{ textShadow: "0 6px 18px rgba(0,0,0,0.55)" }}
+                >
+                  {text.tagline}
+                </motion.p>
+
+                <motion.div variants={fadeUp} custom={0.3} className="mt-10">
+                  <motion.a href={text.bookButtonHref || "#"} className="inline-block">
+                    <Button className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md shadow-lg active:scale-95">
+                      {text.bookButton}
+                    </Button>
+                  </motion.a>
+                </motion.div>
+              </div>
+            </div>
+          </motion.section>
         </div>
       </div>
 
-      {/* Additional Content */}
-      <div className="bg-white px-6 py-12 space-y-20">
-        {/* Our Mission */}
-        <motion.section
-          className="text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fancySectionVariants}
-          custom={0}
-        >
-          <h2 className="text-4xl font-bold mb-4">{text.mission}</h2>
-
-          <motion.div
-            variants={fancySectionVariants}
-            custom={0.5}
-            className="text-gray-700 max-w-3xl mx-auto space-y-4"
-          >
-            {text.missionText.map((paragraph, index) => (
-              <p
-                key={index}
-                className="text-base leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: paragraph }}
-              />
-            ))}
-          </motion.div>
-        </motion.section>
-
-        {/* Services Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fancySectionVariants}
-          custom={0.3}
-        >
-          <h2 className="text-4xl font-bold text-center mb-8">
-            {text.activities}
-          </h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* Card 1 */}
-            <motion.div
-              variants={fancySectionVariants}
-              custom={0} // delay
-              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
-            >
-              <div className="relative h-60 mb-4">
-                <Image
-                  src={text.activity1Image || "/blank-image.webp"}
-                  alt={text.activity1Alt}
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                {text.activity1Title}
-              </h3>
-              <p className="text-gray-600">{text.activity1Text}</p>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              variants={fancySectionVariants}
-              custom={0.5}
-              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
-            >
-              <div className="relative h-60 mb-4">
-                <Image
-                  src={text.activity2Image || "/blank-image.webp"}
-                  alt={text.activity2Alt}
-                  fill
-                  className="object-cover [object-position:50%_20%]"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                {text.activity2Title}
-              </h3>
-              <p className="text-gray-600">{text.activity2Text}</p>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              variants={fancySectionVariants}
-              custom={0.75}
-              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
-            >
-              <div className="relative h-60 mb-4">
-                <Image
-                  src={text.activity3Image || "/blank-image.webp"}
-                  alt={text.activity3Alt}
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                {text.activity3Title}
-              </h3>
-              <p
-                className="text-gray-600"
-                dangerouslySetInnerHTML={{ __html: text.activity3Text }}
-              ></p>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* Decorative Divider */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <motion.div
-            variants={fancySectionVariants}
+      {/* PAGE BODY */}
+      <div className="relative">
+        <div className="container mx-auto max-w-6xl px-6 py-16 space-y-12">
+          {/* MISSION / INTRO */}
+          <motion.section
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
             custom={0}
-            className="w-full flex justify-center"
+            className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)] overflow-hidden"
           >
-            <svg
-              width="100%"
-              height="20"
-              viewBox="-200 0 500 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M-200 10 H40 C45 0, 55 0, 60 10 H300"
-                stroke="#cb956f"
-                strokeWidth="4"
-                fill="transparent"
-              />
-            </svg>
-          </motion.div>
-        </motion.section>
+            <div className="p-10">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+                    Welcome
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown tracking-tight mt-2">
+                    {text.mission}
+                  </h2>
+                </div>
 
-        {/* Surroundings Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fancySectionVariants}
-          custom={0.3}
-        >
-          <h2 className="text-4xl font-bold text-center mb-8">
-            {text.surroundings}
-          </h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* Card 1 */}
-            <motion.div
-              variants={fancySectionVariants}
-              custom={0}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
-            >
-              <div className="relative h-60 mb-4">
-                <Image
-                  src={text.surroundings1Image || "/blank-image.webp"}
-                  alt={text.surroundings1Alt}
-                  fill
-                  className="object-cover [object-position:50%_100%]"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                {text.surroundings1Title}
-              </h3>
-              <p className="text-gray-600">{text.surroundings1Text}</p>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              variants={fancySectionVariants}
-              custom={0.5}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
-            >
-              <div className="relative h-60 mb-4">
-                <Image
-                  src={text.surroundings2Image || "/blank-image.webp"}
-                  alt={text.surroundings2Alt}
-                  fill
-                  className="object-cover [object-position:30%_100%]"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                {text.surroundings2Title}
-              </h3>
-              <p className="text-gray-600">{text.surroundings2Text}</p>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              variants={fancySectionVariants}
-              custom={0.75}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="rounded-xl shadow-lg p-6 bg-gray-50 overflow-hidden rounded-md"
-            >
-              <div className="relative h-60 mb-4">
-                <Image
-                  src={text.surroundings3Image || "/blank-image.webp"}
-                  alt={text.surroundings3Alt}
-                  fill
-                  className="object-cover [object-position:50%_65%]"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                {text.surroundings3Title}
-              </h3>
-              <p className="text-gray-600">{text.surroundings3Text}</p>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* Video Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fancySectionVariants}
-          custom={0.3}
-          className="text-center"
-        >
-          <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                {text.videosTitle}
-              </h2>
-
-              {/* Buttons to switch videos */}
-              <div className="flex justify-center flex-wrap gap-4 mb-6">
-                {Object.keys(videos).map((key) => (
-                  <button
-                    key={key}
-                    onClick={() => setSelectedVideo(key)}
-                    className={`px-4 py-2 rounded-md transition ${
-                      selectedVideo === key
-                        ? "bg-[var(--accent-red)] text-white"
-                        : "bg-gray-200 text-gray-800"
-                    }`}
-                  >
-                    {key}
-                  </button>
-                ))}
+                <div className="hidden md:block">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={lineGrow}
+                    className="h-px w-72 origin-left bg-black/20"
+                  />
+                </div>
               </div>
 
-              {/* Responsive video wrapper */}
-              <div
-                style={{
-                  position: "relative",
-                  paddingBottom: "56.25%", // 16:9 aspect ratio
-                  height: 0,
-                  overflow: "hidden",
-                  borderRadius: "0.75rem",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <iframe
-                  key={selectedVideo}
-                  src={videos[selectedVideo]}
-                  title="Room video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    border: 0,
-                  }}
-                ></iframe>
+              <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+                {/* text card */}
+                <div className="lg:col-span-7">
+                  <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden h-full">
+                    <div className="p-8">
+                      <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+                        Overview
+                      </div>
+
+                      <div className="mt-6 space-y-4 text-[17px] leading-relaxed text-gray-800">
+                        {text.missionText.map((paragraph, index) => (
+                          <p
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: paragraph }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="border-t border-black/10 bg-white/60 px-8 py-4">
+                      <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
+                        Ciociaria, Lazio
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* image card */}
+                <div className="lg:col-span-5">
+                  <motion.div variants={cardHover} whileHover="hover" className="relative h-full">
+                    <div className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[420px] md:h-full min-h-[420px]">
+                      <Image
+                        src="/bg2.webp"
+                        alt="Panoramic view near Centro Studi Bahá’í"
+                        fill
+                        className="object-cover grayscale-[10%] contrast-[1.03] saturate-[0.96]
+                                   group-hover:grayscale-0 group-hover:saturate-100
+                                   transition duration-500"
+                        sizes="(min-width: 1024px) 40vw, 100vw"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-white/10" />
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </div>
-          </section>
-        </motion.section>
+          </motion.section>
+
+          {/* WE HOST */}
+          <motion.section
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            custom={0}
+            className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)] overflow-hidden"
+          >
+            <div className="p-10">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+                    Programs
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown tracking-tight mt-2">
+                    {text.activities}
+                  </h2>
+                </div>
+
+                <div className="hidden md:block">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={lineGrow}
+                    className="h-px w-72 origin-left bg-black/20"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-10 grid gap-8 md:grid-cols-3">
+                <TrioCard
+                  label="We host"
+                  title={text.activity1Title}
+                  text={text.activity1Text}
+                  imgSrc={text.activity1Image}
+                  imgAlt={text.activity1Alt}
+                  href="/activities#conferences"
+                />
+                <TrioCard
+                  label="We host"
+                  title={text.activity2Title}
+                  text={text.activity2Text}
+                  imgSrc={text.activity2Image}
+                  imgAlt={text.activity2Alt}
+                  href="/activities#team-building"
+                />
+                <TrioCard
+                  label="We host"
+                  title={text.activity3Title}
+                  text={text.activity3Text}
+                  imgSrc={text.activity3Image}
+                  imgAlt={text.activity3Alt}
+                  href="/activities#conferences"
+                />
+              </div>
+            </div>
+          </motion.section>
+
+          {/* SURROUNDINGS */}
+          <motion.section
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            custom={0}
+            className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)] overflow-hidden"
+          >
+            <div className="p-10">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+                    Explore
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown tracking-tight mt-2">
+                    {text.surroundings}
+                  </h2>
+                </div>
+
+                <div className="hidden md:block">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={lineGrow}
+                    className="h-px w-72 origin-left bg-black/20"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-10 grid gap-8 md:grid-cols-3">
+                <TrioCard
+                  label="Surroundings"
+                  title={text.surroundings1Title}
+                  text={text.surroundings1Text}
+                  imgSrc={text.surroundings1Image}
+                  imgAlt={text.surroundings1Alt}
+                  href="/surroundings"
+                />
+                <TrioCard
+                  label="Surroundings"
+                  title={text.surroundings2Title}
+                  text={text.surroundings2Text}
+                  imgSrc={text.surroundings2Image}
+                  imgAlt={text.surroundings2Alt}
+                  href="/surroundings"
+                />
+                <TrioCard
+                  label="Surroundings"
+                  title={text.surroundings3Title}
+                  text={text.surroundings3Text}
+                  imgSrc={text.surroundings3Image}
+                  imgAlt={text.surroundings3Alt}
+                  href="/surroundings"
+                />
+              </div>
+            </div>
+          </motion.section>
+
+          {/* GUEST VIDEOS */}
+          <motion.section
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            custom={0}
+            className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)] overflow-hidden"
+          >
+            <div className="p-10">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+                    Testimonials
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown tracking-tight mt-2">
+                    {text.videosTitle}
+                  </h2>
+                </div>
+
+                <div className="hidden md:block">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={lineGrow}
+                    className="h-px w-72 origin-left bg-black/20"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+                {/* controls */}
+                <div className="lg:col-span-5">
+                  <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden h-full">
+                    <div className="p-8">
+                      <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+                        Select a guest
+                      </div>
+
+                      <div className="mt-6 grid grid-cols-2 gap-3">
+                        {Object.keys(videos).map((key) => {
+                          const active = selectedVideo === key;
+                          return (
+                            <button
+                              key={key}
+                              onClick={() => setSelectedVideo(key)}
+                              className={`rounded-md px-4 py-3 text-sm font-semibold border border-black/10 transition
+                                ${
+                                  active
+                                    ? "bg-orange-600 text-white shadow-[0_10px_22px_rgba(234,88,12,0.20)]"
+                                    : "bg-white/70 text-gray-800 hover:bg-white"
+                                }`}
+                            >
+                              {key}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      <div className="mt-6 text-[15.5px] leading-relaxed text-gray-700">
+                        Short stories from guests who found focus, rest, and connection at the Centro.
+                      </div>
+                    </div>
+
+                    <div className="border-t border-black/10 bg-white/60 px-8 py-4">
+                      <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
+                        Centro Studi Bahá&apos;í
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* video */}
+                <div className="lg:col-span-7">
+                  <motion.div variants={cardHover} whileHover="hover" className="relative h-full">
+                    <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[420px] md:h-[520px]">
+                      <iframe
+                        key={selectedVideo}
+                        src={videos[selectedVideo]}
+                        title="Guest video"
+                        className="absolute inset-0 w-full h-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/8" />
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.section>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
