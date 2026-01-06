@@ -42,15 +42,15 @@ const content = {
   en: {
     welcome: "Welcome Home!",
     tagline:
-      "Experience the Tranquillity of Nature and the Energy of Encounter in One Place.",
+      "Experience the Tranquility of Nature and the Energy of Encounter in One Place.",
     bookButton: "Contact us to book!",
     bookButtonHref: "/booking",
     mission: "Nice to Meet You!",
     missionText: [
-      "The Centro Studi Bahá’í – Hotel La Panoramica is immersed in a relaxing atmosphere, surrounded by lush nature, just 10 minutes from the spa resort of Fiuggi and less than an hour from Rome. Thanks to its unique panoramic position and large terrace overlooking the enchanting medieval village of Acuto (750 metres above sea level), it offers a splendid view over the valleys of Ciociaria.",
-      "Situated on a ridge of the Ernici Mountains and accessible from the Anagni-Fiuggi motorway exit and railway station, it offers functional and comfortable settings for conferences, seminars, business meetings, weddings, celebrations, and spiritual and wellness retreats. It is a starting point for excursions in the area on foot, by bicycle, and by car.",
-      "Equipped with 35 rooms,single, doubles, triple, quadruple; a conference room featuring audio and video systems, up to 140 seats. We also have a restaurant hall that seats up to 100 people, offering traditional and ethnic dishes, vegeterian, vegan, lactose, and gluten-free options.",
-      "We provide a serene environment and a comfortable refuge, where guests can reconnect and forge new partnerships with the world around them, develop new skills, discover other realities, and plan together.",
+      "The Centro Studi Bahá’í – Hotel La Panoramica is immersed in a relaxing atmosphere, surrounded by lush nature, just 10 minutes from the spa resort of Fiuggi and less than an hour from Rome. Thanks to its unique panoramic position and large terrace overlooking the enchanting medieval village of Acuto (750 metres above sea level), the hotel offers a splendid view over the valleys of Ciociaria.",
+      "Situated on a ridge of the Ernici Mountains and accessible from the Anagni-Fiuggi motorway exit and railway station, we offer functional and comfortable settings for conferences, seminars, business meetings, weddings, celebrations, and spiritual & wellness retreats. It is a starting point for excursions in the area on foot, by bicycle, and by car.",
+      "Our 35 rooms include singles, doubles, triples, and quadruples. Book a conference room seating up to 140 members, featuring our audio and video systems. To dine, our restaurant hall seats 100 guests, offering traditional amd ethnic dishes, as well as vegetarian, vegan, lactose-free, and gluten-free options.",
+      "We provide a serene environment and a comfortable refuge where guests can reconnect and forge new partnerships with the world around them, develop new skills, and discover other realities.",
     ],
     activities: "WE HOST",
     activity1Image: "/bahai-study-center-business-conference-meeting-room.webp",
@@ -65,7 +65,7 @@ const content = {
       "Outdoor relaxation area near the Bahá’í Study Center for business meeting participants",
     activity2Title: "GUIDED TOURS AND EXCURSIONS",
     activity2Text:
-      "Explore the historic alleys of Acuto, the fountains of Fiuggi, the Cathedral of Anagni, the cyclopean walls of Alatri, and the jewels of Lazio villages. Challenge yourself on the breathtaking cycling routes and mountain trails of the Ernici and Simbruini hills. Discover ancient churches, medieval towers, and serene natural panoramas, also with guided tours.",
+      "Explore the historic alleys of Acuto, the fountains of Fiuggi, the Cathedral of Anagni, the cyclopean walls of Alatri, and the jewels of Lazio villages. Challenge yourself on the breathtaking cycling routes and mountain trails of the Ernici and Simbruini hills. Discover ancient churches, medieval towers, and serene natural panoramas, including guided tours.",
     activity3Image: "/bahai-study-center-conference-room-corporate-events.webp",
     activity3Alt:
       "Conference room with seating and stage at the Bahá’í Study Center for corporate events",
@@ -76,7 +76,7 @@ const content = {
     surroundings1Image:
       "/bahai-study-center-team-building-nature-activities.webp",
     surroundings1Alt:
-      "Team building and group activities in nature near the Bahá’í Study Center",
+      "Team-building and group activities in nature near the Bahá’í Study Center",
     surroundings1Title: "HISTORIC ACUTO",
     surroundings1Text:
       "Immerse yourself in Acuto's past by walking through narrow cobbled alleys, ancient arches, and historic churches dating back to the 5th century AC.",
@@ -132,7 +132,7 @@ const content = {
     surroundings1Image:
       "/centro-studi-bahai-team-building-attivita-natura.webp",
     surroundings1Alt:
-      "Attività di team building e gruppo nella natura vicino al Centro Studi Bahá’í",
+      "Attività di team-building e gruppo nella natura vicino al Centro Studi Bahá’í",
     surroundings1Title: "ACUTO STORICO",
     surroundings1Text:
       "Immergiti nel passato di Acuto passeggiando per stretti vicoli acciottolati, antichi archi e chiese storiche risalenti al V secolo DC.",
