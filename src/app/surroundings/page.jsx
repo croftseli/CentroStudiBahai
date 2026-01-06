@@ -218,7 +218,7 @@ export default function Explore() {
           imgAlt="Homemade pasta and traditional local cuisine near the Bahá’í Study Center"
           body={
             <p>
-              Paths, lakes, chestnut woods and olive groves surround the facility.
+              Paths, lakes, chestnut woods, and olive groves surround the facility.
               The region is known for its extra virgin olive oil and sheep and goat
               cheeses—some of the most sought-after products in the area.
             </p>
