@@ -173,10 +173,10 @@ export default function ActivitiesPage() {
           body={
             <>
               <p>
-                A professional and welcoming environment-away from city chaos-is
+                A professional and welcoming environment away from city chaos is
                 essential for concentrated and effective work. Our center has both a
                 large conference room and smaller meeting rooms that can be adapted
-                to your needs and are ideal for seminars, conferences and group
+                to your needs and are ideal for seminars, conferences, and group
                 workshops.
               </p>
             </>
@@ -194,11 +194,11 @@ export default function ActivitiesPage() {
             <>
               <p>
                 Ideal for small groups seeking connection and renewal, our
-                surroundings offer a variety of team building activities. From
-                horseback riding to rafting on the Aniene river, from paragliding on
+                surroundings offer a variety of team-building activities. From
+                horseback riding to rafting on the Aniene River, from paragliding on
                 Mount Scalambra to free climbing at Pilarocca, from trekking to
-                cultural excursions-or simply relaxing and meditating in contact
-                with nature-you&apos;ll find the right balance of activity and
+                cultural excursions, or simply relaxing and meditating in contact
+                with nature, you&apos;ll find the right balance of activity and
                 tranquility to strengthen your group spirit.
               </p>
             </>
@@ -223,8 +223,8 @@ export default function ActivitiesPage() {
                 on our rooftop terrace.
               </p>
               <p>
-                For weddings, let the backdrop of the Ciocian hills be your romantic
-                setting -- with experienced staff to assist you from ceremony to
+                For weddings, let the backdrop of the Ciociara hills be your romantic
+                setting, with experienced staff to assist you from ceremony to
                 reception, and a restaurant ready to delight you with fine dining.
               </p>
             </>
@@ -241,7 +241,7 @@ export default function ActivitiesPage() {
           body={
             <>
               <p>
-                For more than 20 years, groups practicing yoga, tai chi and
+                For more than 20 years, groups practicing yoga, tai chi, and
                 taekwondo have used our facilities for rejuvenating retreats.
                 Spacious indoor rooms and quiet outdoor areas provide ideal
                 conditions for meditation and movement.
