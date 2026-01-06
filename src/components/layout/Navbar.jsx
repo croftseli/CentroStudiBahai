@@ -15,8 +15,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isActivitiesDropdownOpen, setIsActivitiesDropdownOpen] =
-    useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const [isMobileActivitiesOpen, setIsMobileActivitiesOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -25,10 +24,16 @@ export default function Navbar() {
   const { language, switchLanguage } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => setHasScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setHasScrolled(window.scrollY > 14);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsMobileActivitiesOpen(false);
+    setOpenDropdown(null);
+  }, [language, pathname]);
 
   const navLinksTranslations = {
     en: [
@@ -71,9 +76,7 @@ export default function Navbar() {
 
   const isLinkActive = (href) => {
     const cleanHref = (href || "").split("#")[0].replace(/\/$/, "") || "/";
-    if (cleanHref === "/" || cleanHref === "/it") {
-      return pathname === cleanHref;
-    }
+    if (cleanHref === "/" || cleanHref === "/it") return pathname === cleanHref;
     return pathname === cleanHref || pathname.startsWith(cleanHref + "/");
   };
 
@@ -81,177 +84,205 @@ export default function Navbar() {
     switchLanguage(langCode);
   };
 
-  const LanguageToggleSlider = () => {
-    const TOGGLE_CLASSES =
-      "text-sm font-medium flex items-center px-3 md:pl-3 md:pr-3.5 py-2 md:py-1.5 transition-colors relative z-10";
+  const LanguageToggle = () => {
+    const base =
+      "relative z-10 px-3 py-2 text-xs font-semibold tracking-[0.12em] uppercase transition-colors";
 
     return (
-      <div className="relative flex w-fit items-center rounded-full border border-gray-200">
+      <div className="relative flex items-center rounded-full border border-black/10 bg-white/70 backdrop-blur shadow-[0_1px_0_rgba(0,0,0,0.06)] overflow-hidden">
         <button
-          className={`cursor-pointer ${TOGGLE_CLASSES} ${
-            language === "en" ? "text-white" : "text-slate-800"
-          }`}
+          type="button"
+          className={`${base} ${language === "en" ? "text-white" : "text-[#1f2937]"}`}
           onClick={() => handleLanguageToggle("en")}
           aria-label="Switch to English"
         >
-          <span className="relative z-10 md:inline hidden">English</span>
-          <span className="relative z-10 md:hidden">EN</span>
+          <span className="hidden md:inline">English</span>
+          <span className="md:hidden">EN</span>
         </button>
 
         <button
-          className={`cursor-pointer ${TOGGLE_CLASSES} ${
-            language === "it" ? "text-white" : "text-slate-800"
-          }`}
+          type="button"
+          className={`${base} ${language === "it" ? "text-white" : "text-[#1f2937]"}`}
           onClick={() => handleLanguageToggle("it")}
           aria-label="Switch to Italian"
         >
-          <span className="relative z-10 md:inline hidden">Italiano</span>
-          <span className="relative z-10 md:hidden">IT</span>
+          <span className="hidden md:inline">Italiano</span>
+          <span className="md:hidden">IT</span>
         </button>
 
         <div
           className={`absolute inset-0 z-0 flex ${
             language === "it" ? "justify-end" : "justify-start"
           }`}
+          aria-hidden="true"
         >
-          {language === "it" ? (
-            <span className="h-full w-1/2 rounded-full bg-gradient-to-r from-green-600 to-red-600" />
-          ) : (
-            <span className="h-full w-1/2 rounded-full bg-gradient-to-r from-blue-600 to-red-600" />
-          )}
+          <span
+            className={`h-full w-1/2 rounded-full ${
+              language === "it"
+                ? "bg-gradient-to-r from-green-700 via-green-600 to-red-700"
+                : "bg-gradient-to-r from-[#0f172a] via-[#111827] to-[#b91c1c]"
+            }`}
+          />
         </div>
       </div>
     );
   };
 
   const linkBase =
-    "px-4 py-2 rounded-full transition-colors font-medium text-gray-700 hover:text-accent";
+    "relative px-3 py-2 text-[13px] md:text-sm font-semibold tracking-[0.02em] text-[#111827]/80 hover:text-[#111827] transition-colors";
 
   const linkActive =
-    "px-4 py-2 rounded-full transition-colors font-medium text-accent border border-accent";
+    "relative px-3 py-2 text-[13px] md:text-sm font-semibold tracking-[0.02em] text-[#111827] transition-colors";
+
+  const underline = (active) =>
+    `pointer-events-none absolute left-3 right-3 -bottom-[3px] h-[2px] rounded-full transition-all ${
+      active ? "opacity-100 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d]" : "opacity-0"
+    }`;
 
   return (
     <header
-      className={`fixed w-full z-80 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         hasScrolled
-          ? "bg-white/90 backdrop-blur shadow-sm py-3"
-          : "bg-white/70 py-4"
-      }`}
-      style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}
+          ? "bg-white/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
+          : "bg-white/70 backdrop-blur-lg"
+      } border-b border-black/10`}
     >
-      <div className="max-w-8xl mx-auto px-6">
-        <div className="flex items-center justify-between">
-          <div className="w-1/4">
-            <Link href={language === "en" ? "/" : "/it"}>
-              <div className="flex items-center space-x-3">
-                <Image
-                  src="/CSBLogo.webp"
-                  alt="Centro Studi Bahá'í Logo"
-                  width={60}
-                  height={60}
-                  className="rounded"
-                />
-                <div className="hidden md:block">
-                  <span className="text-xl font-bold tracking-wide">
+      <div className="mx-auto max-w-7xl px-5 md:px-6">
+        <div className="h-16 md:h-[76px] flex items-center justify-between gap-4 font-sans">
+          <div className="flex items-center gap-3 min-w-[190px]">
+            <Link href={language === "en" ? "/" : "/it"} className="group">
+              <div className="flex items-center gap-3">
+                <div className="rounded-xl bg-white shadow-[0_1px_0_rgba(0,0,0,0.06)] ring-1 ring-black/5 p-1">
+                  <Image
+                    src="/CSBLogo.webp"
+                    alt="Centro Studi Bahá'í Logo"
+                    width={46}
+                    height={46}
+                    className="rounded-lg"
+                    priority
+                  />
+                </div>
+
+                <div className="hidden md:block leading-tight">
+                  <div className="text-[16px] font-extrabold tracking-[0.02em] text-[#111827]">
                     Centro Studi Bahá'í
-                  </span>
-                  <div className="text-sm text-gray-500 text-left">
-                    {language === "en" ? "All are welcome!" : "Aperto a tutti!"}
+                  </div>
+                  <div className="text-[12px] font-medium tracking-[0.08em] uppercase text-[#6b7280]">
+                    {language === "en" ? "All are welcome" : "Aperto a tutti"}
                   </div>
                 </div>
               </div>
             </Link>
           </div>
 
-          <nav className="hidden md:flex items-center justify-center w-2/4">
-            <div className="flex items-center justify-center space-x-2">
+          <nav className="hidden md:flex items-center justify-center flex-1">
+            <div className="flex items-center gap-1.5">
               {navLinks.map((link) => {
                 const active = isLinkActive(link.href);
+                const isOpen = openDropdown === link.href;
+
+                if (!link.subLinks) {
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={active ? linkActive : linkBase}
+                      aria-label={link.label}
+                    >
+                      {link.label}
+                      <span className={underline(active)} aria-hidden="true" />
+                    </Link>
+                  );
+                }
 
                 return (
                   <div
                     key={link.href}
                     className="relative"
-                    onMouseEnter={() =>
-                      link.subLinks && setIsActivitiesDropdownOpen(true)
-                    }
-                    onMouseLeave={() =>
-                      link.subLinks && setIsActivitiesDropdownOpen(false)
-                    }
+                    onMouseEnter={() => setOpenDropdown(link.href)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <Link
                       href={link.href}
                       className={active ? linkActive : linkBase}
                       aria-label={link.label}
-                      aria-expanded={
-                        link.subLinks ? isActivitiesDropdownOpen : undefined
-                      }
+                      aria-expanded={isOpen}
                     >
-                      {link.label}
+                      <span className="inline-flex items-center gap-1.5">
+                        {link.label}
+                        <KeyboardArrowDownIcon
+                          style={{ fontSize: 18 }}
+                          className={`transition-transform duration-200 ${
+                            isOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </span>
+                      <span className={underline(active)} aria-hidden="true" />
                     </Link>
 
-                    {link.subLinks && (
-                      <AnimatePresence>
-                        {isActivitiesDropdownOpen && (
-                          <motion.div
-                            className="absolute z-50 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <div className="py-1" role="menu">
-                              {link.subLinks.map((subLink) => (
-                                <Link
-                                  key={subLink.href}
-                                  href={subLink.href}
-                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent"
-                                  role="menuitem"
-                                >
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          className="absolute left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl bg-white shadow-[0_20px_50px_rgba(0,0,0,0.12)] ring-1 ring-black/5 overflow-hidden"
+                          initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                          transition={{ duration: 0.16, ease: "easeOut" }}
+                        >
+                          <div className="px-2 py-2" role="menu">
+                            {link.subLinks.map((subLink) => (
+                              <Link
+                                key={subLink.href}
+                                href={subLink.href}
+                                className="block rounded-xl px-3 py-2.5 text-[13px] font-semibold tracking-[0.02em] text-[#111827]/80 hover:text-[#111827] hover:bg-[#0f172a]/[0.04] transition-colors"
+                                role="menuitem"
+                                onClick={() => setOpenDropdown(null)}
+                              >
+                                <span className="inline-flex items-center justify-between w-full">
                                   {subLink.label}
-                                </Link>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    )}
+                                  <span className="text-[#9ca3af]">↗</span>
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               })}
             </div>
           </nav>
 
-          <div className="hidden md:flex items-center justify-end w-1/4">
-            <div className="mr-4">
-              <LanguageToggleSlider />
-            </div>
-            <div className="flex items-center space-x-3">
+          <div className="hidden md:flex items-center justify-end gap-3 min-w-[270px]">
+            <LanguageToggle />
+            <div className="flex items-center gap-2">
               <a
                 href="https://www.instagram.com/centrostudibahai9/"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="text-gray-600 hover:text-accent transition-colors"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/60 text-[#111827]/70 hover:text-[#b91c1c] hover:bg-white transition-colors shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+                aria-label="Instagram"
               >
-                <InstagramIcon />
+                <InstagramIcon style={{ fontSize: 20 }} />
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61550518948072"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="text-gray-600 hover:text-accent transition-colors"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/60 text-[#111827]/70 hover:text-[#b91c1c] hover:bg-white transition-colors shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+                aria-label="Facebook"
               >
-                <FacebookIcon />
+                <FacebookIcon style={{ fontSize: 20 }} />
               </a>
             </div>
           </div>
 
-          <div className="md:hidden flex items-center space-x-2">
-            <div className="mr-2">
-              <LanguageToggleSlider />
-            </div>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageToggle />
             <button
-              className="text-gray-700 hover:text-accent transition-colors text-3xl"
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/70 text-[#111827]/80 hover:text-[#b91c1c] hover:bg-white transition-colors shadow-[0_1px_0_rgba(0,0,0,0.06)]"
               onClick={() => setIsMenuOpen((prev) => !prev)}
               aria-label="Toggle Menu"
             >
@@ -264,111 +295,135 @@ export default function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden bg-white/90 backdrop-blur w-full shadow-inner"
+            className="md:hidden bg-white/92 backdrop-blur-xl border-t border-black/10"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
           >
             <motion.div
-              className="flex flex-col px-6 py-4 space-y-4"
-              initial={{ y: -20 }}
+              className="flex flex-col px-5 py-4 space-y-2"
+              initial={{ y: -12 }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
+              transition={{ duration: 0.22, delay: 0.05 }}
             >
               {navLinks.map((link, index) => {
                 const active = isLinkActive(link.href);
 
-                return (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.2, delay: 0.1 + index * 0.05 }}
-                  >
-                    <div className="flex items-center justify-between">
+                if (!link.subLinks) {
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.18, delay: 0.04 + index * 0.03 }}
+                    >
                       <Link
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={active ? linkActive : linkBase}
+                        className={`flex items-center justify-between rounded-2xl px-4 py-3.5 text-[15px] font-extrabold tracking-[0.02em] transition-colors ${
+                          active
+                            ? "bg-[#0f172a]/[0.05] text-[#111827]"
+                            : "text-[#111827]/80 hover:bg-[#0f172a]/[0.05] hover:text-[#111827]"
+                        }`}
+                        aria-label={link.label}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  );
+                }
+
+                return (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.18, delay: 0.04 + index * 0.03 }}
+                    className="rounded-2xl border border-black/10 bg-white/70 overflow-hidden shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+                  >
+                    <div className="flex items-center justify-between px-4 py-3.5">
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`text-[15px] font-extrabold tracking-[0.02em] transition-colors ${
+                          active ? "text-[#111827]" : "text-[#111827]/80"
+                        }`}
                         aria-label={link.label}
                       >
                         {link.label}
                       </Link>
 
-                      {link.subLinks && (
-                        <button
-                          onClick={() =>
-                            setIsMobileActivitiesOpen((prev) => !prev)
-                          }
-                          aria-label={
-                            isMobileActivitiesOpen
-                              ? "Collapse Activities menu"
-                              : "Expand Activities menu"
-                          }
-                          className="text-gray-700 hover:text-accent"
-                        >
-                          {isMobileActivitiesOpen ? (
-                            <KeyboardArrowUpIcon />
-                          ) : (
-                            <KeyboardArrowDownIcon />
-                          )}
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        onClick={() => setIsMobileActivitiesOpen((prev) => !prev)}
+                        aria-label={
+                          isMobileActivitiesOpen
+                            ? "Collapse Activities menu"
+                            : "Expand Activities menu"
+                        }
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-[#0f172a]/[0.05] text-[#111827]/80 hover:text-[#b91c1c] transition-colors"
+                      >
+                        {isMobileActivitiesOpen ? (
+                          <KeyboardArrowUpIcon />
+                        ) : (
+                          <KeyboardArrowDownIcon />
+                        )}
+                      </button>
                     </div>
 
-                    {link.subLinks && (
-                      <AnimatePresence>
-                        {isMobileActivitiesOpen && (
-                          <motion.div
-                            className="ml-4 mt-2 space-y-2"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {link.subLinks.map((subLink) => (
-                              <Link
-                                key={subLink.href}
-                                href={subLink.href}
-                                onClick={() => {
-                                  setIsMenuOpen(false);
-                                  setIsMobileActivitiesOpen(false);
-                                }}
-                                className="block text-sm text-gray-600 hover:text-accent"
-                              >
-                                {subLink.label}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    )}
+                    <AnimatePresence>
+                      {isMobileActivitiesOpen && (
+                        <motion.div
+                          className="px-4 pb-4 space-y-1"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.18, ease: "easeOut" }}
+                        >
+                          {link.subLinks.map((subLink) => (
+                            <Link
+                              key={subLink.href}
+                              href={subLink.href}
+                              onClick={() => {
+                                setIsMenuOpen(false);
+                                setIsMobileActivitiesOpen(false);
+                              }}
+                              className="block rounded-xl px-3 py-2.5 text-[14px] font-semibold tracking-[0.02em] text-[#111827]/75 hover:text-[#111827] hover:bg-[#0f172a]/[0.05] transition-colors"
+                            >
+                              {subLink.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 );
               })}
 
               <motion.div
-                className="flex space-x-4 pt-4 justify-center"
+                className="flex gap-3 pt-3 justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.3 }}
+                transition={{ duration: 0.2, delay: 0.18 }}
               >
                 <a
                   href="https://www.instagram.com/centrostudibahai9/"
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="text-gray-700 hover:text-accent transition-colors"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/70 text-[#111827]/80 hover:text-[#b91c1c] hover:bg-white transition-colors shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+                  aria-label="Instagram"
                 >
-                  <InstagramIcon />
+                  <InstagramIcon style={{ fontSize: 20 }} />
                 </a>
                 <a
                   href="https://www.facebook.com/profile.php?id=61550518948072"
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="text-gray-700 hover:text-accent transition-colors"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/70 text-[#111827]/80 hover:text-[#b91c1c] hover:bg-white transition-colors shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+                  aria-label="Facebook"
                 >
-                  <FacebookIcon />
+                  <FacebookIcon style={{ fontSize: 20 }} />
                 </a>
               </motion.div>
             </motion.div>
