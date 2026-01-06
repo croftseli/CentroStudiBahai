@@ -98,302 +98,284 @@ export default function ContactForm() {
     <main className="relative bg-[#f0e8e4] overflow-hidden">
       <div className="container mx-auto max-w-6xl px-6 py-16 space-y-16">
         {/* ROOMS */}
-        <motion.section
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          custom={0}
-          className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)]"
-        >
-          <div className="p-10">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div>
-                <h2 className="text-4xl font-semibold text-dark-brown tracking-tight">
-                  Our Rooms
-                </h2>
-                <p className="text-gray-600 mt-2 text-lg">
-                  Comfort, quiet, and a view of the valley or hillside.
-                </p>
-              </div>
-              <div className="hidden md:block">
-                <div className="h-px w-72 bg-black/20" />
-              </div>
+<motion.section
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeUp}
+  custom={0}
+  className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)]"
+>
+  <div className="p-10">
+    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <h2 className="text-4xl font-semibold text-dark-brown tracking-tight">
+          Our Rooms
+        </h2>
+        <p className="text-gray-600 mt-2 text-lg">
+          Comfort, quiet, and a view of the valley or hillside.
+        </p>
+      </div>
+      <div className="hidden md:block">
+        <div className="h-px w-72 bg-black/20" />
+      </div>
+    </div>
+
+    <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+      {/* LEFT: text card */}
+      <div className="lg:col-span-5">
+        <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden h-full">
+          <div className="p-8">
+            <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+              Rooms Overview
             </div>
 
-            <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-              {/* LEFT: text card */}
-              <div className="lg:col-span-5">
-                <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden h-full">
-                  <div className="p-8">
-                    <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
-                      Rooms Overview
-                    </div>
+            <div className="mt-6 space-y-6 text-[17px] leading-relaxed text-gray-800">
+              <p>
+                Enjoy comfort and tranquility in our cozy, clean rooms, complete
+                with a private bathroom, free WiFi, TV, and a beautiful view of
+                the valley or hillside. We have 35 rooms, including singles,
+                doubles, triples, quadruples, and a quintuple, some of which offer
+                the option of an extra bed or crib for infants up to 3 years old.
+                Relaxation awaits you.
+              </p>
 
-                    <div className="mt-6 space-y-6 text-[17px] leading-relaxed text-gray-800">
-                      <p>
-                        Enjoy comfort and tranquility in our cozy, clean rooms,
-                        complete with a private bathroom, free WiFi, TV, and a
-                        beautiful view of the valley or hillside. We have 35
-                        rooms, including singles, doubles, triples, quadruples,
-                        and a quintuple, some of which offer the option of an
-                        extra bed or crib for infants up to 3 years old.
-                        Relaxation awaits you.
-                      </p>
+              <div className="h-px w-20 bg-black/15" />
 
-                      <div className="h-px w-20 bg-black/15" />
-
-                      <p>
-                        Contact us to book your stay or for any inquiries. We
-                        are here to assist you with your accommodation needs.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-black/10 bg-white/60 px-8 py-4">
-                    <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
-                      Clean, quiet, and comfortable
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* RIGHT: gallery card */}
-              <div className="lg:col-span-7">
-                <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden h-full">
-                  <div className="p-8">
-                    <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
-                      Gallery
-                    </div>
-
-                    <div className="mt-6 grid grid-cols-2 gap-6">
-                      <motion.div
-                        variants={cardHover}
-                        whileHover="hover"
-                        className="relative"
-                      >
-                        <div className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[260px]">
-                          <Image
-                            src="/images/bahai-study-center-guest-room-business-meeting-accommodation.webp"
-                            alt="Comfortable guest room at the Bahá’í Study Center for business meeting participants"
-                            fill
-                            className="object-cover
-                               grayscale-[12%] contrast-[1.03] saturate-[0.96]
-                               group-hover:grayscale-0 group-hover:saturate-100
-                               transition duration-500"
-                          />
-                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-white/10" />
-                        </div>
-                      </motion.div>
-
-                      <motion.div
-                        variants={cardHover}
-                        whileHover="hover"
-                        className="relative"
-                      >
-                        <div className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[260px]">
-                          <Image
-                            src="/images/bahai-study-center-guest-room-workspace-business-stays.webp"
-                            alt="Guest room workspace with natural light at the Bahá’í Study Center for business guests"
-                            fill
-                            className="object-cover
-                               grayscale-[12%] contrast-[1.03] saturate-[0.96]
-                               group-hover:grayscale-0 group-hover:saturate-100
-                               transition duration-500"
-                          />
-                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-white/10" />
-                        </div>
-                      </motion.div>
-
-                      <motion.div
-                        variants={cardHover}
-                        whileHover="hover"
-                        className="relative col-span-2"
-                      >
-                        <div className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[300px]">
-                          <Image
-                            src="/images/bahai-study-center-family-guest-room-business-travel.webp"
-                            alt="Family guest room with double bed and workspace at the Bahá’í Study Center for business travel"
-                            fill
-                            className="object-cover
-                               grayscale-[12%] contrast-[1.03] saturate-[0.96]
-                               group-hover:grayscale-0 group-hover:saturate-100
-                               transition duration-500"
-                          />
-                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-white/10" />
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-black/10 bg-white/60 px-8 py-4">
-                    <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
-                      Views of the valley or hillside
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <p>
+                Contact us to book your stay or for any inquiries. We are here to
+                assist you with your accommodation needs.
+              </p>
             </div>
           </div>
-        </motion.section>
 
-        {/* CONTACT US */}
-        <motion.section
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          custom={0}
-          className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)]"
-        >
-          <div className="p-10">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div>
-                <h2 className="text-4xl font-semibold text-dark-brown tracking-tight">
-                  Contact Us
-                </h2>
-                <p className="text-gray-600 mt-2 text-lg">
-                  Send a message and we’ll get back to you.
-                </p>
-              </div>
-              <div className="hidden md:block">
-                <div className="h-px w-72 bg-black/20" />
-              </div>
+          <div className="border-t border-black/10 bg-white/60 px-8 py-4">
+            <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
+              Clean, quiet, and comfortable
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT: gallery card */}
+      <div className="lg:col-span-7">
+        <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden h-full">
+          <div className="p-8">
+            <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+              Gallery
             </div>
 
-            <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-              {/* LEFT: form card */}
-              <div className="lg:col-span-7">
-                <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden">
-                  <div className="p-8">
-                    <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
-                      Contact Form
-                    </div>
+            <div className="mt-6 grid grid-cols-2 gap-6">
+              <motion.div variants={cardHover} whileHover="hover" className="relative">
+                <div className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[260px]">
+                  <Image
+                    src="/images/bahai-study-center-guest-room-business-meeting-accommodation.webp"
+                    alt="Comfortable guest room at the Bahá’í Study Center for business meeting participants"
+                    fill
+                    className="object-cover
+                               grayscale-[12%] contrast-[1.03] saturate-[0.96]
+                               group-hover:grayscale-0 group-hover:saturate-100
+                               transition duration-500"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-white/10" />
+                </div>
+              </motion.div>
 
-                    <form
-                      onSubmit={handleSubmitForm}
-                      className="mt-6 space-y-6"
-                    >
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-xs tracking-[0.22em] uppercase text-gray-500 mb-2">
-                            Name
-                          </label>
-                          <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleFormChange}
-                            placeholder="Your name"
-                            required
-                            className="w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-[16px]
+              <motion.div variants={cardHover} whileHover="hover" className="relative">
+                <div className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[260px]">
+                  <Image
+                    src="/images/bahai-study-center-guest-room-workspace-business-stays.webp"
+                    alt="Guest room workspace with natural light at the Bahá’í Study Center for business guests"
+                    fill
+                    className="object-cover
+                               grayscale-[12%] contrast-[1.03] saturate-[0.96]
+                               group-hover:grayscale-0 group-hover:saturate-100
+                               transition duration-500"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-white/10" />
+                </div>
+              </motion.div>
+
+              <motion.div variants={cardHover} whileHover="hover" className="relative col-span-2">
+                <div className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[300px]">
+                  <Image
+                    src="/images/bahai-study-center-family-guest-room-business-travel.webp"
+                    alt="Family guest room with double bed and workspace at the Bahá’í Study Center for business travel"
+                    fill
+                    className="object-cover
+                               grayscale-[12%] contrast-[1.03] saturate-[0.96]
+                               group-hover:grayscale-0 group-hover:saturate-100
+                               transition duration-500"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-white/10" />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          <div className="border-t border-black/10 bg-white/60 px-8 py-4">
+            <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
+              Views of the valley or hillside
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</motion.section>
+
+
+        {/* CONTACT US */}
+<motion.section
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeUp}
+  custom={0}
+  className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)]"
+>
+  <div className="p-10">
+    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <h2 className="text-4xl font-semibold text-dark-brown tracking-tight">
+          Contact Us
+        </h2>
+        <p className="text-gray-600 mt-2 text-lg">
+          Send a message and we’ll get back to you.
+        </p>
+      </div>
+      <div className="hidden md:block">
+        <div className="h-px w-72 bg-black/20" />
+      </div>
+    </div>
+
+    <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+      {/* LEFT: form card */}
+      <div className="lg:col-span-7">
+        <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden">
+          <div className="p-8">
+            <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+              Contact Form
+            </div>
+
+            <form onSubmit={handleSubmitForm} className="mt-6 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs tracking-[0.22em] uppercase text-gray-500 mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFormChange}
+                    placeholder="Your name"
+                    required
+                    className="w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-[16px]
                                text-gray-800 placeholder:text-gray-400
                                focus:outline-none focus:ring-2 focus:ring-[#cb956f]/45"
-                          />
-                        </div>
+                  />
+                </div>
 
-                        <div>
-                          <label className="block text-xs tracking-[0.22em] uppercase text-gray-500 mb-2">
-                            Email
-                          </label>
-                          <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleFormChange}
-                            placeholder="Your email address"
-                            required
-                            className="w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-[16px]
+                <div>
+                  <label className="block text-xs tracking-[0.22em] uppercase text-gray-500 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                    placeholder="Your email address"
+                    required
+                    className="w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-[16px]
                                text-gray-800 placeholder:text-gray-400
                                focus:outline-none focus:ring-2 focus:ring-[#cb956f]/45"
-                          />
-                        </div>
-                      </div>
+                  />
+                </div>
+              </div>
 
-                      <div>
-                        <label className="block text-xs tracking-[0.22em] uppercase text-gray-500 mb-2">
-                          Message
-                        </label>
-                        <textarea
-                          name="message"
-                          value={formData.message}
-                          onChange={handleFormChange}
-                          rows={6}
-                          placeholder="Please let us know what we can help you with. You may leave your feedback here as well."
-                          required
-                          className="w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-[16px]
+              <div>
+                <label className="block text-xs tracking-[0.22em] uppercase text-gray-500 mb-2">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  rows={6}
+                  placeholder="Please let us know what we can help you with. You may leave your feedback here as well."
+                  required
+                  className="w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-[16px]
                              text-gray-800 placeholder:text-gray-400
                              focus:outline-none focus:ring-2 focus:ring-[#cb956f]/45"
-                        />
-                      </div>
+                />
+              </div>
 
-                      <button
-                        type="submit"
-                        className="inline-flex items-center justify-center rounded-full px-10 py-4 text-[16px] font-semibold
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center rounded-full px-10 py-4 text-[16px] font-semibold
                            bg-orange-600 text-white hover:bg-orange-700
                            border border-black/10
                            shadow-[0_10px_26px_rgba(0,0,0,0.18)]
                            transition-all"
-                      >
-                        Send Message
-                      </button>
-                    </form>
-                  </div>
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
 
-                  <div className="border-t border-black/10 bg-white/60 px-8 py-4">
-                    <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
-                      For anonymous reviews, use anonymous@email.com
-                    </div>
-                  </div>
+          <div className="border-t border-black/10 bg-white/60 px-8 py-4">
+            <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
+              For anonymous reviews, use anonymous@email.com
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT: guidance card */}
+      <div className="lg:col-span-5">
+        <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden h-full">
+          <div className="p-8">
+            <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
+              Helpful Notes
+            </div>
+
+            <div className="mt-6 divide-y divide-black/10">
+              <div className="py-5 flex items-start justify-between gap-6">
+                <div className="text-gray-800 font-medium">Bookings</div>
+                <div className="text-gray-600 text-right">
+                  Use the form or email bookings directly.
                 </div>
               </div>
 
-              {/* RIGHT: guidance card */}
-              <div className="lg:col-span-5">
-                <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_28px_rgba(0,0,0,0.06)] overflow-hidden h-full">
-                  <div className="p-8">
-                    <div className="text-xs tracking-[0.28em] uppercase text-gray-500">
-                      Helpful Notes
-                    </div>
+              <div className="py-5 flex items-start justify-between gap-6">
+                <div className="text-gray-800 font-medium">Groups</div>
+                <div className="text-gray-600 text-right">
+                  Include dates, number of guests, and room type.
+                </div>
+              </div>
 
-                    <div className="mt-6 divide-y divide-black/10">
-                      <div className="py-5 flex items-start justify-between gap-6">
-                        <div className="text-gray-800 font-medium">
-                          Bookings
-                        </div>
-                        <div className="text-gray-600 text-right">
-                          Use the form or email bookings directly.
-                        </div>
-                      </div>
-
-                      <div className="py-5 flex items-start justify-between gap-6">
-                        <div className="text-gray-800 font-medium">Groups</div>
-                        <div className="text-gray-600 text-right">
-                          Include dates, number of guests, and room type.
-                        </div>
-                      </div>
-
-                      <div className="py-5 flex items-start justify-between gap-6">
-                        <div className="text-gray-800 font-medium">
-                          Response Time
-                        </div>
-                        <div className="text-gray-600 text-right">
-                          WhatsApp is usually the fastest.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-black/10 bg-white/60 px-8 py-4">
-                    <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
-                      We’re here to help
-                    </div>
-                  </div>
+              <div className="py-5 flex items-start justify-between gap-6">
+                <div className="text-gray-800 font-medium">Response Time</div>
+                <div className="text-gray-600 text-right">
+                  WhatsApp is usually the fastest.
                 </div>
               </div>
             </div>
           </div>
-        </motion.section>
+
+          <div className="border-t border-black/10 bg-white/60 px-8 py-4">
+            <div className="text-xs tracking-[0.26em] uppercase text-gray-500">
+              We’re here to help
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</motion.section>
+
 
         {/* FAQ */}
         <SectionShell title="Frequently Asked Questions" subtitle={null}>
@@ -403,8 +385,8 @@ export default function ContactForm() {
                 How can I book a room?
               </p>
               <p className="text-gray-600 mt-2 leading-relaxed">
-                You can book a room directly through the form above, by email,
-                or by WhatsApp.
+                You can book a room directly through our website or by
+                contacting us via the contact form.
               </p>
             </div>
 
@@ -430,281 +412,267 @@ export default function ContactForm() {
           </div>
         </SectionShell>
 
-        {/* CONTACT DETAILS */}
-        <motion.section
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          custom={0}
-          className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)]"
-        >
-          <div className="p-10">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div>
-                <h2 className="text-3xl font-semibold text-dark-brown">
-                  Contact Details
-                </h2>
-                <p className="text-gray-600 mt-2 leading-relaxed">
-                  Reach us by phone, WhatsApp, or email.
-                </p>
-              </div>
-              <div className="hidden md:block">
-                <div className="h-px w-56 bg-black/20" />
-              </div>
+       {/* CONTACT DETAILS */}
+<motion.section
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeUp}
+  custom={0}
+  className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)]"
+>
+  <div className="p-10">
+    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <h2 className="text-3xl font-semibold text-dark-brown">Contact Details</h2>
+        <p className="text-gray-600 mt-2 leading-relaxed">
+          Reach us by phone, WhatsApp, or email.
+        </p>
+      </div>
+      <div className="hidden md:block">
+        <div className="h-px w-56 bg-black/20" />
+      </div>
+    </div>
+
+    <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Phone card */}
+      <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_26px_rgba(0,0,0,0.06)] overflow-hidden">
+        <div className="px-6 py-5">
+          <p className="text-sm uppercase tracking-[0.18em] text-gray-500">
+            Phone Numbers
+          </p>
+          <div className="mt-4 space-y-4">
+            <div className="flex items-start justify-between gap-6">
+              <span className="text-gray-700">Reception</span>
+              <a
+                href="tel:+39077556061"
+                className="font-medium text-gray-900 hover:underline"
+              >
+                +39 0775 56061
+              </a>
             </div>
-
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Phone card */}
-              <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_26px_rgba(0,0,0,0.06)] overflow-hidden">
-                <div className="px-6 py-5">
-                  <p className="text-sm uppercase tracking-[0.18em] text-gray-500">
-                    Phone Numbers
-                  </p>
-                  <div className="mt-4 space-y-4">
-                    <div className="flex items-start justify-between gap-6">
-                      <span className="text-gray-700">Reception</span>
-                      <a
-                        href="tel:+39077556061"
-                        className="font-medium text-gray-900 hover:underline"
-                      >
-                        +39 0775 56061
-                      </a>
-                    </div>
-                    <div className="h-px bg-black/10" />
-                    <div className="flex items-start justify-between gap-6">
-                      <span className="text-gray-700">Customer Support</span>
-                      <a
-                        href="tel:+393519120094"
-                        className="font-medium text-gray-900 hover:underline"
-                      >
-                        +39 351 912 0094
-                      </a>
-                    </div>
-                    <div className="h-px bg-black/10" />
-                    <div className="flex items-start justify-between gap-6">
-                      <span className="text-gray-700">WhatsApp</span>
-                      <a
-                        href="https://wa.me/393514834549"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-medium text-gray-900 hover:underline"
-                      >
-                        +39 351 483 4549
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="px-6 py-4 bg-black/[0.02] border-t border-black/10">
-                  <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
-                    Fastest response: WhatsApp
-                  </p>
-                </div>
-              </div>
-
-              {/* Email card */}
-              <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_26px_rgba(0,0,0,0.06)] overflow-hidden">
-                <div className="px-6 py-5">
-                  <p className="text-sm uppercase tracking-[0.18em] text-gray-500">
-                    Email Addresses
-                  </p>
-
-                  <div className="mt-4 space-y-4">
-                    <div>
-                      <p className="text-gray-700">General Inquiries</p>
-                      <a
-                        href="mailto:info@centrostudibahai.it"
-                        className="mt-1 inline-block font-medium text-gray-900 hover:underline break-all"
-                      >
-                        info@centrostudibahai.it
-                      </a>
-                    </div>
-
-                    <div className="h-px bg-black/10" />
-
-                    <div>
-                      <p className="text-gray-700">Bookings</p>
-                      <a
-                        href="mailto:centrostudibahai@gmail.com"
-                        className="mt-1 inline-block font-medium text-gray-900 hover:underline break-all"
-                      >
-                        centrostudibahai@gmail.com
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="px-6 py-4 bg-black/[0.02] border-t border-black/10">
-                  <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
-                    For reservations, email Bookings
-                  </p>
-                </div>
-              </div>
+            <div className="h-px bg-black/10" />
+            <div className="flex items-start justify-between gap-6">
+              <span className="text-gray-700">Customer Support</span>
+              <a
+                href="tel:+393519120094"
+                className="font-medium text-gray-900 hover:underline"
+              >
+                +39 351 912 0094
+              </a>
+            </div>
+            <div className="h-px bg-black/10" />
+            <div className="flex items-start justify-between gap-6">
+              <span className="text-gray-700">WhatsApp</span>
+              <a
+                href="https://wa.me/393514834549"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-gray-900 hover:underline"
+              >
+                +39 351 483 4549
+              </a>
             </div>
           </div>
-        </motion.section>
+        </div>
 
-        {/* FIND US */}
-        <motion.section
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          custom={0}
-          className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)]"
-        >
-          <div className="p-10">
-            {/* header */}
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div>
-                <h2 className="text-3xl font-semibold text-dark-brown">
-                  How to Find Us
-                </h2>
-                <p className="text-gray-600 mt-2 leading-relaxed">
-                  You can find us at the following address:
-                </p>
-              </div>
+        <div className="px-6 py-4 bg-black/[0.02] border-t border-black/10">
+          <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
+            Fastest response: WhatsApp
+          </p>
+        </div>
+      </div>
 
-              <div className="hidden md:block">
-                <div className="h-px w-56 bg-black/20" />
-              </div>
+      {/* Email card */}
+      <div className="rounded-2xl border border-black/10 bg-white/70 shadow-[0_10px_26px_rgba(0,0,0,0.06)] overflow-hidden">
+        <div className="px-6 py-5">
+          <p className="text-sm uppercase tracking-[0.18em] text-gray-500">
+            Email Addresses
+          </p>
+
+          <div className="mt-4 space-y-4">
+            <div>
+              <p className="text-gray-700">General Inquiries</p>
+              <a
+                href="mailto:info@centrostudibahai.it"
+                className="mt-1 inline-block font-medium text-gray-900 hover:underline break-all"
+              >
+                info@centrostudibahai.it
+              </a>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-              {/* LEFT */}
-              <div className="lg:col-span-5 flex flex-col min-h-[620px]">
-                {/* address block */}
-                <div className="rounded-2xl border border-black/10 bg-white/70 px-6 py-6 shadow-[0_10px_26px_rgba(0,0,0,0.06)]">
-                  <p className="text-sm uppercase tracking-[0.18em] text-gray-500">
-                    Address
-                  </p>
-                  <p className="mt-3 text-lg font-semibold text-gray-900 leading-snug">
-                    Via Giovanni Falcone 7, 03010 Acuto (FR), Italia.
-                  </p>
-                  <p className="mt-3 text-gray-600 leading-relaxed">
-                    Please note that our location on Google Maps may not be
-                    accurate. To avoid any confusion, we recommend using the
-                    coordinates below for precise navigation.
-                  </p>
+            <div className="h-px bg-black/10" />
 
-                  <div className="mt-5 h-px w-24 bg-[#cb956f]/70" />
-
-                  <p className="mt-5 text-sm text-gray-600">
-                    Free parking is available for guests arriving by car (from
-                    the A1 highway, take the exit Anagni-Fiuggi).
-                  </p>
-                </div>
-
-                {/* travel cards */}
-                <div className="mt-8 space-y-4 flex-1">
-                  <div className="rounded-2xl border border-black/10 bg-white/60 px-6 py-5">
-                    <p className="text-sm font-semibold text-dark-brown">
-                      Taxi Transfer
-                    </p>
-                    <p className="mt-2 text-gray-700 leading-relaxed">
-                      To request a taxi transfer from the airports of Fiumicino
-                      or Ciampino, or a pick-up from Rome or Fiuggi, please
-                      contact us at:
-                    </p>
-                    <a
-                      href="mailto:centrostudibahai@gmail.com"
-                      className="mt-2 inline-block text-blue-600 underline"
-                    >
-                      centrostudibahai@gmail.com
-                    </a>
-                  </div>
-
-                  <div className="rounded-2xl border border-black/10 bg-white/60 px-6 py-5">
-                    <p className="text-sm font-semibold text-dark-brown">
-                      By Bus
-                    </p>
-                    <p className="mt-2 text-gray-700 leading-relaxed">
-                      To arrive by bus from Rome, check the schedule at:
-                    </p>
-                    <a
-                      href="https://servizi.cotralspa.it/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 inline-block text-blue-600 underline"
-                    >
-                      servizi.cotralspa.it
-                    </a>
-                    <p className="mt-2 text-gray-700">
-                      Destination: <strong>Bivio di Acuto</strong> or{" "}
-                      <strong>Fiuggi</strong>.
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border border-black/10 bg-white/60 px-6 py-5">
-                    <p className="text-sm font-semibold text-dark-brown">
-                      By Train
-                    </p>
-                    <p className="mt-2 text-gray-700 leading-relaxed">
-                      To arrive by train, check:
-                    </p>
-                    <div className="mt-2 flex flex-wrap gap-x-2 gap-y-1 text-gray-700">
-                      <a
-                        href="https://www.trenitalia.com/it.html"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 underline"
-                      >
-                        Trenitalia
-                      </a>
-                      <span>or</span>
-                      <a
-                        href="https://www.italotreno.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 underline"
-                      >
-                        ItaloTreno
-                      </a>
-                      <span>— Station:</span>
-                      <strong>Anagni-Fiuggi</strong>.
-                    </div>
-                  </div>
-                </div>
-
-                {/* footer line */}
-                <div className="pt-6">
-                  <div className="h-px w-32 bg-black/15" />
-                </div>
-              </div>
-
-              {/* RIGHT */}
-              <div className="lg:col-span-7">
-                <motion.div
-                  variants={cardHover}
-                  whileHover="hover"
-                  className="relative"
-                >
-                  <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[920px]">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1487.293037716727!2d13.174292071231392!3d41.79413348649131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzM4LjkiTiAxM8KwMTAnMzAuMiJF!5e0!3m2!1sen!2sie!4v1748545000670!5m2!1sen!2sie"
-                      className="absolute inset-0 w-full h-full border-0"
-                      loading="lazy"
-                      allowFullScreen
-                      referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
-
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
-                  </div>
-
-                  {/* caption */}
-                  <div className="mt-4 flex items-center justify-between gap-4">
-                    <div className="h-px flex-1 bg-black/15" />
-                    <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
-                      Use coordinates for precise navigation
-                    </p>
-                    <div className="h-px flex-1 bg-black/15" />
-                  </div>
-                </motion.div>
-              </div>
+            <div>
+              <p className="text-gray-700">Bookings</p>
+              <a
+                href="mailto:centrostudibahai@gmail.com"
+                className="mt-1 inline-block font-medium text-gray-900 hover:underline break-all"
+              >
+                centrostudibahai@gmail.com
+              </a>
             </div>
           </div>
-        </motion.section>
+        </div>
+
+        <div className="px-6 py-4 bg-black/[0.02] border-t border-black/10">
+          <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
+            For reservations, email Bookings
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</motion.section>
+
+
+       {/* FIND US */}
+<motion.section
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeUp}
+  custom={0}
+  className="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md shadow-[0_14px_44px_rgba(0,0,0,0.07)]"
+>
+  <div className="p-10">
+    {/* header */}
+    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <h2 className="text-3xl font-semibold text-dark-brown">How to Find Us</h2>
+        <p className="text-gray-600 mt-2 leading-relaxed">
+          You can find us at the following address:
+        </p>
+      </div>
+
+      <div className="hidden md:block">
+        <div className="h-px w-56 bg-black/20" />
+      </div>
+    </div>
+
+    <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+      {/* LEFT */}
+      <div className="lg:col-span-5 flex flex-col min-h-[620px]">
+        {/* address block */}
+        <div className="rounded-2xl border border-black/10 bg-white/70 px-6 py-6 shadow-[0_10px_26px_rgba(0,0,0,0.06)]">
+          <p className="text-sm uppercase tracking-[0.18em] text-gray-500">
+            Address
+          </p>
+          <p className="mt-3 text-lg font-semibold text-gray-900 leading-snug">
+            Via Giovanni Falcone 7, 03010 Acuto (FR), Italia.
+          </p>
+          <p className="mt-3 text-gray-600 leading-relaxed">
+            Please note that our location on Google Maps may not be accurate. To
+            avoid any confusion, we recommend using the coordinates below for
+            precise navigation.
+          </p>
+
+          <div className="mt-5 h-px w-24 bg-[#cb956f]/70" />
+
+          <p className="mt-5 text-sm text-gray-600">
+            Free parking is available for guests arriving by car (from the A1
+            highway, take the exit Anagni-Fiuggi).
+          </p>
+        </div>
+
+        {/* travel cards */}
+        <div className="mt-8 space-y-4 flex-1">
+          <div className="rounded-2xl border border-black/10 bg-white/60 px-6 py-5">
+            <p className="text-sm font-semibold text-dark-brown">
+              Taxi Transfer
+            </p>
+            <p className="mt-2 text-gray-700 leading-relaxed">
+              To request a taxi transfer from the airports of Fiumicino or
+              Ciampino, or a pick-up from Rome or Fiuggi, please contact us at:
+            </p>
+            <a
+              href="mailto:centrostudibahai@gmail.com"
+              className="mt-2 inline-block text-blue-600 underline"
+            >
+              centrostudibahai@gmail.com
+            </a>
+          </div>
+
+          <div className="rounded-2xl border border-black/10 bg-white/60 px-6 py-5">
+            <p className="text-sm font-semibold text-dark-brown">By Bus</p>
+            <p className="mt-2 text-gray-700 leading-relaxed">
+              To arrive by bus from Rome, check the schedule at:
+            </p>
+            <a
+              href="https://servizi.cotralspa.it/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-blue-600 underline"
+            >
+              servizi.cotralspa.it
+            </a>
+            <p className="mt-2 text-gray-700">
+              Destination: <strong>Bivio di Acuto</strong> or{" "}
+              <strong>Fiuggi</strong>.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-black/10 bg-white/60 px-6 py-5">
+            <p className="text-sm font-semibold text-dark-brown">By Train</p>
+            <p className="mt-2 text-gray-700 leading-relaxed">To arrive by train, check:</p>
+            <div className="mt-2 flex flex-wrap gap-x-2 gap-y-1 text-gray-700">
+              <a
+                href="https://www.trenitalia.com/it.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+              >
+                Trenitalia
+              </a>
+              <span>or</span>
+              <a
+                href="https://www.italotreno.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+              >
+                ItaloTreno
+              </a>
+              <span>— Station:</span>
+              <strong>Anagni-Fiuggi</strong>.
+            </div>
+          </div>
+        </div>
+
+        {/* footer line */}
+        <div className="pt-6">
+          <div className="h-px w-32 bg-black/15" />
+        </div>
+      </div>
+
+      {/* RIGHT */}
+      <div className="lg:col-span-7">
+        <motion.div variants={cardHover} whileHover="hover" className="relative">
+          <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10 h-[920px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1487.293037716727!2d13.174292071231392!3d41.79413348649131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzM4LjkiTiAxM8KwMTAnMzAuMiJF!5e0!3m2!1sen!2sie!4v1748545000670!5m2!1sen!2sie"
+              className="absolute inset-0 w-full h-full border-0"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
+          </div>
+
+          {/* caption */}
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <div className="h-px flex-1 bg-black/15" />
+            <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
+              Use coordinates for precise navigation
+            </p>
+            <div className="h-px flex-1 bg-black/15" />
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </div>
+</motion.section>
       </div>
     </main>
   );
